@@ -1,6 +1,7 @@
 package com.android_developer.jaipal.sim;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
@@ -8,6 +9,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private EditText dateOfInspectionEtxt;
     private DatePickerDialog datePicker;
     private SimpleDateFormat dateFormatter;
+    private Button proceedButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +47,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         findViewsById();
 
         setDateTimeField();
+
+        //proceed Button onclick
+        proceedButton = (Button)findViewById(R.id.proceed_Button);
+        proceedButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Start NewActivity.class
+                Intent myIntent = new Intent(MainActivity.this,
+                        Gears.class);
+                startActivity(myIntent);
+            }
+        });
     }
 
     private void findViewsById() {

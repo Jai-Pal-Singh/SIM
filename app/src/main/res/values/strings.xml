@@ -4,4 +4,15 @@
     <string name="app_short_name">SIM</string>
     <string name="nwrlogo">nwrlogo</string>
     <string name="division_name">Division</string>
+    <string name="date_of_inspection">Date of Inspection</string>
+    <string name="enter_date_of_inspection">Enter Date of Inspection</string>
+    <string name="station_code">Station Code</string>
+    <string name="enter_station_code">Enter Station Code</string>
+    <string name="inspecting_authority">Inspecting Authority</string>
+    <string name="officer_name">Officer Name</string>
+    <string name="officer_designation">Officer Designation</string>
+    <string name="proceed">Proceed</string>
+    <string name="general">general</string>
+    <string name="general_telecom">General/Telecom</string>
+    <string name="tile">tile</string>
 </resources>
