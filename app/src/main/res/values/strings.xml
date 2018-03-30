@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SIM</string>
+    <string name="title_activity_main">SnT Inspection Management(SIM)</string>
+    <string name="app_short_name">SIM</string>
+    <string name="nwrlogo">nwrlogo</string>
+    <string name="division_name">Division</string>
+</resources>
