@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/groupsScrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.android_developer.jaipal.sim.DetailActivity">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#D3D3D3"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/SmTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/background_border"
+        android:padding="5dp"
+        android:text="@string/station_master"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/SMeditText"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/edittext_border"
+        android:ems="10"
+        android:hint="@string/name_of_on_duty_station_master"
+        android:inputType="textPersonName"
+        android:padding="5dp"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
+
+
+    <TextView
+        android:id="@+id/SMKeyTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_border"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/sm_s_key_was_found_in_working_order"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+
+    <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp">
+        <RadioButton
+            android:id="@+id/SMKeyYesRadioButton"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@string/yes"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/SMKeyNoRadioButton"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/no"
+            android:textSize="18sp" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/TelecomInstallationTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/background_border"
+        android:text="@string/checking_the_telecom_installations_in_sm_s_room"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+    android:id="@+id/VHFTextView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="30dp"
+    android:layout_marginRight="30dp"
+    android:layout_marginTop="10dp"
+    android:text="@string/vhf_set"
+    android:textSize="18sp" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp">
+        <RadioButton
+            android:id="@+id/VHFYesRadioButton"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@string/yes"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/VHFNoRadioButton"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/no"
+            android:textSize="18sp" />
+        </RadioGroup>
+
+    <TextView
+        android:id="@+id/ControlPhoneTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/control_phone_both_ofc_and_quad"
+        android:textSize="18sp" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp">
+        <RadioButton
+            android:id="@+id/ControlPhoneYesRadioButton"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@string/yes"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/ControlPhoneNoRadioButton"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/no"
+            android:textSize="18sp" />
+        </RadioGroup>
+
+    <TextView
+        android:id="@+id/RailwayPhoneTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/railway_cug_bsnl_phone"
+        android:textSize="18sp" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp">
+        <RadioButton
+            android:id="@+id/RailwayPhoneYesRadioButton"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@string/yes"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/RailwayPhoneNoRadioButton"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/no"
+            android:textSize="18sp" />
+        </RadioGroup>
+
+    <TextView
+        android:id="@+id/VHFRepeaterTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/vhf_repeater"
+        android:textSize="18sp" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp">
+        <RadioButton
+            android:id="@+id/VHFRepeaterYesRadioButton"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@string/yes"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/VHFRepeaterNoRadioButton"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/no"
+            android:textSize="18sp" />
+        </RadioGroup>
+
+    <TextView
+        android:id="@+id/PASystemTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/pa_system"
+        android:textSize="18sp" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp">
+        <RadioButton
+            android:id="@+id/PASystemYesRadioButton"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@string/yes"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/PASystemNoRadioButton"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/no"
+            android:textSize="18sp" />
+        </RadioGroup>
+
+    <EditText
+        android:id="@+id/TelecomInstallationEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/edittext_border"
+        android:ems="10"
+        android:hint="@string/any_other_deficiencies"
+        android:inputType="textMultiLine"
+        android:singleLine="true"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/CrankHandleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_border"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/crank_handle_testing_by_sm_and_pointsman"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp">
+
+        <TextView
+            android:id="@+id/TestingDateTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="30dp"
+            android:layout_toStartOf="@+id/TestingDateEditText"
+            android:text="@string/date_of_testing"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/TestingDateEditText"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/edittext_border"
+            android:ems="10"
+            android:inputType="date" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp">
+
+        <TextView
+            android:id="@+id/TestedPointsTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="30dp"
+            android:layout_toStartOf="@+id/TestedPointsEditText"
+            android:text="@string/points_tested"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/TestedPointsEditText"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/edittext_border"
+            android:ems="10"
+            android:inputType="number" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp">
+
+        <TextView
+            android:id="@+id/TestedCHTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="30dp"
+            android:layout_toStartOf="@+id/TestedCHEditText"
+            android:text="@string/ch_tested"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/TestedCHEditText"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/edittext_border"
+            android:ems="10"
+            android:inputType="number" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/OFCHutTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/background_border"
+        android:text="@string/ofc_hut"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="5dp">
+
+        <TextView
+            android:id="@+id/BatteryVoltageTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="30dp"
+            android:layout_toStartOf="@+id/BatteryVoltageEditText"
+            android:text="@string/total_battery_voltage"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/BatteryVoltageEditText"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="50dp"
+            android:background="@drawable/edittext_border"
+            android:ems="10"
+            android:inputType="numberDecimal" />
+
+        <TextView
+            android:id="@+id/VoltsTextView"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="19dp"
+            android:text="@string/v"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/DigitalEquipTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/status_of_digital_equipments"
+        android:textSize="18sp" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp">
+        <RadioButton
+            android:id="@+id/DigitalEquipOkRadioButton"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@string/ok"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/DigitalEquipNotOkRadioButton"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/not_ok"
+            android:textSize="18sp" />
+        </RadioGroup>
+
+    <TextView
+        android:id="@+id/BatteryRecordsTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/maintained_battery_readings_record"
+        android:textSize="18sp" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp">
+        <RadioButton
+            android:id="@+id/BatteryRecordsYesRadioButton"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@string/yes"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/BatteryRecordsNoRadioButton"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/no"
+            android:textSize="18sp" />
+        </RadioGroup>
+
+    <TextView
+        android:id="@+id/EarthTerminationTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/earth_termination"
+        android:textSize="18sp" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp">
+        <RadioButton
+            android:id="@+id/EarthTerminationFoundRadioButton"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@string/found"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/EarthTerminationNotFoundRadioButton"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/not_found"
+            android:textSize="18sp" />
+        </RadioGroup>
+
+    <EditText
+        android:id="@+id/OFCHutEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/edittext_border"
+        android:ems="10"
+        android:hint="@string/any_other_deficiencies"
+        android:inputType="textMultiLine"
+        android:singleLine="true"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/TestedSocketsTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/background_border"
+        android:text="@string/emergency_sockets_tested_if_any"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/TestedSocketsEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/edittext_border"
+        android:ems="10"
+        android:hint="@string/km_no_of_socket_and_deficiencies_if_any"
+        android:inputType="textMultiLine"
+        android:singleLine="true"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/SubmitButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:text="@string/submit"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp" />
+
+
+</LinearLayout>
+</ScrollView>

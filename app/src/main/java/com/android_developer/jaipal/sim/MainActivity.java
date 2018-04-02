@@ -54,8 +54,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             @Override
             public void onClick(View view) {
                 // Start NewActivity.class
-                Intent myIntent = new Intent(MainActivity.this,
-                        Gears.class);
+                Intent myIntent = new Intent(MainActivity.this, MainGearsActivity.class);
                 startActivity(myIntent);
             }
         });

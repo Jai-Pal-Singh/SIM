@@ -32,10 +32,52 @@
                 <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
         </activity>
-        <activity android:name="com.android_developer.jaipal.sim.Gears"
+        <activity android:name="com.android_developer.jaipal.sim.GearsActivity"
             android:screenOrientation="portrait"
             android:label="@string/title_activity_main">
         </activity>
+        <activity android:name=".MainGearsActivity"
+            android:label="@string/title_activity_main"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name=".DetailActivity"
+            android:label="@string/general_telecom"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".PointsCrossingActivity"
+            android:label="Points And Crossings"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".TrackCircuitsActivity"
+            android:label="Track Circuits"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".SignalsActivity"
+            android:label="Signals"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".CCIPActivity"
+            android:label="CCIP/VDU (SM's Panel)"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".BlockInstrumentsActivity"
+            android:label="Block Instruments and Axle Counters"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".PowerSupplyActivity"
+            android:label="Power Supply and Relay Room"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".RecordsActivity"
+            android:label="Records"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".NonSNTActivity"
+            android:label="Non SNT Deficiencies"
+            android:screenOrientation="portrait">
+        </activity>
+
     </application>
 
 </manifest>

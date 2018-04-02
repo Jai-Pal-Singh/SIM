@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="gear">
+        <item>General/Telecom</item>
+        <item>Points And Crossings</item>
+        <item>Track Circuits</item>
+        <item>Signals</item>
+        <item>CCIP/VDU(SM`s Panel)</item>
+        <item>Block Instruments And Axle Counters</item>
+        <item>Power Supply And Relay Room</item>
+        <item>Records</item>
+        <item>Non SNT Deficiencies</item>
+    </string-array>
+    <array name="gear_picture">
+        <item>@drawable/general_telecom</item>
+        <item>@drawable/points_crossing</item>
+        <item>@drawable/track_circuit</item>
+        <item>@drawable/signals</item>
+        <item>@drawable/ccip</item>
+        <item>@drawable/block_instruments</item>
+        <item>@drawable/power_supply</item>
+        <item>@drawable/records</item>
+        <item>@drawable/non_snt</item>
+    </array>
+</resources>
