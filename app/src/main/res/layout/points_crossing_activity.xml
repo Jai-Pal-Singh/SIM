@@ -1,6 +1,244 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_background"
+    android:layout_margin="5dp">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relay1"
+        android:padding="5dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+        <TextView
+            android:id="@+id/EnsureTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="10dp"
+            android:text="@string/ensure_the_following"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <CheckBox
+            android:id="@+id/pointOperatedCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/EnsureTextView"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/point_doesn_t_get_operated_when_point_zone_tr_is_dropped"
+            android:textSize="18sp" />
+
+        <CheckBox
+            android:id="@+id/pointStopCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pointOperatedCheckBox"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/point_does_not_stop_when_point_zone_tr_is_dropped_during_point_operation"
+            android:textSize="18sp" />
+
+        <CheckBox
+            android:id="@+id/pointOpeningCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pointStopCheckBox"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/opening_of_point_is_around_115mm_shall_not_be_less_than_95mm_in_any_case"
+            android:textSize="18sp" />
+
+        <CheckBox
+            android:id="@+id/fillerGaugeCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pointOpeningCheckBox"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/filler_gauge_shall_be_in_between_1mm_to_3mm"
+            android:textSize="18sp" />
+
+        <CheckBox
+            android:id="@+id/pointMaintenanceCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fillerGaugeCheckBox"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/records_of_point_maintenance_were_maintained_and_were_placed_in_respective_point_machines"
+            android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/pointsDeficiencyEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_below="@id/pointMaintenanceCheckBox"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/edittext_border"
+                android:ems="10"
+                android:hint="@string/any_deficiency_found"
+                android:inputType="textMultiLine"
+                android:maxLines="4"
+                android:minLines="4"
+                android:padding="5dp"
+                android:scrollbars="vertical" />
+
+        <TextView
+            android:id="@+id/pointDetailsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pointsDeficiencyEditText"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:text="@string/details_of_points_with_obstruction_voltage_less_than_80_v"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/pointsDetailEditText"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_below="@id/pointDetailsTextView"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:padding="5dp"
+            android:background="@drawable/edittext_border"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/obstructionCurrentTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pointsDetailEditText"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="5dp"
+            android:text="@string/obstruction_current_should_be_1_5_to_2_times_of_the_normal_operating_current_or_difference_of_both_currents_shall_be_less_than_0_5_a_if_not_name_such_points"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/obstructionCurrentEditText"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_below="@+id/obstructionCurrentTextView"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:padding="5dp"
+            android:background="@drawable/edittext_border"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/lockedPointsTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/obstructionCurrentEditText"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="5dp"
+            android:text="@string/points_which_either_gets_locked_or_detection_contacts_make_during_5mm_obstruction_test"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/lockedPointsEditText"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_below="@+id/lockedPointsTextView"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:padding="5dp"
+            android:background="@drawable/edittext_border"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/lastJointTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lockedPointsEditText"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="5dp"
+            android:text="@string/last_joint_point_and_crossings_inspection"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/selectDateTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lastJointTextView"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginStart="10dp"
+            android:layout_toStartOf="@+id/selectDateEditText"
+            android:text="@string/select_date"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/selectDateEditText"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/selectDateTextView"
+            android:layout_alignBottom="@+id/selectDateTextView"
+            android:layout_below="@+id/lastJointTextView"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/edittext_border"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:ems="10"
+            android:inputType="date" />
+
+            <EditText
+                android:id="@+id/lastJointDeficiencyEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_below="@id/selectDateEditText"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/edittext_border"
+                android:ems="10"
+                android:hint="@string/any_deficiency_to_be_attended"
+                android:inputType="textMultiLine"
+                android:maxLines="4"
+                android:minLines="4"
+                android:padding="5dp"
+                android:scrollbars="vertical"
+                android:selectAllOnFocus="false"
+                android:singleLine="false" />
+
+        <Button
+            android:id="@+id/SubmitButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:layout_below="@+id/lastJointDeficiencyEditText"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:text="@string/submit"
+            android:textColor="@android:color/background_light"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+</android.support.v4.widget.NestedScrollView>

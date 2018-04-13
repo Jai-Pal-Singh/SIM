@@ -2,25 +2,31 @@ package com.android_developer.jaipal.sim;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
-    private String[] division = { "-", "JP", "JU", "AII", "BKN", };
+    private String[] division = { "JP", "JU", "AII", "BKN", };
     private EditText dateOfInspectionEtxt;
     private DatePickerDialog datePicker;
     private SimpleDateFormat dateFormatter;
@@ -32,14 +38,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         setContentView(R.layout.activity_main);
 
         Spinner divisionspin = (Spinner) findViewById(R.id.divisionSpinner);
-        divisionspin.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
-
-        //Creating the ArrayAdapter instance
-        ArrayAdapter divisionAA = new ArrayAdapter(this,android.R.layout.simple_spinner_item,division);
-        divisionAA.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        //Setting the ArrayAdapter data on the Spinner
-        divisionspin.setAdapter(divisionAA);
+        customSpinnerAdapter adapter=new customSpinnerAdapter(this, android.R.layout.simple_spinner_item, division,
+                "Select Division");
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        divisionspin.setAdapter(adapter);
+        divisionspin.setSelection(adapter.getCount()); //This line is must to show hint
 
         //Date formatter
         dateFormatter = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
@@ -63,7 +66,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private void findViewsById() {
         dateOfInspectionEtxt = (EditText) findViewById(R.id.dateOfInspectionEditText);
         dateOfInspectionEtxt.setInputType(InputType.TYPE_NULL);
-        dateOfInspectionEtxt.requestFocus();
     }
 
     private void setDateTimeField() {

@@ -1,135 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:background="#D3D3D3"
-    android:orientation="vertical"
-    tools:context="com.android_developer.jaipal.sim.MainActivity">
+    android:layout_height="match_parent"
+    android:layout_alignParentBottom="true"
+    android:layout_margin="5dp">
 
-
-    <ImageView
-        android:id="@+id/logoimageView"
+    <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="89dp"
-        android:layout_margin="5dp"
-        app:srcCompat="@drawable/nwrlogo05x" />
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:soundEffectsEnabled="true"
+        android:splitMotionEvents="true"
+        tools:context="com.android_developer.jaipal.sim.MainActivity">
 
-    <TextView
-        android:id="@+id/divisiontextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:text="@string/division_name"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        <ImageView
+            android:id="@+id/logoimageView"
+            android:layout_width="match_parent"
+            android:layout_height="89dp"
+            android:layout_margin="5dp"
+            app:srcCompat="@drawable/nwrlogo05x" />
 
-    <Spinner
-        android:id="@+id/divisionSpinner"
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:gravity="center"
-        android:background="#fff"
-        android:padding="5dp" />
+        <TextView
+            android:id="@+id/divisiontextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="@string/division_name"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/dateOfInspectionTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:text="Date of Inspection"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        <Spinner
+            android:id="@+id/divisionSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/edittext_border"
+            android:padding="5dp"
+            android:textAlignment="center" />
 
-    <EditText
-        android:id="@+id/dateOfInspectionEditText"
-        android:layout_width="match_parent"
-        android:layout_height="32dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:background="#fff"
-        android:ems="10"
-        android:hint="Enter Date of Inspection"
-        android:inputType="date"
-        android:padding="5dp"
-        android:textAlignment="center" />
+        <TextView
+            android:id="@+id/dateOfInspectionTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="@string/date_of_inspection"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/stationCodeTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Station Code"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:padding="5dp"
-        android:textStyle="bold" />
+        <EditText
+            android:id="@+id/dateOfInspectionEditText"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/edittext_border"
+            android:ems="10"
+            android:hint="@string/enter_date_of_inspection"
+            android:inputType="date"
+            android:padding="5dp"
+            android:textAlignment="center" />
 
-    <EditText
-        android:id="@+id/stationCodeEditText"
-        android:layout_width="match_parent"
-        android:layout_height="37dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:background="#fff"
-        android:ems="10"
-        android:hint="Enter Station Code"
-        android:inputType="textPersonName"
-        android:padding="5dp"
-        android:textAlignment="center" />
+        <TextView
+            android:id="@+id/stationCodeTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="@string/station_code"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/inspectingAuthTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Inspecting Authority"
-        android:textAlignment="center"
-        android:padding="5dp"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        <EditText
+            android:id="@+id/stationCodeEditText"
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/edittext_border"
+            android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            android:ems="10"
+            android:hint="@string/enter_station_code"
+            android:inputType="textCapCharacters"
+            android:maxLength="5"
+            android:padding="5dp"
+            android:textAlignment="center" />
 
-    <EditText
-        android:id="@+id/officerNameEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:background="#fff"
-        android:ems="10"
-        android:padding="5dp"
-        android:hint="Officer Name"
-        android:inputType="textPersonName"
-        android:textAlignment="center" />
+        <TextView
+            android:id="@+id/inspectingAuthTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="@string/inspecting_authority"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/officerDesignationEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="5dp"
-        android:background="#fff"
-        android:ems="10"
-        android:padding="5dp"
-        android:hint="Officer Designation"
-        android:inputType="textPersonName"
-        android:textAlignment="center" />
+        <EditText
+            android:id="@+id/officerNameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/edittext_border"
+            android:ems="10"
+            android:hint="@string/officer_name"
+            android:inputType="textPersonName"
+            android:padding="5dp"
+            android:textAlignment="center" />
 
-    <Button
-        android:id="@+id/proceedButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="25dp"
-        android:background="?attr/colorPrimary"
-        android:text="Proceed"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        <EditText
+            android:id="@+id/officerDesignationEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/edittext_border"
+            android:ems="10"
+            android:hint="@string/officer_designation"
+            android:inputType="textPersonName"
+            android:padding="5dp"
+            android:textAlignment="center" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/proceed_Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="25dp"
+            android:background="?attr/colorPrimary"
+            android:text="@string/proceed"
+            android:textAlignment="center"
+            android:textColor="#fff"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

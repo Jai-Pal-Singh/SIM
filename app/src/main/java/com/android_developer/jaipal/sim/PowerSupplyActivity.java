@@ -8,7 +8,7 @@ import android.view.Window;
  * Created by hp on 2018-04-02.
  */
 
-class PowerSupplyActivity extends AppCompatActivity{
+public class PowerSupplyActivity extends AppCompatActivity{
     public void onCreate(Bundle savedInstanceState){
         requestWindowFeature( Window.FEATURE_ACTION_BAR );
         super.onCreate(savedInstanceState);

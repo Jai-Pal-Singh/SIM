@@ -2,6 +2,7 @@ package com.android_developer.jaipal.sim;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
@@ -19,9 +20,10 @@ import android.widget.Toast;
  * Created by hp on 2018-04-01.
  */
 
-class MainGearsActivity extends AppCompatActivity {
+public class MainGearsActivity extends AppCompatActivity {
     private String[] name;
     private Drawable[] picture;
+    private int value,count;
 
     private Context mContext;
 
@@ -43,11 +45,21 @@ class MainGearsActivity extends AppCompatActivity {
         mContext = getApplicationContext();
 
         // Get the widgets reference from XML layout
-        mRelativeLayout = (RelativeLayout) findViewById(R.id.rm);
+//        mRelativeLayout = (RelativeLayout) findViewById(R.id.rm);
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
+        //finding count on screen orientation basis
+        value = this.getResources().getConfiguration().orientation;
+        if (value == Configuration.ORIENTATION_PORTRAIT){
+            count =2;
+        }
+        if (value == Configuration.ORIENTATION_LANDSCAPE) {
+            count =3;
+        }
+
+
         // Define a layout for RecyclerView
-        mLayoutManager = new GridLayoutManager(mContext,2);
+        mLayoutManager = new GridLayoutManager(mContext,count);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         // Initialize a new instance of RecyclerView Adapter instance

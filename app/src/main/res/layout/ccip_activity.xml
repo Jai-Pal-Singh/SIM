@@ -1,6 +1,336 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_background"
+    android:layout_margin="5dp">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relay1"
+        android:padding="5dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+        <LinearLayout
+            android:id="@+id/ccipLinearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+            <TextView
+                android:id="@+id/typeOfInterlockingTextView"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="10dp"
+                android:text="@string/type_of_interlocking"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/typeOfInterlockingSpinner"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_border"
+                android:layout_height="match_parent"
+                android:entries="@array/interlocking" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/EnsureTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ccipLinearLayout1"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="10dp"
+            android:text="@string/ensure_the_following"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <CheckBox
+            android:id="@+id/SIPCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/EnsureTextView"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/sip_swrd_is_as_per_the_physical_yard_layout"
+            android:textSize="18sp" />
+
+        <CheckBox
+            android:id="@+id/countersCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/SIPCheckBox"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/counters_on_panel_vdu_are_same_as_recorded_in_counter_register"
+            android:textSize="18sp" />
+
+        <CheckBox
+            android:id="@+id/sampleCheckingCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/countersCheckBox"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/sample_checking_of_calling_on_signal_coggb_counter_increment"
+            android:textSize="18sp" />
+
+        <CheckBox
+            android:id="@+id/sampleCheckingCancellationCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sampleCheckingCheckBox"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/sample_checking_of_calling_on_signal_cancellation_cocyn_errb_counter_increment"
+            android:textSize="18sp" />
+
+        <CheckBox
+            android:id="@+id/testingEmergencyCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sampleCheckingCancellationCheckBox"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/testing_of_emergency_classover_in_double_line_sections"
+            android:textSize="18sp" />
+
+        <CheckBox
+            android:id="@+id/sampleCheckLockCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/testingEmergencyCheckBox"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/sample_check_of_approach_locking_dead_approach_locking"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/ccipDeficiencyEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_below="@id/sampleCheckLockCheckBox"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/edittext_border"
+            android:ems="10"
+            android:hint="@string/any_deficiency_found"
+            android:inputType="textMultiLine"
+            android:maxLines="4"
+            android:minLines="4"
+            android:padding="5dp"
+            android:scrollbars="vertical" />
+
+        <TextView
+            android:id="@+id/counterDetailsTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ccipDeficiencyEditText"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="10dp"
+            android:text="@string/counter_details"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/ERRBTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="10dp"
+            android:padding="5dp"
+            android:layout_below="@id/counterDetailsTextView"
+            android:text="@string/eerb"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/ERRBEditText"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/ERRBTextView"
+            android:layout_alignBottom="@id/ERRBTextView"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:padding="5dp"
+            android:background="@drawable/edittext_border"
+            android:ems="10"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/RRBUTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="10dp"
+            android:padding="5dp"
+            android:layout_below="@id/ERRBTextView"
+            android:text="@string/rrbu"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/RRBUEditText"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/RRBUTextView"
+            android:layout_alignBottom="@id/RRBUTextView"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:padding="5dp"
+            android:background="@drawable/edittext_border"
+            android:ems="10"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/COGGNTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="10dp"
+            android:padding="5dp"
+            android:layout_below="@id/RRBUTextView"
+            android:text="@string/coggn"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/COGGNEditText"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/COGGNTextView"
+            android:layout_alignBottom="@id/COGGNTextView"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/edittext_border"
+            android:ems="10"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/COCYNTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="10dp"
+            android:padding="5dp"
+            android:layout_below="@id/COGGNTextView"
+            android:text="@string/eerb"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/COCYNEditText"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/COCYNTextView"
+            android:layout_alignBottom="@id/COCYNTextView"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:padding="5dp"
+            android:background="@drawable/edittext_border"
+            android:ems="10"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/EBPUTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="10dp"
+            android:padding="5dp"
+            android:layout_below="@id/COCYNTextView"
+            android:text="@string/rrbu"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/EBPUEditText"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/EBPUTextView"
+            android:layout_alignBottom="@id/EBPUTextView"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:padding="5dp"
+            android:background="@drawable/edittext_border"
+            android:ems="10"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/ECHTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="10dp"
+            android:padding="5dp"
+            android:layout_below="@id/EBPUEditText"
+            android:text="@string/ech"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/ECHEditText"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/ECHTextView"
+            android:layout_alignBottom="@id/ECHTextView"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:padding="5dp"
+            android:background="@drawable/edittext_border"
+            android:ems="10"
+            android:inputType="number" />
+
+        <LinearLayout
+            android:id="@+id/ccipLinearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/ECHTextView">
+            <TextView
+                android:id="@+id/lastAnnualTextView"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:text="@string/last_annual_panel_testing_date"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/lastAnnualDateEditText"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="10dp"
+                android:padding="5dp"
+                android:background="@drawable/edittext_border"
+                android:ems="10"
+                android:inputType="date" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/ccipSubmitButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:layout_below="@+id/ccipLinearLayout2"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:text="@string/submit"
+            android:textColor="@android:color/background_light"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+</android.support.v4.widget.NestedScrollView>

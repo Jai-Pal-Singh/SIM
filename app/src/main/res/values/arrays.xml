@@ -8,6 +8,7 @@
         <item>CCIP/VDU(SM`s Panel)</item>
         <item>Block Instruments And Axle Counters</item>
         <item>Power Supply And Relay Room</item>
+        <item>Level Crossing</item>
         <item>Records</item>
         <item>Non SNT Deficiencies</item>
     </string-array>
@@ -19,7 +20,30 @@
         <item>@drawable/ccip</item>
         <item>@drawable/block_instruments</item>
         <item>@drawable/power_supply</item>
+        <item>@drawable/railway_phatak</item>
         <item>@drawable/records</item>
         <item>@drawable/non_snt</item>
     </array>
+
+    <string-array name="status">
+        <item>Found (Not updated)</item>
+        <item>Found and Updated</item>
+        <item>Not Found</item>
+    </string-array>
+
+    <string-array name="interlocking">
+        <item>RRI</item>
+        <item>PI</item>
+        <item>EI</item>
+    </string-array>
+
+    <string-array name="gateType">
+        <item>ELB</item>
+        <item>Mechanical</item>
+    </string-array>
+
+    <string-array name="yesNo">
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
 </resources>

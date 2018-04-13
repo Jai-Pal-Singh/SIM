@@ -16,10 +16,10 @@ import android.widget.TextView;
  */
 
 
-class GearsAdapter extends RecyclerView.Adapter<GearsAdapter.ViewHolder> {
+public class GearsAdapter extends RecyclerView.Adapter<GearsAdapter.ViewHolder> {
 
     // Set numbers of List in RecyclerView.
-    private static final int LENGTH = 9;
+    private static final int LENGTH = 10;
     private final String[] name;
     private final Drawable[] picture;
     private Context mContext;
@@ -106,11 +106,17 @@ class GearsAdapter extends RecyclerView.Adapter<GearsAdapter.ViewHolder> {
                     }
                     else if(getAdapterPosition()==7) {
                         Context context = v.getContext();
-                        Intent intent = new Intent( context, RecordsActivity.class );
+                        Intent intent = new Intent( context, LevelCrossingActivity.class );
                         intent.putExtra( "position", getAdapterPosition() );
                         context.startActivity( intent );
                     }
                     else if(getAdapterPosition()==8) {
+                        Context context = v.getContext();
+                        Intent intent = new Intent( context, RecordsActivity.class );
+                        intent.putExtra( "position", getAdapterPosition() );
+                        context.startActivity( intent );
+                    }
+                    else if(getAdapterPosition()==9) {
                         Context context = v.getContext();
                         Intent intent = new Intent( context, NonSNTActivity.class );
                         intent.putExtra( "position", getAdapterPosition() );

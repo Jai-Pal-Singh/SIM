@@ -23,59 +23,57 @@
         </activity>
 
         <!-- Main activity -->
-        <activity android:name="com.android_developer.jaipal.sim.MainActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/title_activity_main">
-            <!--android:theme="@android:style/Theme.Black.NoActionBar">-->
-            <!--<intent-filter >-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
-        </activity>
-        <activity android:name="com.android_developer.jaipal.sim.GearsActivity"
-            android:screenOrientation="portrait"
+        <activity
+            android:name="com.android_developer.jaipal.sim.MainActivity"
             android:label="@string/title_activity_main">
         </activity>
-        <activity android:name=".MainGearsActivity"
-            android:label="@string/title_activity_main"
-            android:screenOrientation="portrait">
-
+        <activity
+            android:name="com.android_developer.jaipal.sim.GearsActivity"
+            android:label="@string/title_activity_main">
         </activity>
-        <activity android:name=".DetailActivity"
-            android:label="@string/general_telecom"
-            android:screenOrientation="portrait">
+        <activity
+            android:name=".MainGearsActivity"
+            android:label="@string/title_activity_main">
         </activity>
-        <activity android:name=".PointsCrossingActivity"
-            android:label="Points And Crossings"
-            android:screenOrientation="portrait">
+        <activity
+            android:name=".DetailActivity"
+            android:label="@string/general_telecom">
         </activity>
-        <activity android:name=".TrackCircuitsActivity"
-            android:label="Track Circuits"
-            android:screenOrientation="portrait">
+        <activity
+            android:name=".PointsCrossingActivity"
+            android:label="Points And Crossings">
         </activity>
-        <activity android:name=".SignalsActivity"
-            android:label="Signals"
-            android:screenOrientation="portrait">
+        <activity
+            android:name=".TrackCircuitsActivity"
+            android:label="Track Circuits">
         </activity>
-        <activity android:name=".CCIPActivity"
-            android:label="CCIP/VDU (SM's Panel)"
-            android:screenOrientation="portrait">
+        <activity
+            android:name=".SignalsActivity"
+            android:label="Signals">
         </activity>
-        <activity android:name=".BlockInstrumentsActivity"
-            android:label="Block Instruments and Axle Counters"
-            android:screenOrientation="portrait">
+        <activity
+            android:name=".CCIPActivity"
+            android:label="CCIP/VDU (SM's Panel)">
         </activity>
-        <activity android:name=".PowerSupplyActivity"
-            android:label="Power Supply and Relay Room"
-            android:screenOrientation="portrait">
+        <activity
+            android:name=".BlockInstrumentsActivity"
+            android:label="Block Instruments and Axle Counters">
         </activity>
-        <activity android:name=".RecordsActivity"
-            android:label="Records"
-            android:screenOrientation="portrait">
+        <activity
+            android:name=".PowerSupplyActivity"
+            android:label="Power Supply and Relay Room">
         </activity>
-        <activity android:name=".NonSNTActivity"
-            android:label="Non SNT Deficiencies"
-            android:screenOrientation="portrait">
+        <activity
+            android:name=".LevelCrossingActivity"
+            android:label="Level Crossing">
+        </activity>
+        <activity
+            android:name=".RecordsActivity"
+            android:label="Records">
+        </activity>
+        <activity
+            android:name=".NonSNTActivity"
+            android:label="Non SNT Deficiencies">
         </activity>
 
     </application>
