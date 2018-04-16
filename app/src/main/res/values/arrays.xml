@@ -46,4 +46,34 @@
         <item>Yes</item>
         <item>No</item>
     </string-array>
+
+    <string-array name="workingAxleCounter">
+        <item>OFC</item>
+        <item>QUAD Cable</item>
+    </string-array>
+
+    <string-array name="ipsMake">
+        <item>Statcon</item>
+        <item>Amara Raja</item>
+        <item>HBL</item>
+        <item>Siemens</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="available">
+        <item>Available</item>
+        <item>Not Available</item>
+    </string-array>
+
+    <string-array name="ok">
+        <item>OK</item>
+        <item>Not OK</item>
+    </string-array>
+
+    <string-array name="eimake">
+        <item>Ansaldo</item>
+        <item>Medha</item>
+        <item>Siemens</item>
+        <item>Other</item>
+    </string-array>
 </resources>

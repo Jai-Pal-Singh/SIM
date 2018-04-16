@@ -1,6 +1,795 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dp"
+    android:background="@color/color_background">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:id="@+id/powerSupplyLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:padding="5dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/powerSupplyTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/power_supply"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/powerSupplyLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/ipsMakeTextView"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="10dp"
+                android:text="@string/ips_make"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/ipsMakeSpinner"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:entries="@array/ipsMake"
+                android:minHeight="30dp"
+                android:background="@drawable/edittext_border" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/ipsMakeEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            android:background="@drawable/edittext_border"
+            android:ems="10"
+            android:hint="@string/name_of_ips_make"
+            android:inputType="textPersonName"
+            android:padding="5dp"
+            android:textSize="18sp" />
+
+        <CheckBox
+            android:id="@+id/amcExecutedCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/amc_executed"
+            android:textSize="18sp" />
+
+        <CheckBox
+            android:id="@+id/smrLoadCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/smr_load_sharing_is_working_fine"
+            android:textSize="18sp" />
+
+        <CheckBox
+            android:id="@+id/earthingIpsCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/earthing_of_ips_equipment_was_proper"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/totalIpsBatteryTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/total_ips_battery_voltage"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:id="@+id/powerSupplyLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp">
+
+            <TextView
+                android:id="@+id/ipsOnTextView"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="5dp"
+                android:textColor="#000"
+                android:text="@string/ips_on"
+                android:textSize="18sp"/>
+
+            <EditText
+                android:id="@+id/ipsOnEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@drawable/edittext_border"
+                android:inputType="number"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/ipsOnVTextView"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="5dp"
+                android:textColor="#000"
+                android:text="@string/v"
+                android:textSize="18sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/powerSupplyLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp">
+
+            <TextView
+                android:id="@+id/ipsOFFTextView"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:textColor="#000"
+                android:layout_marginStart="5dp"
+                android:text="@string/ips_off"
+                android:textSize="18sp"/>
+
+            <EditText
+                android:id="@+id/ipsOFFEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@drawable/edittext_border"
+                android:inputType="number"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/ipsOffVTextView"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="5dp"
+                android:textColor="#000"
+                android:text="@string/v"
+                android:textSize="18sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/powerSupplyLayout5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp">
+
+            <TextView
+                android:id="@+id/ipsAfterTextView"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"
+                android:textColor="#000"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="5dp"
+                android:text="@string/after"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/ipsAfterEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@drawable/edittext_border"
+                android:inputType="time"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/ipsAfterHrsTextView"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                android:textColor="#000"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="5dp"
+                android:text="@string/hrs"
+                android:textSize="18sp"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/specificGravityTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/specific_gravity_of_battery_cells"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:id="@+id/powerSupplyLayout6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp">
+
+            <TextView
+                android:id="@+id/specificGravityMinTextView"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="5dp"
+                android:textColor="#000"
+                android:text="@string/minimum"
+                android:textSize="18sp"/>
+
+            <EditText
+                android:id="@+id/specificGravityEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_border"
+                android:inputType="number"
+                android:paddingStart="5dp"
+                android:paddingEnd="10dp"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/powerSupplyLayout7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp">
+
+            <TextView
+                android:id="@+id/specificGravityMaxTextView"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:textColor="#000"
+                android:layout_marginStart="5dp"
+                android:text="@string/maximum"
+                android:textSize="18sp"/>
+
+            <EditText
+                android:id="@+id/specificGravityMaxEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_border"
+                android:inputType="number"
+                android:paddingStart="5dp"
+                android:paddingEnd="10dp"
+                android:textSize="18sp"
+                tools:ignore="LabelFor" />
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/recordsBatteryCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/records_of_battery_readings_were_maintained"
+            android:textSize="18sp" />
+
+        <CheckBox
+            android:id="@+id/whiteWashingBatteryCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/white_washing_required_in_battery_room"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/relayRoomTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="30dp"
+            android:text="@string/relay_room"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+        android:id="@+id/relayRoomLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/relayRoomOpeningTextView"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/relay_room_opening_was_not_more_than_once_in_a_week"
+            android:textSize="18sp" />
+
+        <Spinner
+            android:id="@+id/relayRoomOpeningSpinner"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:entries="@array/yesNo"
+            android:minHeight="30dp"
+            android:background="@drawable/edittext_border" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/relayRoomLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/spareRelayTextView"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="10dp"
+                android:text="@string/spare_relays_tools"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/spareRelaySpinner"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:entries="@array/available"
+                android:minHeight="30dp"
+                android:background="@drawable/edittext_border" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/relayRoomLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/whiteWashingRelayTextView"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="10dp"
+                android:text="@string/white_washing_required_in_relay_room"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/whiteWashingRelaySpinner"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:entries="@array/yesNo"
+                android:minHeight="30dp"
+                android:background="@drawable/edittext_border" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/relayRoomLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/electricalGeneralTextView"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="10dp"
+                android:text="@string/electrical_general_fitting_was_found"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/electricalGeneralSpinner"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:entries="@array/ok"
+                android:minHeight="30dp"
+                android:background="@drawable/edittext_border" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/relayRoomLayout5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/earthingArrangementsTextView"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="10dp"
+                android:text="@string/earthing_arrangements_of_relay_rack_ctr_rack_et_module_were_proper"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/earthingArrangementsSpinner"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:entries="@array/yesNo"
+                android:minHeight="30dp"
+                android:background="@drawable/edittext_border" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/dataLoggerTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="30dp"
+            android:text="@string/data_logger"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/dataLoggerLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/whetherAMCTextView"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="10dp"
+                android:text="@string/amc_executed"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/whetherAMCSpinner"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:entries="@array/yesNo"
+                android:minHeight="30dp"
+                android:background="@drawable/edittext_border" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/dataLoggerLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/maintenanceRecordsTextView"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="10dp"
+                android:text="@string/maintenance_records_were_maintained"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/maintenanceRecordsSpinner"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:entries="@array/yesNo"
+                android:minHeight="30dp"
+                android:background="@drawable/edittext_border" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/dataLoggerLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/lastValidationTextView"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="10dp"
+                android:text="@string/last_validation_done_on"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/lastValidationEditText"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_border"
+                android:ems="10"
+                android:hint="@string/date"
+                android:inputType="date"
+                android:padding="5dp"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/dataLoggerLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/lastValidationByTextView"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="10dp"
+                android:text="@string/by"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/lastValidationByEditText"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:background="@drawable/edittext_border"
+                android:ems="10"
+                android:hint="@string/officer_name"
+                android:inputType="textPersonName"
+                android:padding="5dp"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/EiRriTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="30dp"
+            android:text="@string/ei_rri"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/eiRriLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/eiMakeTextView"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="10dp"
+                android:text="@string/ei_make"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/eiMakeSpinner"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:entries="@array/eimake"
+                android:minHeight="30dp"
+                android:background="@drawable/edittext_border" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/eiMakeEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            android:background="@drawable/edittext_border"
+            android:ems="10"
+            android:hint="@string/name_of_ei_make"
+            android:inputType="textPersonName"
+            android:padding="5dp"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/lastSystemSwitchTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/last_system_switchover"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:id="@+id/eiRriLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/lastSystemFromTextView"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:text="@string/from"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/lastSystemSwitchAEditText"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:background="@drawable/edittext_border"
+                android:ems="10"
+                android:hint="@string/a"
+                android:inputType="text"
+                android:padding="5dp"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/lastSystemToTextView"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:text="@string/to"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/lastSystemSwitchBEditText"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:background="@drawable/edittext_border"
+                android:ems="10"
+                android:hint="@string/b"
+                android:inputType="text"
+                android:padding="5dp"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/eiRriLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/lastSystemOnTextView"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="10dp"
+                android:text="@string/on"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/lastSystemOnEditText"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_weight="4"
+                android:background="@drawable/edittext_border"
+                android:ems="10"
+                android:hint="@string/date"
+                android:inputType="date"
+                android:padding="5dp"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/eiRriLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/eiRackTextView"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="10dp"
+                android:text="@string/ei_rack_was_properly_earthened"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/eiRackSpinner"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:entries="@array/yesNo"
+                android:background="@drawable/edittext_border" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/eiRriLayout5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/voltageParameterTextView"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="10dp"
+                android:text="@string/voltage_parameter_records_of_major_relays_were_maintained"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/voltageParameterSpinner"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:entries="@array/yesNo"
+                android:background="@drawable/edittext_border" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/powerSupplySubmitButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:text="@string/submit"
+            android:textColor="@android:color/background_light"
+            android:textSize="20sp" />
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

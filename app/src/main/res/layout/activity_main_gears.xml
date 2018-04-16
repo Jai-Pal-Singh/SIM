@@ -1,28 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
+<android.support.v4.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".MainGearsActivity"
-    android:background="#D3D3D3"
-    android:orientation="vertical">
+    android:layout_height="match_parent"
+    android:layout_margin="5dp"
+    android:background="@color/color_background">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="vertical"
-        >
-    </android.support.v7.widget.RecyclerView>
+    <RelativeLayout android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="visible">
+        <RelativeLayout
+            android:id="@+id/RL1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <Button
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical">
+            </android.support.v7.widget.RecyclerView>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/RL2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/RL1">
+
+            <Button
             android:id="@+id/mainGearsSubmitButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -34,6 +43,6 @@
             android:text="@string/submit_and_generate_inspection_note"
             android:textColor="@android:color/background_light"
             android:textSize="20sp" />
+        </RelativeLayout>
     </RelativeLayout>
-
-</LinearLayout>
+</android.support.v4.widget.NestedScrollView>

@@ -11,7 +11,8 @@ import android.widget.LinearLayout;
 
 public class LevelCrossingActivity extends AppCompatActivity {
 
-    private Button addGateBtn;
+    private Button addGateBtn, removeGateBtn;
+    int gateCount = 0;
 
     public void onCreate(Bundle savedInstanceState){
         requestWindowFeature( Window.FEATURE_ACTION_BAR );
@@ -20,9 +21,17 @@ public class LevelCrossingActivity extends AppCompatActivity {
 
         //addGateBtn onclick
         addGateBtn = (Button)findViewById(R.id.addGateButton);
+        removeGateBtn = (Button)findViewById(R.id.removeGateButton);
         addGateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                gateCount++;
+                if(gateCount<=0){
+                    removeGateBtn.setVisibility( view.INVISIBLE );
+                }
+                else{
+                    removeGateBtn.setVisibility( view.VISIBLE );
+                }
                 // get a reference to the already created main layout
                 LinearLayout mainLayout = (LinearLayout) findViewById(R.id.levelCrossingLayout11);
                 // inflate (create) another copy of our custom layout
@@ -30,6 +39,23 @@ public class LevelCrossingActivity extends AppCompatActivity {
                 View myLayout = inflater.inflate(R.layout.level_crossing_replicate_activity, mainLayout, false);
                 // add our custom layout to the main layout
                 mainLayout.addView(myLayout);
+                myLayout.setId( gateCount );
+            }
+        });
+
+        removeGateBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                View myLayout = findViewById( gateCount );
+                LinearLayout mainLayout = (LinearLayout) myLayout.getParent();
+                mainLayout.removeView(myLayout);
+                gateCount--;
+                if(gateCount<=0){
+                    removeGateBtn.setVisibility( view.INVISIBLE );
+                }
+                else{
+                    removeGateBtn.setVisibility( view.VISIBLE );
+                }
             }
         });
 

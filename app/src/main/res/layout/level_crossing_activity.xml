@@ -189,10 +189,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp">
+            <Button
+                android:id="@+id/removeGateButton"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary"
+                android:layout_marginStart="10dp"
+                android:visibility="invisible"
+                android:text="@string/remove_gate"
+                android:textColor="@android:color/background_light"
+                android:textSize="18sp" />
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_weight="2" />
+                android:layout_weight="1" />
             <Button
                 android:id="@+id/addGateButton"
                 android:layout_width="0dp"
