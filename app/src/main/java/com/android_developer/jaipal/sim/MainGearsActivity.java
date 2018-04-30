@@ -47,6 +47,7 @@ public class MainGearsActivity extends AppCompatActivity {
         // Get the widgets reference from XML layout
 //        mRelativeLayout = (RelativeLayout) findViewById(R.id.rm);
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        mRecyclerView.setNestedScrollingEnabled(false);
 
         //finding count on screen orientation basis
         value = this.getResources().getConfiguration().orientation;

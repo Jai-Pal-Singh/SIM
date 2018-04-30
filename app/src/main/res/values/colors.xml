@@ -7,6 +7,7 @@
     <color name="color_stroke">#000</color>
     <color name="color_edittext_border">#B3B3B3</color>
     <color name="tile_background">#B3B3B3</color>
-    <color name="color_background">#D3D3D3</color>
+    <color name="color_background2">#D3D3D3</color>
+    <color name="color_background">#deede6</color>
     <color name="color_white">#fff</color>
 </resources>
