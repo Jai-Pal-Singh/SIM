@@ -6,7 +6,7 @@
     <string name="division_name">Division</string>
     <string name="date_of_inspection">Date of Inspection</string>
     <string name="enter_date_of_inspection">Enter Date of Inspection</string>
-    <string name="station_code">Station Code</string>
+    <string name="station_code">Station</string>
     <string name="enter_station_code">Enter Station Code</string>
     <string name="inspecting_authority">Inspecting Authority</string>
     <string name="officer_name">Name</string>
@@ -24,7 +24,7 @@
     <string name="checking_the_telecom_installations_in_sm_s_room">Checking the Telecom Installations in SM\'s Room</string>
     <string name="vhf_set">VHF Set</string>
     <string name="crank_handle_testing_by_sm_and_pointsman">Crank Handle Testing by SM and Pointsman</string>
-    <string name="submit">Submit</string>
+    <string name="submit">Save</string>
     <string name="km_no_of_socket_and_deficiencies_if_any">KM No. of Socket and Deficiencies (if any)</string>
     <string name="emergency_sockets_tested_if_any">Emergency Sockets Tested (If any)</string>
     <string name="any_other_deficiencies">Any Other Deficiencies</string>
@@ -68,16 +68,16 @@
     <string name="counters_on_panel_vdu_are_same_as_recorded_in_counter_register">Counters on Panel/VDU are same as recorded in Counter Register</string>
     <string name="sample_checking_of_calling_on_signal_coggb_counter_increment">Sample checking of Calling ON Signal (COGGB Counter increment)</string>
     <string name="sample_checking_of_calling_on_signal_cancellation_cocyn_errb_counter_increment">Sample checking of Calling ON Signal Cancellation (COCYN/ERRB Counter Increment)</string>
-    <string name="testing_of_emergency_classover_in_double_line_sections">Testing of Emergency Classover (in double line sections)</string>
+    <string name="testing_of_emergency_classover_in_double_line_sections">Testing of Emergency Crossover (in double line sections)</string>
     <string name="sample_check_of_approach_locking_dead_approach_locking">Sample check of Approach Locking/Dead Approach Locking</string>
     <string name="counter_details">Counter Details</string>
-    <string name="eerb">EERB</string>
+    <string name="errb">ERRB</string>
     <string name="rrbu">RRBU</string>
     <string name="records_of_tc_parameters_were_maintained_and_placed_in_respective_location_boxes">Records of TC parameters were maintained and placed in respective location boxes</string>
     <string name="coggn">COGGN</string>
     <string name="ech">ECH</string>
     <string name="last_annual_panel_testing_date">Last Annual Panel testing Date</string>
-    <string name="signal_lamp_voltae_90_of_rated_value"><![CDATA[Signal lamp voltae < 90% of rated value]]></string>
+    <string name="signal_lamp_voltae_90_of_rated_value"><![CDATA[Signal lamp voltage < 90% of rated value]]></string>
     <string name="vecr_drops_with_fusing_of_minimum_3_route_leds">UECR drops with fusing of minimum 3 route LEDS</string>
     <string name="signal_failure_register_last_3_months_failures">Signal Failure Register (last 3 months failures)</string>
     <string name="month">Month</string>
@@ -91,7 +91,7 @@
     <string name="_2">2</string>
     <string name="_3">3</string>
     <string name="d_r">D/R</string>
-    <string name="disconnection_and_reconnection_reister_last_3_months">Disconnection and Reconnection Reister (last 3 months)</string>
+    <string name="disconnection_and_reconnection_reister_last_3_months">Disconnection and Reconnection Register (last 3 months)</string>
     <string name="relay_room_opening_register_last_3_months">Relay Room Opening Register (last 3 months)</string>
     <string name="signal_infringement_register">Signal Infringement Register</string>
     <string name="found_not_updated">Found (Not updated)</string>
@@ -101,7 +101,7 @@
     <string name="smc_12">SMC 12</string>
     <string name="signal_history_book">Signal History Book</string>
     <string name="rr_opening">RR Opening</string>
-    <string name="engineering_deficiencies">Engineering Deficiencies</string>
+    <string name="engineering_deficiencies">Engineering Deficiency</string>
     <string name="deficiency_found">Deficiency Found</string>
     <string name="action_by">Action By</string>
     <string name="electrical_deficiency">Electrical Deficiency</string>
@@ -179,7 +179,66 @@
     <string name="to">To</string>
     <string name="b">B</string>
     <string name="on">On</string>
-    <string name="ei_rack_was_properly_earthened">EI Rack was properly earthened</string>
+    <string name="ei_rack_was_properly_earthened">EI Rack was properly earthen</string>
     <string name="voltage_parameter_records_of_major_relays_were_maintained">Voltage Parameter Records of major relays were maintained</string>
+    <string name="title_activity_login">Login</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">LOGIN</string>
+    <string name="action_sign_in_short">LOGIN</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
+    <string name="register">Register</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="password">Password</string>
+    <string name="official_email_address">Official Email Address</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="designation">Designation</string>
+    <string name="pending_actions">Pending Actions</string>
+    <string name="download_inspection_notes">Download Inspection Notes</string>
+    <string name="log_out">Log Out</string>
+
+    <!-- Strings related to sidebar -->
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="operating_deficiency">Operating Deficiency</string>
+
+    <string name="working">Working</string>
+    <string name="notworking">Not Working</string>
+    <string name="already_registered_login">Already Registered! Login Me</string>
+    <string name="create_account">CREATE ACCOUNT</string>
+    <string name="not_a_member_register_now">Not a member? Register Now</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="cocyn">COCYN</string>
+    <string name="ebpu">EBPU</string>
+    <string name="name">Name</string>
+    <string name="indian_railways_logo">Indian Railways Logo</string>
+
+    <string name="namerror">Enter a valid name</string>
+    <string name="desigerror">Enter a valid designation</string>
+    <string name="emailerror">Enter a valid email</string>
+    <string name="mobileerror">Enter a valid mobile</string>
+    <string name="dateerror">Enter a valid date</string>
+    <string name="ageerror">Enter a valid age</string>
+    <string name="signals_are_cascaded_for_e_g_fusing_of_a_signal_s_particular_aspect_other_than_red_illuminates_a_more_restrictive_aspect">Signals are cascaded (e.g. - fusing of a signal\'s particular aspect (other than Red) illuminates a more restrictive aspect)</string>
+    <string name="red_lamp_protection_working_e_g_fusing_of_red_aspect_of_signal_should_illuminate_signal_in_rear_with_most_restrictive_aspect_red">Red Lamp Protection working (e.g. - fusing of Red aspect of signal should illuminate signal in rear with most restrictive aspect (Red).)</string>
+    <string name="voltage_current_parameters_of_signals">Voltage/Current Parameters of Signals</string>
+    <string name="signal_no">Signal No.</string>
+    <string name="aspect">Aspect</string>
+    <string name="remember_me">Remember me</string>
+    <string name="sr_den_jp">Sr. DEN/JP</string>
+    <string name="about_developer">About Developer</string>
+    <string name="about_it_center_nwr">About IT Center, NWR</string>
+    <string name="register_a_user">Register a User</string>
+    <string name="it_center_is_responsible_for_developing_various_android_ios_web_application_for_nwr_and_most_of_the_applications_are_developed_in_house">IT Center is responsible for developing various Android/ IOS/ Web application for NWR and most of the applications are developed in house.</string>
+    <string name="it_center_also_takes_care_of_various_network_aspects_firewalls_antiviruses_wireless_lan_etc">IT Center also takes care of various Network aspects, Firewall, Antivirus, Wireless, LAN, etc.</string>
+    <string name="it_center_nwr_is_located_at_third_floor_headquarters_office_building_jaipur_and_is_headed_by_chief_information_officer_cio_mr_sanjeev_verma">IT Center, NWR is located at third floor, Headquarters Office building, Jaipur and is headed by Chief Information Officer (CIO) Mr. Sanjeev Verma.</string>
+    <string name="aashish_periwal_is_an_s_t_officer_of_irsse_2014_batch_and_is_currently_working_as_asa_it_in_it_center_nwr_he_has_previously_worked_as_adste_jodhpur"><![CDATA[Aashish Periwal is an S&T Officer of IRSSE-2014 Batch and is currently working as ASA/IT in IT Center, NWR. He has previously worked as ADSTE/Jodhpur.]]></string>
+    <string name="aashish_periwal_asa_it">Aashish Periwal (ASA/IT)</string>
 
 </resources>

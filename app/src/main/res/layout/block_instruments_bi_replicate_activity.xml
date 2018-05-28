@@ -7,13 +7,22 @@
     android:focusableInTouchMode="true"
     android:padding="5dp"
     android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="15dp"
+        android:background="@android:color/darker_gray"/>
+
     <LinearLayout
         android:id="@+id/blockInstrumentsLayout9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="10dp">
 
         <TextView
             android:id="@+id/bi3TextView"
@@ -27,202 +36,206 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/bi2EditText"
+            android:id="@+id/bi2EditTextForReplicate"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:background="@drawable/edittext_border"
+            android:hint="JU - BGKT"
             android:inputType="textCapCharacters"
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
             android:textSize="20sp" />
     </LinearLayout>
 
-    <LinearLayout
-    android:id="@+id/blockInstrumentsLayout10"
+    <TableLayout
+        android:id="@+id/tableLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_below="@id/signalFailureTextView">
+
+        <TableRow>
+            <TextView
+                android:id="@+id/batteryVoltageBI1TextView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/battery_voltage"
+                android:padding="3dp"
+                android:textAlignment="center"
+                android:background="@drawable/cell_title"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/outgoingBI1TextView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/outgoing"
+                android:padding="3dp"
+                android:textAlignment="center"
+                android:background="@drawable/cell_title"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/incomingBI1TextView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/incoming"
+                android:padding="3dp"
+                android:textAlignment="center"
+                android:background="@drawable/cell_title"
+                android:textSize="18sp" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/localBI1TextView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/local"
+                android:padding="3dp"
+                android:textAlignment="center"
+                android:background="@drawable/cell_title"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/lineBI1TextView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/line"
+                android:padding="3dp"
+                android:textAlignment="center"
+                android:background="@drawable/cell_title"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/voltageOutgoingBI1TextView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/voltage"
+                android:padding="3dp"
+                android:textAlignment="center"
+                android:background="@drawable/cell_title"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/currentOutgoingBI1TextView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/current"
+                android:padding="3dp"
+                android:textAlignment="center"
+                android:background="@drawable/cell_title"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/voltageIncomingBI1TextView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/voltage"
+                android:padding="3dp"
+                android:textAlignment="center"
+                android:background="@drawable/cell_title"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/currentIncomingBI1TextView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/current"
+                android:padding="3dp"
+                android:textAlignment="center"
+                android:background="@drawable/cell_title"
+                android:textSize="18sp" />
+        </TableRow>
+
+        <TableRow>
+            <EditText
+                android:id="@+id/localBI1EditTextForReplicate"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/cell_shape"
+                android:inputType="number"
+                android:padding="3dp"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                tools:ignore="LabelFor" />
+
+            <EditText
+                android:id="@+id/lineBI1EditTextForReplicate"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/cell_shape"
+                android:inputType="number"
+                android:padding="3dp"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                tools:ignore="LabelFor" />
+
+            <EditText
+                android:id="@+id/voltageOutgoingBI1EditTextForReplicate"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/cell_shape"
+                android:inputType="number"
+                android:padding="3dp"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/currentOutgoingBI1EditTextForReplicate"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/cell_shape"
+                android:inputType="number"
+                android:padding="3dp"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/voltageIncomingBI1EditTextForReplicate"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/cell_shape"
+                android:inputType="number"
+                android:padding="3dp"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/currentIncomingBI1EditTextForReplicate"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/cell_shape"
+                android:inputType="number"
+                android:padding="3dp"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+        </TableRow>
+    </TableLayout>
+
+    <EditText
+    android:id="@+id/bi1deficiencyEditTextForReplicate"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="10dp"
-    android:orientation="horizontal">
-
-    <TextView
-        android:id="@+id/batteryVoltageBI2TextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="@string/battery_voltage"
-        android:textAlignment="center"
-        android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/outgoingBI2TextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="@string/outgoing"
-        android:textAlignment="center"
-        android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/incomingBI2TextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="@string/incoming"
-        android:textAlignment="center"
-        android:textSize="18sp" />
-    </LinearLayout>
-
-    <LinearLayout
-    android:id="@+id/blockInstrumentsLayout11"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="5dp"
-    android:orientation="horizontal">
-
-    <TextView
-        android:id="@+id/localBI2TextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="@string/local"
-        android:textAlignment="center"
-        android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/lineBI2TextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="@string/line"
-        android:textAlignment="center"
-        android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/voltageOutgoingBI2TextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="@string/voltage"
-        android:textAlignment="center"
-        android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/currentOutgoingBI2TextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="@string/current"
-        android:textAlignment="center"
-        android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/voltageIncomingBI2TextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="@string/voltage"
-        android:textAlignment="center"
-        android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/currentIncomingBI2TextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="@string/current"
-        android:textAlignment="center"
-        android:textSize="18sp" />
-    </LinearLayout>
-
-    <LinearLayout
-    android:id="@+id/blockInstrumentsLayout12"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="5dp"
-    android:orientation="horizontal">
-
-    <EditText
-        android:id="@+id/localBI2EditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="@drawable/edittext_border"
-        android:inputType="number"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:textAlignment="center"
-        android:textSize="18sp" />
-
-    <EditText
-        android:id="@+id/lineBI2EditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="@drawable/edittext_border"
-        android:inputType="number"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:textAlignment="center"
-        android:textSize="18sp"
-         />
-
-    <EditText
-        android:id="@+id/voltageOutgoingBI2EditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="@drawable/edittext_border"
-        android:inputType="number"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:textAlignment="center"
-        android:textSize="18sp" />
-
-    <EditText
-        android:id="@+id/currentOutgoingBI2EditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="@drawable/edittext_border"
-        android:inputType="number"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:textAlignment="center"
-        android:textSize="18sp" />
-
-    <EditText
-        android:id="@+id/voltageIncomingBI2EditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="@drawable/edittext_border"
-        android:inputType="number"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:textAlignment="center"
-        android:textSize="18sp" />
-
-    <EditText
-        android:id="@+id/currentIncomingBI2EditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="@drawable/edittext_border"
-        android:inputType="number"
-        android:maxLength="2"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:textAlignment="center"
-        android:textSize="18sp" />
-    </LinearLayout>
-
-    <EditText
-    android:id="@+id/bi2deficiencyEditText"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginEnd="10dp"
-    android:layout_marginStart="10dp"
+    android:layout_marginEnd="5dp"
+    android:layout_marginStart="5dp"
     android:layout_marginTop="15dp"
     android:background="@drawable/edittext_border"
     android:ems="10"
@@ -250,7 +263,7 @@
         android:textSize="18sp" />
 
     <EditText
-        android:id="@+id/lineClearBI2EditText"
+        android:id="@+id/lineClearBI1EditTextForReplicate"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -280,7 +293,7 @@
         android:textSize="18sp" />
 
     <Spinner
-        android:id="@+id/recordsBI2Spinner"
+        android:id="@+id/recordsBI1SpinnerForReplicate"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="match_parent"
@@ -288,4 +301,46 @@
         android:minHeight="30dp"
         android:background="@drawable/edittext_border" />
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/blockInstrumentsLayout141"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/biActionByTextViewForReplicate"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="5dp"
+            android:text="@string/action_by"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/biActionBySpinnerForReplicate"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:minHeight="30dp"
+            android:entries="@array/jaipurActionBy"
+            android:background="@drawable/edittext_border" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/biActionByEditTextForReplicate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:visibility="gone"
+        android:background="@drawable/edittext_border"
+        android:ems="10"
+        android:hint="@string/officer_designation"
+        android:inputType="textPersonName"
+        android:padding="5dp"
+        android:textSize="18sp" />
 </LinearLayout>

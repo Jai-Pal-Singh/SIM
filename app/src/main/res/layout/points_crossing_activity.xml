@@ -32,8 +32,9 @@
             android:id="@+id/pointOperatedCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/EnsureTextView"
-            android:layout_marginTop="10dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="52dp"
             android:layout_marginStart="10dp"
             android:text="@string/point_doesn_t_get_operated_when_point_zone_tr_is_dropped"
             android:textSize="18sp" />
@@ -95,17 +96,81 @@
                 android:padding="5dp"
                 android:scrollbars="vertical" />
 
+        <LinearLayout
+            android:id="@+id/pointsCrossingLinearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_below="@+id/pointsDeficiencyEditText"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/pointsCrossingEnsureActionByTextView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/action_by"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/pointsCrossingEnsureActionBySpinner"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="27dp"
+                android:entries="@array/jaipurActionBy"
+                android:background="@drawable/edittext_border" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/pointsCrossingEnsureActionByEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pointsCrossingLinearLayout1"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            android:background="@drawable/edittext_border"
+            android:ems="10"
+            android:hint="@string/officer_designation"
+            android:inputType="textPersonName"
+            android:padding="5dp"
+            android:textSize="18sp" />
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/pointsCrossingEnsureActionByEditText"
+            android:background="@android:color/darker_gray"/>
+
+        <TextView
+            android:id="@+id/EnsureTextView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_below="@+id/view1"
+            android:text="@string/ensure_the_following"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
         <TextView
             android:id="@+id/pointDetailsTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/pointsDeficiencyEditText"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="20dp"
+            android:layout_below="@+id/EnsureTextView2"
             android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
             android:text="@string/details_of_points_with_obstruction_voltage_less_than_80_v"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/pointsDetailEditText"
@@ -126,10 +191,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/pointsDetailEditText"
             android:layout_marginTop="20dp"
-            android:layout_marginStart="5dp"
+            android:layout_marginStart="10dp"
             android:text="@string/obstruction_current_should_be_1_5_to_2_times_of_the_normal_operating_current_or_difference_of_both_currents_shall_be_less_than_0_5_a_if_not_name_such_points"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:textSize="18sp"/>
 
         <EditText
             android:id="@+id/obstructionCurrentEditText"
@@ -150,10 +214,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/obstructionCurrentEditText"
             android:layout_marginTop="20dp"
-            android:layout_marginStart="5dp"
+            android:layout_marginStart="10dp"
             android:text="@string/points_which_either_gets_locked_or_detection_contacts_make_during_5mm_obstruction_test"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:textSize="18sp"/>
 
         <EditText
             android:id="@+id/lockedPointsEditText"
@@ -168,12 +231,64 @@
             android:ems="10"
             android:inputType="textPersonName" />
 
+        <LinearLayout
+            android:id="@+id/pointsCrossingLinearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_below="@+id/lockedPointsEditText"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/pointsCrossingDetailsActionByTextView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/action_by"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/pointsCrossingDetailsActionBySpinner"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="27dp"
+                android:entries="@array/jaipurActionBy"
+                android:background="@drawable/edittext_border" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/pointsCrossingDetailsActionByEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pointsCrossingLinearLayout2"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            android:background="@drawable/edittext_border"
+            android:ems="10"
+            android:hint="@string/officer_designation"
+            android:inputType="textPersonName"
+            android:padding="5dp"
+            android:textSize="18sp" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/pointsCrossingDetailsActionByEditText"
+            android:background="@android:color/darker_gray"/>
+
         <TextView
             android:id="@+id/lastJointTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/lockedPointsEditText"
-            android:layout_marginTop="20dp"
+            android:layout_below="@id/view2"
+            android:layout_marginTop="10dp"
             android:layout_marginStart="5dp"
             android:text="@string/last_joint_point_and_crossings_inspection"
             android:textSize="20sp"
@@ -201,6 +316,7 @@
             android:layout_below="@+id/lastJointTextView"
             android:layout_marginEnd="10dp"
             android:background="@drawable/edittext_border"
+            android:focusableInTouchMode="false"
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
             android:ems="10"
@@ -225,17 +341,62 @@
                 android:selectAllOnFocus="false"
                 android:singleLine="false" />
 
+        <LinearLayout
+            android:id="@+id/pointsCrossingLinearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_below="@+id/lastJointDeficiencyEditText"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/pointsCrossingLastJointActionByTextView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/action_by"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/pointsCrossingLastJointActionBySpinner"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="27dp"
+                android:entries="@array/jaipurActionBy"
+                android:background="@drawable/edittext_border" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/pointsCrossingLastJointActionByEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pointsCrossingLinearLayout3"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            android:background="@drawable/edittext_border"
+            android:ems="10"
+            android:hint="@string/officer_designation"
+            android:inputType="textPersonName"
+            android:padding="5dp"
+            android:textSize="18sp" />
+
         <Button
             android:id="@+id/SubmitButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
-            android:layout_below="@+id/lastJointDeficiencyEditText"
+            android:layout_below="@+id/pointsCrossingLastJointActionByEditText"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:text="@string/submit"
+            android:onClick="savePointsCrossingData"
             android:textColor="@android:color/background_light"
             android:textSize="20sp" />
 

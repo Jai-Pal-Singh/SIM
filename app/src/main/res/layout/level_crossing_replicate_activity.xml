@@ -16,15 +16,22 @@
         android:padding="5dp"
         android:orientation="vertical">
 
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:background="@android:color/darker_gray"/>
+
         <LinearLayout
             android:id="@+id/levelCrossingLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="15dp">
 
             <TextView
-                android:id="@+id/gateNoTextView"
+                android:id="@+id/gateNoTextViewForReplicate"
                 android:layout_width="0dp"
                 android:layout_weight="2"
                 android:layout_height="wrap_content"
@@ -35,7 +42,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/gateNoEditText"
+                android:id="@+id/gateNoEditTextForReplicate"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -47,7 +54,7 @@
         </LinearLayout>
 
         <EditText
-            android:id="@+id/SMeditText"
+            android:id="@+id/SMeditTextForReplicate"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_marginLeft="5dp"
@@ -67,7 +74,7 @@
             android:layout_marginTop="20dp"
             android:orientation="horizontal">
             <TextView
-                android:id="@+id/gateTypeTextView"
+                android:id="@+id/gateTypeTextViewForReplicate"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
@@ -78,7 +85,7 @@
                 android:textStyle="bold" />
 
             <Spinner
-                android:id="@+id/gateTypeSpinner"
+                android:id="@+id/gateTypeSpinnerForReplicate"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
@@ -99,7 +106,7 @@
             android:textStyle="bold" />
 
         <CheckBox
-            android:id="@+id/positive_boomCheckBox"
+            android:id="@+id/positive_boomCheckBoxForReplicate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -108,7 +115,7 @@
             android:textSize="18sp" />
 
         <CheckBox
-            android:id="@+id/booms_were_paintedCheckBox"
+            android:id="@+id/booms_were_paintedCheckBoxForReplicate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -117,7 +124,7 @@
             android:textSize="18sp" />
 
         <CheckBox
-            android:id="@+id/gatemanCheckBox"
+            android:id="@+id/gatemanCheckBoxForReplicate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -126,7 +133,7 @@
             android:textSize="18sp" />
 
         <CheckBox
-            android:id="@+id/gateTelephoneCheckBox"
+            android:id="@+id/gateTelephoneCheckBoxForReplicate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -135,7 +142,7 @@
             android:textSize="18sp" />
 
         <CheckBox
-            android:id="@+id/sse_je_inspectionsCheckBox"
+            android:id="@+id/sse_je_inspectionsCheckBoxForReplicate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -144,7 +151,7 @@
             android:textSize="18sp" />
 
         <CheckBox
-            android:id="@+id/inspection_maintenanceCheckBox"
+            android:id="@+id/inspection_maintenanceCheckBoxForReplicate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -153,7 +160,7 @@
             android:textSize="18sp" />
 
         <CheckBox
-            android:id="@+id/other_electrical_and_mechanicalCheckBox"
+            android:id="@+id/other_electrical_and_mechanicalCheckBoxForReplicate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -162,11 +169,11 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/levelCrossingDeficiencyEditText"
+            android:id="@+id/levelCrossingDeficiencyEditTextForReplicate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="5dp"
             android:background="@drawable/edittext_border"
@@ -177,5 +184,49 @@
             android:minLines="4"
             android:padding="5dp"
             android:scrollbars="vertical" />
+
+        <LinearLayout
+            android:id="@+id/levelCrossingLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/levelCrossingActionByTextViewForReplicate"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="5dp"
+                android:text="@string/action_by"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/levelCrossingActionBySpinnerForReplicate"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:minHeight="30dp"
+                android:entries="@array/jaipurActionBy"
+                android:background="@drawable/edittext_border" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/levelCrossingActionByEditTextForReplicate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            android:background="@drawable/edittext_border"
+            android:ems="10"
+            android:hint="@string/officer_designation"
+            android:inputType="textPersonName"
+            android:padding="5dp"
+            android:textSize="18sp" />
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

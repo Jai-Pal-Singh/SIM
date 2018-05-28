@@ -323,13 +323,20 @@
             android:text="@string/white_washing_required_in_battery_room"
             android:textSize="18sp" />
 
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:background="@android:color/darker_gray"/>
+
         <TextView
             android:id="@+id/relayRoomTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
             android:layout_marginStart="5dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:text="@string/relay_room"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -464,13 +471,20 @@
                 android:background="@drawable/edittext_border" />
         </LinearLayout>
 
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:background="@android:color/darker_gray"/>
+
         <TextView
             android:id="@+id/dataLoggerTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
             android:layout_marginStart="5dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:text="@string/data_logger"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -484,7 +498,7 @@
             <TextView
                 android:id="@+id/whetherAMCTextView"
                 android:layout_width="0dp"
-                android:layout_weight="3"
+                android:layout_weight="2.2"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="5dp"
                 android:layout_marginStart="10dp"
@@ -510,7 +524,7 @@
             <TextView
                 android:id="@+id/maintenanceRecordsTextView"
                 android:layout_width="0dp"
-                android:layout_weight="3"
+                android:layout_weight="2.2"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="5dp"
                 android:layout_marginStart="10dp"
@@ -536,9 +550,8 @@
             <TextView
                 android:id="@+id/lastValidationTextView"
                 android:layout_width="0dp"
-                android:layout_weight="3"
+                android:layout_weight="2.2"
                 android:layout_height="match_parent"
-                android:layout_marginEnd="5dp"
                 android:layout_marginStart="10dp"
                 android:text="@string/last_validation_done_on"
                 android:textSize="18sp" />
@@ -547,12 +560,12 @@
                 android:id="@+id/lastValidationEditText"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/edittext_border"
                 android:ems="10"
                 android:hint="@string/date"
                 android:inputType="date"
+                android:focusableInTouchMode="false"
                 android:padding="5dp"
                 android:textSize="18sp" />
         </LinearLayout>
@@ -586,13 +599,20 @@
                 android:textSize="18sp" />
         </LinearLayout>
 
+        <View
+            android:id="@+id/view3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:background="@android:color/darker_gray"/>
+
         <TextView
             android:id="@+id/EiRriTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
             android:layout_marginStart="5dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:text="@string/ei_rri"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -726,6 +746,7 @@
                 android:hint="@string/date"
                 android:inputType="date"
                 android:padding="5dp"
+                android:focusableInTouchMode="false"
                 android:textSize="18sp" />
         </LinearLayout>
 
@@ -779,6 +800,54 @@
                 android:background="@drawable/edittext_border" />
         </LinearLayout>
 
+        <View
+            android:id="@+id/view4"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:background="@android:color/darker_gray"/>
+
+        <LinearLayout
+            android:id="@+id/eiRriLayout6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/powerSupplyActionByTextView"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="5dp"
+                android:text="@string/action_by"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/powerSupplyActionBySpinner"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="32dp"
+                android:entries="@array/jaipurActionBy"
+                android:background="@drawable/edittext_border" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/powerSupplyActionByEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            android:background="@drawable/edittext_border"
+            android:ems="10"
+            android:hint="@string/officer_designation"
+            android:inputType="textPersonName"
+            android:padding="5dp"
+            android:textSize="18sp" />
+
         <Button
             android:id="@+id/powerSupplySubmitButton"
             android:layout_width="match_parent"
@@ -789,6 +858,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:text="@string/submit"
+            android:onClick="savePowerSupplyData"
             android:textColor="@android:color/background_light"
             android:textSize="20sp" />
     </LinearLayout>

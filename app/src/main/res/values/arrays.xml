@@ -76,4 +76,671 @@
         <item>Siemens</item>
         <item>Other</item>
     </string-array>
+
+    <string-array name="jaipurActionBy">
+        <item>Sr. DSTE/JP</item>
+        <item>Sr. DEE/JP</item>
+        <item>Sr. DEN/JP</item>
+        <item>Sr. DOM/JP</item>
+        <item>DSTE/JP</item>
+        <item>DSTE/RE/Cord.</item>
+        <item>ADSTE/JP</item>
+        <item>ADSTE/RE</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="bikanerActionBy">
+        <item>Sr. DSTE/BKN</item>
+        <item>Sr. DEE/BKN</item>
+        <item>Sr. DEN/BKN</item>
+        <item>Sr. DOM/BKN</item>
+        <item>DSTE/BKN</item>
+        <item>DSTE/HMH</item>
+        <item>DSTE/HSR</item>
+        <item>ADSTE/BKN</item>
+        <item>ADSTE/SDLP</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="jodhpurActionBy">
+        <item>Sr. DSTE/JU</item>
+        <item>Sr. DEE/JU</item>
+        <item>Sr. DEN (Cord.)/JU</item>
+        <item>Sr. DOM/JU</item>
+        <item>DSTE/JU</item>
+        <item>ADSTE/JU</item>
+        <item>ADSTE/MTD</item>
+        <item>ADSTE/SMR</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="ajmerActionBy">
+        <item>Sr. DSTE/AII</item>
+        <item>Sr. DEE/AII</item>
+        <item>Sr. DEN/AII</item>
+        <item>Sr. DOM/AII</item>
+        <item>DSTE/AII</item>
+        <item>ADSTE/AII</item>
+        <item>ADSTE/ABR</item>
+        <item>ADSTE/UDZ</item>
+        <item>Other</item>
+    </string-array>
+    
+    <string-array name="nonSNTEngineeringActionBy">
+        <item>Sr. DEN/AII</item>
+        <item>Sr. DEN/BKN</item>
+        <item>Sr. DEN/JP</item>
+        <item>Sr. DEN/JU</item>
+    </string-array>
+
+    <string-array name="nonSNTElectricalActionBy">
+        <item>Sr. DEE/AII</item>
+        <item>Sr. DEE/BKN</item>
+        <item>Sr. DEE/JP</item>
+        <item>Sr. DEE/JU</item>
+    </string-array>
+
+    <string-array name="nonSNTOperatingActionBy">
+        <item>Sr. DEE/AII</item>
+        <item>Sr. DEE/BKN</item>
+        <item>Sr. DEE/JP</item>
+        <item>Sr. DEE/JU</item>
+    </string-array>
+
+    <string-array name="stationUnderJaipurDivision">
+        <item>Ajaraka - AIA</item>
+        <item>Alwar Junction - AWR</item>
+        <item>Amarpur Jorasi - APJ</item>
+        <item>Arnia - ARNA</item>
+        <item>Asalpur Jobner - JOB</item>
+        <item>Ateli - AEL</item>
+        <item>Badhal - BDHL</item>
+        <item>Balwant Pura Chelasi - BWPL</item>
+        <item>Banasthali Niwai - BNLW</item>
+        <item>Bandikui Junction - BKI</item>
+        <item>Banskho - BSKO</item>
+        <item>Baori Thikria - BOTI</item>
+        <item>Bassi - BAI</item>
+        <item>Baswa - BU</item>
+        <item>Bawal - BWL</item>
+        <item>Bhagega - BAGA</item>
+        <item>Bhan Kari - BAK</item>
+        <item>Bhaton Ki Gali - BHG</item>
+        <item>Bhavdhari - BOTR</item>
+        <item>Bheslana - BILA</item>
+        <item>Bindayaka - BDYK</item>
+        <item>Bissau - BUB</item>
+        <item>Bobas - BOBS</item>
+        <item>Chaksu - CKS</item>
+        <item>Channani - CHNN</item>
+        <item>Chauth Ka Barwara - AIA</item>
+        <item>Chhota Gudha - COD</item>
+        <item>Chirawa - CRWA</item>
+        <item>Chomun Samod - COM</item>
+        <item>Dabla - DBLA</item>
+        <item>Dahar Ka Balaji - DKBJ</item>
+        <item>Dantra - DTRA</item>
+        <item>Dausa - DO</item>
+        <item>Devpura - DPZ</item>
+        <item>Dhanakya - DNK</item>
+        <item>Dhigawara - DGW</item>
+        <item>Dhinda - DHND</item>
+        <item>Dundlodh Mukundgarh - DOB</item>
+        <item>Durgapura - DPA</item>
+        <item>Fatehpur Shekhawati - FPS</item>
+        <item>Gahlota - GLTA</item>
+        <item>Gegal Akhri - GEK</item>
+        <item>Getor Jagatpura - GTJT</item>
+        <item>Ghatla - GAL</item>
+        <item>Goriyan - GIO</item>
+        <item>Gulana - GLNA</item>
+        <item>Harsauli - HSI</item>
+        <item>Hirnoda - HDA</item>
+        <item>Isarda - ISA</item>
+        <item>Jaipur Gandhinagar - GADJ</item>
+        <item>Jaipur Junction - JP</item>
+        <item>Jatwara - JW</item>
+        <item>Jerthi Dadhia - JDD</item>
+        <item>Jhilo - JLLO</item>
+        <item>Jhir - JHIR</item>
+        <item>Jhunjhunu - JJN</item>
+        <item>Kanakpura - KKU</item>
+        <item>Kanauta - KUT</item>
+        <item>Kanwat - KAWT</item>
+        <item>Kathuwas - KTWS</item>
+        <item>	Khachera - KHRA	</item>
+        <item>	Khairthal - KRH	</item>
+        <item>	Khandel - KNDL	</item>
+        <item>	Khanpur Ahir - KNAR	</item>
+        <item>	Khatipura - KWP	</item>
+        <item>	Khori - KORI	</item>
+        <item>	Kishan Manpura - KMNP	</item>
+        <item>	Kishangarh - KSG	</item>
+        <item>	Kolvagram - KVGM	</item>
+        <item>	Kund - KUND	</item>
+        <item>	Lachhmangarh Sikar - LNH	</item>
+        <item>	Ladpura - LR	</item>
+        <item>	Loharwara - LHW	</item>
+        <item>	Mahansar - MWR	</item>
+        <item>	Mahwa - MWW	</item>
+        <item>	Majri Nangal - MJNL	</item>
+        <item>	Malakhera - MKH	</item>
+        <item>	Maonda - MADA	</item>
+        <item>	Mindha - MNHA	</item>
+        <item>	Mirzapur Bachhaud - MBV	</item>
+        <item>	Naraina - NRI	</item>
+        <item>	Nari Khetri - NRKE	</item>
+        <item>	Narnaul - NNL	</item>
+        <item>	Nawalgarh - NWH	</item>
+        <item>	Nim Ka Thana - NMK	</item>
+        <item>	Nindhar Benar - NDH	</item>
+        <item>	Nizampur - NIP	</item>
+        <item>	Nua - NUA	</item>
+        <item>	Pacharmalikpura - PCMK	</item>
+        <item>	Palsana - PLSN	</item>
+        <item>	Parisal - PSL	</item>
+        <item>	Peeplee-ka-bas - PKBS	</item>
+        <item>	Phulera Junction - FL	</item>
+        <item>	Rajgarh - RHG	</item>
+        <item>	Ramgarh Shekhwati - RSWT	</item>
+        <item>	Ranolishishu - RNIS	</item>
+        <item>	Ratan Shahr - RSH	</item>
+        <item>	Renwal - RNW	</item>
+        <item>	Rewari Junction - RE	</item>
+        <item>	Ringas Junction - RGS	</item>
+        <item>	Sakhun - SK	</item>
+        <item>	Sali - SALI	</item>
+        <item>	Sanganer - SNGN	</item>
+        <item>	Sanodiya - SFE	</item>
+        <item>	Sheo Singh Pura - SHNX	</item>
+        <item>	Shivdaspura Padampura - SAS	</item>
+        <item>	Shri Madhopur - SMPR	</item>
+        <item>	Sikar Junction - SIKR	</item>
+        <item>	Siras - SRAS	</item>
+        <item>	Sonthaliya - SNTH	</item>
+        <item>	Surajgarh - SRGH	</item>
+        <item>	Sureli - SURL	</item>
+        <item>	Surergoth - SRRG	</item>
+        <item>	Tiloniya - TL	</item>
+    </string-array>
+
+    <string-array name="stationListUnderAjmerDivision">
+        <item>	Abu Road - ABR	</item>
+        <item>	Adarshnagar - AHO	</item>
+        <item>	Ajmer Junction - AII	</item>
+        <item>	Amarpura - APA	</item>
+        <item>	Auwa - AUWA	</item>
+        <item>	Bagri Nagar - BQN	</item>
+        <item>	Bagri Sajjanpur - BGX	</item>
+        <item>	Banas - BNS	</item>
+        <item>	Bandanwara - BDW	</item>
+        <item>	Bangurgram Halt - BNGM	</item>
+        <item>	Bansi Bohera - BYE	</item>
+        <item>	Banta Raghunathgarh - BGG	</item>
+        <item>	Bar - BAR	</item>
+        <item>	Bari Sadri - BI	</item>
+        <item>	Beawar - BER	</item>
+        <item>	Bechhiwara - BHWA	</item>
+        <item>	Bejnal - BJN	</item>
+        <item>	Bhagwanpura - BGPR	</item>
+        <item>	Bhesana - BFY	</item>
+        <item>	Bhilwara - BHL	</item>
+        <item>	Bhimal - BIML	</item>
+        <item>	Bhimana - BMN	</item>
+        <item>	Bhindar - BNNR	</item>
+        <item>	Bhinwaliya - BWA	</item>
+        <item>	Bhojras - BHAS	</item>
+        <item>	Bhupalsagar - BSJ	</item>
+        <item>	Bijainagar - BJNR	</item>
+        <item>	Biroliya - BRLY	</item>
+        <item>	Budha Pushkar Halt - BPKH	</item>
+        <item>	Chandawal - CNL	</item>
+        <item>	Charbhuja Road - CBG	</item>
+        <item>	Chitrasani - CTT	</item>
+        <item>	Daurai - DOZ	</item>
+        <item>	Debari - DRB	</item>
+        <item>	Det - DET	</item>
+        <item>	Devgarh Madriya - DOHM	</item>
+        <item>	Dhareshwar - DRS	</item>
+        <item>	Dhuwala - DWL	</item>
+        <item>	Dolaji Ka Khera - DJKR	</item>
+        <item>	Dungarpur - DNRP	</item>
+        <item>	Falna - FA	</item>
+        <item>	Fatehnagar - FAN	</item>
+        <item>	Gangrar - GGR	</item>
+        <item>	Ghosunda - GSD	</item>
+        <item>	Goram Ghat - GGO	</item>
+        <item>	Govindgarh Malikpur - GND	</item>
+        <item>	Gulabpura - GBP	</item>
+        <item>	Guriya - GRI	</item>
+        <item>	Hamirgarh - HMG	</item>
+        <item>	Hansiawas - HSWS	</item>
+        <item>	Haripur - HP	</item>
+        <item>	Hatundi - HTD	</item>
+        <item>	Iqbal Gadh - IQG	</item>
+        <item>	Jai Samand Road - JYM	</item>
+        <item>	Jawai Bandh - JWB	</item>
+        <item>	Jawali - JAL	</item>
+        <item>	Jethi - JTY	</item>
+        <item>	Jharwasaa - JWS	</item>
+        <item>	Jo Jagabor - JO	</item>
+        <item>	Kankroli - KDL	</item>
+        <item>	Kanor - KFN	</item>
+        <item>	Kapasan - KIN	</item>
+        <item>	Karjoda - KRJD	</item>
+        <item>	Keshavganj - KVJ	</item>
+        <item>	Khamil Ghat - KBK	</item>
+        <item>	Khara kameri - KRKM	</item>
+        <item>	Kharwa - KRW	</item>
+        <item>	Kharwa Chanda - KRCD	</item>
+        <item>	Khemli - KLH	</item>
+        <item>	Kheroda - KHW	</item>
+        <item>	Khimel - KZQ	</item>
+        <item>	Kivarli - KWI	</item>
+        <item>	Kotana - KTOA	</item>
+        <item>	Kothar - KTR	</item>
+        <item>	Kuanriya - KXA	</item>
+        <item>	Kundalgarh - KDLG	</item>
+        <item>	Lachhipura - LAC	</item>
+        <item>	Lamana - LNA	</item>
+        <item>	Lambiya - LMA	</item>
+        <item>	Lawa Sardargarh - LSG	</item>
+        <item>	Lusadiya - LSD	</item>
+        <item>	Madar Junction - MDJN	</item>
+        <item>	Madar Junction - MD	</item>
+        <item>	Makarwadi Halt - MKWI	</item>
+        <item>	Makrera - MKRA	</item>
+        <item>	Mandal - MDL	</item>
+        <item>	Mandpiya - MDPA	</item>
+        <item>	Mangaliyawas - MLI	</item>
+        <item>	Marwar Junction - MJ	</item>
+        <item>	Marwar Ranawas - MRWS	</item>
+        <item>	Maval - MAA	</item>
+        <item>	Mavli Junction - MVJ	</item>
+        <item>	Mokhampura - MAKH	</item>
+        <item>	Mori Bera - MOI	</item>
+        <item>	Morthala - MXO	</item>
+        <item>	Nana - NANA	</item>
+        <item>	Nasirabad - NSD	</item>
+        <item>	Nathdwara - NDT	</item>
+        <item>	Netawal - NTWL	</item>
+        <item>	Padla - PDQ	</item>
+        <item>	Pandoli - PMO	</item>
+        <item>	Phulad - FLD	</item>
+        <item>	Piplaj - PPF	</item>
+        <item>	Pushkar Terminus - PUHT	</item>
+        <item>	Raigadh Road - RGQ	</item>
+        <item>	Raila Road - RLR	</item>
+        <item>	Rajosi - ROS	</item>
+        <item>	Ranapratapnagar - RPZ	</item>
+        <item>	Rani - RANI	</item>
+        <item>	Rikhabdev Road - RDD	</item>
+        <item>	Rupaheli - </item>
+        <item>	Saradhna - SDH	</item>
+        <item>	Sareri - SSR	</item>
+        <item>	Sarotra Road - SZA	</item>
+        <item>	Semari - SES	</item>
+        <item>	Sendra - SEU	</item>
+        <item>	Shamlaji Road - SJS	</item>
+        <item>	Shri Amirgadh - SIM	</item>
+        <item>	Singwal - SGW	</item>
+        <item>	Sirohi Road - SOH	</item>
+        <item>	Sojat Road - SOD	</item>
+        <item>	Somesar - SOS	</item>
+        <item>	Soniyana - SNYN	</item>
+        <item>	Sur Khand Ka Khera - SZK	</item>
+        <item>	Swarupganj - SRPJ	</item>
+        <item>	Thamla Mogana - TMGN	</item>
+        <item>	Udaipur City - UDZ	</item>
+        <item>	Umra - UMRA	</item>
+        <item>	Vallabhnagar - VBN	</item>
+        <item>	Viravada - VRV	</item>
+        <item>	Zawar - ZW	</item>
+    </string-array>
+
+    <string-array name="stationListOfJodhpurDivision">
+        <item>	Ajit - AJIT	</item>
+        <item>	Alai - ALAI	</item>
+        <item>	Ashapura Gomat - AQG	</item>
+        <item>	Asranada - AAS	</item>
+        <item>	Badwasi - BWS	</item>
+        <item>	Bakra Road - BK	</item>
+        <item>	Balotra Jn - BLT	</item>
+        <item>	Balsamand - BLSD	</item>
+        <item>	Balwara - BAWA	</item>
+        <item>	Bamsin - BMSN	</item>
+        <item>	Banar - BNO	</item>
+        <item>	Baniya Sanda Dhora - BSDA	</item>
+        <item>	Barmer - BME	</item>
+        <item>	Basni - BANE	</item>
+        <item>	Baytu - BUT	</item>
+        <item>	Besroli - BSRL	</item>
+        <item>	Bhachhbar - BBC	</item>
+        <item>	Bhagat Ki Kothi - BGKT	</item>
+        <item>	Bhawi - BCW	</item>
+        <item>	Bheempura - BIPR	</item>
+        <item>	Bhikamkor - BKC	</item>
+        <item>	Bhimarlai - BMQ	</item>
+        <item>	Bidiyad - BIDD	</item>
+        <item>	Bilara - BARA	</item>
+        <item>	Bishengarh - BISH	</item>
+        <item>	Bomadra - BOM	</item>
+        <item>	Borawar - BOW	</item>
+        <item>	Chilo - CLO	</item>
+        <item>	Choti Khatu - CTKT	</item>
+        <item>	Degana Junction - DNA	</item>
+        <item>	Deshnoke - DSO	</item>
+        <item>	Deswal - DSL	</item>
+        <item>	Dhanera - DQN	</item>
+        <item>	Didwana - DIA	</item>
+        <item>	Dudia - DUK	</item>
+        <item>	Dugdol - DGQ	</item>
+        <item>	Dundara - DOR	</item>
+        <item>	Gachhipura - GCH	</item>
+        <item>	Gadra Road - GDD	</item>
+        <item>	Gagariya - GGY	</item>
+        <item>	Gole - GOLE	</item>
+        <item>	Gotan - GOTN	</item>
+        <item>	Govindi Marwar - GVMR	</item>
+        <item>	Gudha - GA	</item>
+        <item>	Hanwant - HWT	</item>
+        <item>	Jagnath Road Halt - JNX	</item>
+        <item>	Jaisalmer - JSM	</item>
+        <item>	Jaisinder - JSD	</item>
+        <item>	Jajiwal - JWL	</item>
+        <item>	Jalor - JOR	</item>
+        <item>	Jalsu - JAC	</item>
+        <item>	Jalsu Nanak - JACN	</item>
+        <item>	Janiyana - JNE	</item>
+        <item>	Jari - JARI	</item>
+        <item>	Jasai - JSA	</item>
+        <item>	Jaswantgarh - JSH	</item>
+        <item>	Jenal - JNZ	</item>
+        <item>	Jetha Chandan - JCH	</item>
+        <item>	Jodhpur Cantt. - JUCT	</item>
+        <item>	Jodhpur Junction - JU	</item>
+        <item>	Jogi Magra - JOM	</item>
+        <item>	Kairla - KAI	</item>
+        <item>	Kavas - KVA	</item>
+        <item>	Khajwana - KJW	</item>
+        <item>	Kharia Khangarh - KXG	</item>
+        <item>	Khatu - KHTU	</item>
+        <item>	Khed Temple Halt - KHTX	</item>
+        <item>	Kheduli - KQW	</item>
+        <item>	Kheri Salwa - KSW	</item>
+        <item>	Khunkhuna - KKNA	</item>
+        <item>	Kiroda - KRC	</item>
+        <item>	Kuchaman City - KMNC	</item>
+        <item>	Ladnun - LAU	</item>
+        <item>	Ledarmer - LDM	</item>
+        <item>	Loha - LOHA	</item>
+        <item>	Luni Junction - LUNI	</item>
+        <item>	Mahamandir - MMC	</item>
+        <item>	Makrana Junction - MKN	</item>
+        <item>	Malwara - MBW	</item>
+        <item>	Mandor - MDB	</item>
+        <item>	Marwar Bagra - MBGA	</item>
+        <item>	Marwar Balia - MBSK	</item>
+        <item>	Marwar Bhinmal - MBNL	</item>
+        <item>	Marwar Birthi - MBT	</item>
+        <item>	Marwar Chapri - MCPE	</item>
+        <item>	Marwar Khara - MKHR	</item>
+        <item>	Marwar Kori - KOF	</item>
+        <item>	Marwar Lohwat - MWT	</item>
+        <item>	Marwar Mathanya - MMY	</item>
+        <item>	Marwar Mundwa - MDW	</item>
+        <item>	Marwar Ratanpur - MSQ	</item>
+        <item>	Merta City - MEC	</item>
+        <item>	Merta Road Junction - MTD	</item>
+        <item>	Miyona ka Bara - MNKB	</item>
+        <item>	Modran - MON	</item>
+        <item>	Mokalsar - MKSR	</item>
+        <item>	Munabao - MBF	</item>
+        <item>	Nagaur - NGO	</item>
+        <item>	Nawa City - NAC	</item>
+        <item>	Naya Kharadia - NYK	</item>
+        <item>	Nokha - NOK	</item>
+        <item>	Odhaniya Chacha - OCH	</item>
+        <item>	Osiyan - OSN	</item>
+        <item>	Palana - PAE	</item>
+        <item>	Pali Marwar - PMY	</item>
+        <item>	Parbatsar City - PBC	</item>
+        <item>	Parhihara - PIH	</item>
+        <item>	Parlu - PRU	</item>
+        <item>	Phalodi Junction - PLC	</item>
+        <item>	Phalodi Junction - PLCJ	</item>
+        <item>	Pipar City - PCY	</item>
+        <item>	Pipar Road Junction - PPR	</item>
+        <item>	Pirwa - PW	</item>
+        <item>	Pokaran - POK	</item>
+        <item>	Raikabag Palace Junction - RKB	</item>
+        <item>	Rajkiawas - RKZ	</item>
+        <item>	Rakhi - RHI	</item>
+        <item>	Ramdevra - RDRA	</item>
+        <item>	Ramsan - RXN	</item>
+        <item>	Ramsar - RMX	</item>
+        <item>	Raniwara - RNV	</item>
+        <item>	Ren - REN	</item>
+        <item>	Rohat - RT	</item>
+        <item>	Salawas - SZ	</item>
+        <item>	Sambhar Lake - SBR	</item>
+        <item>	Samdhari Junction - SMR	</item>
+        <item>	Samrau - SRK	</item>
+        <item>	Sanvrad - SVO	</item>
+        <item>	Sathin Road - SWF	</item>
+        <item>	Shaitan Singh Nagar - STSN	</item>
+        <item>	Shri Balaji - SBLJ	</item>
+        <item>	Shri Bhadriya Lathi - SBLT	</item>
+        <item>	Silari - SILR	</item>
+        <item>	Sujangarh - SUJH	</item>
+        <item>	Surpura - SPO	</item>
+        <item>	Sutlana - SUT	</item>
+        <item>	Talchhapar - TLC	</item>
+        <item>	Thalyat Hamira - THM	</item>
+        <item>	Thathana Mithri - THMR	</item>
+        <item>	Tilwara - TWL	</item>
+        <item>	Tivari - TIW	</item>
+        <item>	Udramsar - UMS	</item>
+        <item>	Umed - UMED	</item>
+        <item>	Utarlai - UTL	</item>
+    </string-array>
+
+    <string-array name="stationListBikanerDivision">
+        <item>	Amarpura Rathan - AMPR	</item>
+        <item>	Anupgarh - APH	</item>
+        <item>	Anupshahr - AUS	</item>
+        <item>	Arjansar - AS	</item>
+        <item>	Aslu - ASLU	</item>
+        <item>	Aurang Nagar - AUN	</item>
+        <item>	Bagwali - BWB	</item>
+        <item>	Bajekan - BJKN	</item>
+        <item>	Baman Wali Halt - BMNL	</item>
+        <item>	Bamla - BMLL	</item>
+        <item>	Bangi Nihalsingh - BNLS	</item>
+        <item>	Banisar - BS	</item>
+        <item>	Banwali - BWC	</item>
+        <item>	Bap - BAF	</item>
+        <item>	Bara Gudah - BGD	</item>
+        <item>	Bawani Khera - BWK	</item>
+        <item>	Belasar - BLSR	</item>
+        <item>	Berore - BROR	</item>
+        <item>	Bewar Bhojan - BWBN	</item>
+        <item>	Bhagwan Sar - BNSR	</item>
+        <item>	Bhattu - BHT	</item>
+        <item>	Bhiwani City - BNWC	</item>
+        <item>	Bhiwani Junction - BNW	</item>
+        <item>	Bhukarka - BKKA	</item>
+        <item>	Bigga - BIGA	</item>
+        <item>	Biggabas Ramsara - BGRM	</item>
+        <item>	Bikaner Junction - BKN	</item>
+        <item>	Biradhwal - BDWL	</item>
+        <item>	Birang Khera - BMK	</item>
+        <item>	Bojawas - BJWS	</item>
+        <item>	Budhsinghwala - BDSW	</item>
+        <item>	Bugia Halt - BUGY	</item>
+        <item>	Buglanwali - BUGL	</item>
+        <item>	Charaud - CRW	</item>
+        <item>	Charkhi Dadri - CKD	</item>
+        <item>	Churu Junction - CUR	</item>
+        <item>	Dabli Rathan - DBI	</item>
+        <item>	Dahina Zainabad - DZB	</item>
+        <item>	Dalmera - DLC	</item>
+        <item>	Dalpat Singhpur - DPT	</item>
+        <item>	Depalsar - DEP	</item>
+        <item>	Dhaban - DABN	</item>
+        <item>	Dhana Ladanpur - DZL	</item>
+        <item>	Dhirera - DHRR	</item>
+        <item>	Dholipal - DPK	</item>
+        <item>	Ding - DING	</item>
+        <item>	Diplana - DPLN	</item>
+        <item>	Diyatara Road - DTRD	</item>
+        <item>	Dobh Bahali - DBHL	</item>
+        <item>	Dokwa - DKWA	</item>
+        <item>	Dudhwakhara - DKX	</item>
+        <item>	Dulrasar - DUS	</item>
+        <item>	Ellenabad - ENB	</item>
+        <item>	Fateh Singhwala - FSW	</item>
+        <item>	Fatehgarh Haryana - FGH	</item>
+        <item>	Gadhwala - GDW	</item>
+        <item>	Gahri Bhagi - GHB	</item>
+        <item>	Gajner - GJN	</item>
+        <item>	Gajsinghpur - GJS	</item>
+        <item>	Gogameri - GAMI	</item>
+        <item>	Golsar - GOZ	</item>
+        <item>	Gugalwa Kirtan Halt - GLKN	</item>
+        <item>	Gurha Kemla - GRKA	</item>
+        <item>	Gursar Shnewala - GSW	</item>
+        <item>	Hadyal - HYL	</item>
+        <item>	Hansi - HNS	</item>
+        <item>	Hanumangarh Junction - HMH	</item>
+        <item>	Hanumangarh Town - HMO	</item>
+        <item>	Harpalu - HR	</item>
+        <item>	Hirnawali - HLW	</item>
+        <item>	Hisar Junction - HSR	</item>
+        <item>	Jagdevwala - JDL	</item>
+        <item>	Jaitsar - JES	</item>
+        <item>	Jakhod Khera - JKHI	</item>
+        <item>	Jamsar - JMS	</item>
+        <item>	Jatusana - JTS	</item>
+        <item>	Jharili - JRL	</item>
+        <item>	Jhunpa - JUP	</item>
+        <item>	Jitakheri - JKZ	</item>
+        <item>	Jodhka - JOK	</item>
+        <item>	Jorkian - JRKN	</item>
+        <item>	Juharpura - JOH	</item>
+        <item>	Kalana - KALN	</item>
+        <item>	Kalanaur Kalan - KLNK	</item>
+        <item>	Kalanwali - KNL	</item>
+        <item>	Kalyankot - KYNT	</item>
+        <item>	Kanasar - KNSR	</item>
+        <item>	Kandharan Halt - KDHN	</item>
+        <item>	Kanina Khas - KNNK	</item>
+        <item>	Kesri Singhpur - KESR	</item>
+        <item>	Khabra Kalan - KBKN	</item>
+        <item>	Kharak - KHRK	</item>
+        <item>	Khileriyan - KLYN	</item>
+        <item>	Khinaniyan - KNNA	</item>
+        <item>	Kishangarh - Balawas	KGBS	</item>
+        <item>	Kolayat - KLYT	</item>
+        <item>	Kosli - KSI	</item>
+        <item>	Kushal Pura - KLSP	</item>
+        <item>	Lahli - LHLL	</item>
+        <item>	Lalgarh Junction - LGH	</item>
+        <item>	Laseri - LSE	</item>
+        <item>	Loharu Junction - LHU	</item>
+        <item>	Lunkaransar - LKS	</item>
+        <item>	Mahajan - MHJ	</item>
+        <item>	Mahendragarh - MHRG	</item>
+        <item>	Malhar - MAAR	</item>
+        <item>	Malkisar - MLC	</item>
+        <item>	Manaksar - MNSR	</item>
+        <item>	Mandi Adampur - ADR	</item>
+        <item>	Mandi Dabwali - MBY	</item>
+        <item>	Manheru - MHU	</item>
+        <item>	Manwala Kot Bak - MKBH	</item>
+        <item>	Masaniwala - MSWA	</item>
+        <item>	Mayar - MAYR	</item>
+        <item>	Mehuwala Halt - MHUL	</item>
+        <item>	Melusar - MELH	</item>
+        <item>	Mohan Nagar - MNGR	</item>
+        <item>	Molisar - MIO	</item>
+        <item>	Nal Halt - NAL	</item>
+        <item>	Naloi Barwa - BVZ	</item>
+        <item>	Nangal Degrota - NDRT	</item>
+        <item>	Nangal Mundi - NNU	</item>
+        <item>	Nangal Pathani Halt - NLQ	</item>
+        <item>	Nanwan - NWN	</item>
+        <item>	Naojan Ramanal - NJM	</item>
+        <item>	Napasar - NPS	</item>
+        <item>	Narwasi - NRWI	</item>
+        <item>	Nathwana - NTZ	</item>
+        <item>	Nawan - NAWN	</item>
+        <item>	Nohar - NHR	</item>
+        <item>	Nokhra - NKRA	</item>
+        <item>	Nosaria - NOA	</item>
+        <item>	Nyoli Kalan - NKN	</item>
+        <item>	Paharsar - PRSR	</item>
+        <item>	Parsneu - PSV	</item>
+        <item>	Parvezpur - PVZ	</item>
+        <item>	Pathrala - PTRL	</item>
+        <item>	Patuwas Mehrana - PUW	</item>
+        <item>	Payli Halt - PYI	</item>
+        <item>	Pili Bangan - PGK	</item>
+        <item>	Prithwirajpur - PRUR	</item>
+        <item>	Raghunathgarh - RGNH	</item>
+        <item>	Rai Singh Nagar - RSNR	</item>
+        <item>	Rajaldesar - RJR	</item>
+        <item>	Rajiyasar - RJS	</item>
+        <item>	Raman - RMN	</item>
+        <item>	Rampura Beri - RMB	</item>
+        <item>	Ramsinghpur - RMSR	</item>
+        <item>	Rangmahal - RMH	</item>
+        <item>	Ratangarh Junction - RTGH	</item>
+        <item>	Ratangarh Kanakwal - RKK	</item>
+        <item>	Ratangarh West - RXW	</item>
+        <item>	Sadulpur Junction - SDLP	</item>
+        <item>	Sadulshahr - SDS	</item>
+        <item>	Sahuwala - SHWL	</item>
+        <item>	Salemgarhmasani - SJSM	</item>
+        <item>	Sangaria - SGRA	</item>
+        <item>	Sangat - SGF	</item>
+        <item>	Sardargarh - SRZ	</item>
+        <item>	Sardarshahr - SRDR	</item>
+        <item>	Sarupsar Junction - SRPR	</item>
+        <item>	Satnali - STNL	</item>
+        <item>	Satrod - STD	</item>
+        <item>	Sherekan - SRKN	</item>
+        <item>	Shergarh - SGA	</item>
+        <item>	Shri Ganganagar - SGNR	</item>
+        <item>	Shri Karanpur - SRW	</item>
+        <item>	Shri Makri Nath Nagar - SMNN	</item>
+        <item>	Shri Vijainagar - SBNR	</item>
+        <item>	Sidmukh - SDMK	</item>
+        <item>	Sird - SIRD	</item>
+        <item>	Sirsa - SSA	</item>
+        <item>	Sirsala - SRSL	</item>
+        <item>	Sitalnagar - STNR	</item>
+        <item>	Siwani - SWNI	</item>
+        <item>	Sohansra - SAWN	</item>
+        <item>	Sri Dungargarh - SDGH	</item>
+        <item>	Sri Ramgarh Halt - SHRG	</item>
+        <item>	Suchan Kotli - SHN	</item>
+        <item>	Sudharana - SDRA	</item>
+        <item>	Sudsar - SDF	</item>
+        <item>	Sui - SUI	</item>
+        <item>	Sukhchain - SCV	</item>
+        <item>	Suratgarh Junction - SOG	</item>
+        <item>	Suratpura Junction - SURP	</item>
+        <item>	Surera - SURR	</item>
+        <item>	Tahsil Bhadra - TSD	</item>
+        <item>	Tibi - TIBI	</item>
+        <item>	Tulwara Jhil - TLI	</item>
+        <item>	Udasar - UDS	</item>
+        <item>	Zarpur Pali - ZP	</item>
+        <item>	Zorawar Pura Halt - ZPR	</item>
+    </string-array>
+
+    <string-array name="selectDivision">
+        <item>Select Station</item>
+    </string-array>
 </resources>

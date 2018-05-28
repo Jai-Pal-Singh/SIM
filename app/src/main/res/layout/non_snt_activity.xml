@@ -44,20 +44,45 @@
             android:padding="5dp"
             android:scrollbars="vertical" />
 
-        <EditText
-            android:id="@+id/engineeringDeficiencyActionEditText"
+        <LinearLayout
+            android:id="@+id/nonSNTLinearLayout1"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
             android:layout_below="@id/engineeringDeficiencyEditText"
-            android:background="@drawable/edittext_border"
-            android:ems="10"
-            android:hint="@string/action_by"
-            android:inputType="textPersonName"
-            android:padding="5dp"
-            android:textSize="18sp" />
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/nonSntEngineeringActionByTextView"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="5dp"
+                android:text="@string/action_by"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/nonSntEngineeringActionBySpinner"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_border"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="@string/sr_den_jp"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/view1"
+            android:layout_below="@+id/nonSNTLinearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:background="@android:color/darker_gray"/>
 
         <TextView
             android:id="@+id/electricalDeficiencyTextView"
@@ -65,8 +90,8 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
             android:layout_marginStart="5dp"
-            android:layout_marginTop="20dp"
-            android:layout_below="@id/engineeringDeficiencyActionEditText"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/view1"
             android:text="@string/electrical_deficiency"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -88,20 +113,114 @@
             android:padding="5dp"
             android:scrollbars="vertical" />
 
-        <EditText
-            android:id="@+id/electricalDeficiencyActionEditText"
+        <LinearLayout
+            android:id="@+id/nonSNTLinearLayout2"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
             android:layout_below="@id/electricalDeficiencyEditText"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/nonSntElectricalActionByTextView"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="5dp"
+                android:text="@string/action_by"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/nonSntElectricalActionBySpinner"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_border"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="@string/sr_den_jp"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/view2"
+            android:layout_below="@+id/nonSNTLinearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:background="@android:color/darker_gray"/>
+
+        <TextView
+            android:id="@+id/operatingDeficiencyTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/view2"
+            android:text="@string/operating_deficiency"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/operatingDeficiencyEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/operatingDeficiencyTextView"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/edittext_border"
             android:ems="10"
-            android:hint="@string/action_by"
-            android:inputType="textPersonName"
+            android:hint="@string/deficiency_found"
+            android:inputType="textMultiLine"
+            android:maxLines="4"
+            android:minLines="4"
             android:padding="5dp"
-            android:textSize="18sp" />
+            android:scrollbars="vertical" />
+
+        <LinearLayout
+            android:id="@+id/nonSNTLinearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/operatingDeficiencyEditText"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/nonSntOperatingActionByTextView"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="5dp"
+                android:text="@string/action_by"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/nonSntOperatingActionBySpinner"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_border"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="@string/sr_den_jp"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/view3"
+            android:layout_below="@+id/nonSNTLinearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:background="@android:color/darker_gray"/>
 
         <TextView
             android:id="@+id/otherDeficiencyTextView"
@@ -110,7 +229,7 @@
             android:layout_marginEnd="10dp"
             android:layout_marginStart="5dp"
             android:layout_marginTop="20dp"
-            android:layout_below="@id/electricalDeficiencyActionEditText"
+            android:layout_below="@id/view3"
             android:text="@string/deficiencies_of_other_department"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -132,20 +251,38 @@
             android:padding="5dp"
             android:scrollbars="vertical" />
 
-        <EditText
-            android:id="@+id/otherDeficiencyActionEditText"
+        <LinearLayout
+            android:id="@+id/nonSNTLinearLayout4"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
             android:layout_below="@id/otherDeficiencyEditText"
-            android:background="@drawable/edittext_border"
-            android:ems="10"
-            android:hint="@string/action_by"
-            android:inputType="textPersonName"
-            android:padding="5dp"
-            android:textSize="18sp" />
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/nonSntOtherActionByTextView"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="5dp"
+                android:text="@string/action_by"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/otherDeficiencyActionEditText"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/edittext_border"
+                android:ems="10"
+                android:hint="@string/action_by"
+                android:inputType="textPersonName"
+                android:padding="5dp"
+                android:textSize="18sp" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/nonSNTSubmitButton"
@@ -154,10 +291,11 @@
             android:background="@color/colorPrimary"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:layout_below="@id/otherDeficiencyActionEditText"
+            android:layout_below="@id/nonSNTLinearLayout4"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:text="@string/submit"
+            android:onClick="saveNonSntData"
             android:textColor="@android:color/background_light"
             android:textSize="18sp" />
 

@@ -2,79 +2,113 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.android_developer.jaipal.sim">
 
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher1"
+        android:icon="@mipmap/ic_launcher5"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher1"
+        android:roundIcon="@mipmap/ic_launcher5_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyC68HMlBUjl1ITrHtSGhGzHYxQplNs3TeA" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
         <!-- Splash screen -->
         <activity
-            android:name="com.android_developer.jaipal.sim.SplashScreen"
+            android:name=".SplashScreen"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Black.NoTitleBar" >
+            android:theme="@android:style/Theme.Black.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
         <!-- Main activity -->
         <activity
-            android:name="com.android_developer.jaipal.sim.MainActivity"
-            android:label="@string/title_activity_main">
-        </activity>
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main"/>
         <activity
-            android:name="com.android_developer.jaipal.sim.GearsActivity"
-            android:label="@string/title_activity_main">
-        </activity>
+            android:name=".GearsActivity"
+            android:label="@string/title_activity_main"/>
         <activity
             android:name=".MainGearsActivity"
-            android:label="@string/title_activity_main">
-        </activity>
+            android:label="@string/title_activity_main"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".DetailActivity"
-            android:label="@string/general_telecom">
-        </activity>
+            android:label="@string/general_telecom"
+            android:parentActivityName=".MainGearsActivity"/>
         <activity
             android:name=".PointsCrossingActivity"
-            android:label="Points And Crossings">
-        </activity>
+            android:label="Points And Crossings"
+            android:parentActivityName=".MainGearsActivity"/>
         <activity
             android:name=".TrackCircuitsActivity"
-            android:label="Track Circuits">
-        </activity>
+            android:label="Track Circuits"
+            android:parentActivityName=".MainGearsActivity"/>
         <activity
             android:name=".SignalsActivity"
-            android:label="Signals">
-        </activity>
+            android:label="Signals"
+            android:parentActivityName=".MainGearsActivity"/>
         <activity
             android:name=".CCIPActivity"
-            android:label="CCIP/VDU (SM's Panel)">
-        </activity>
+            android:label="CCIP/VDU (SM&apos;s Panel)"
+            android:parentActivityName=".MainGearsActivity"/>
         <activity
             android:name=".BlockInstrumentsActivity"
-            android:label="Block Instruments and Axle Counters">
-        </activity>
+            android:label="Block Instruments and Axle Counters"
+            android:parentActivityName=".MainGearsActivity"/>
         <activity
             android:name=".PowerSupplyActivity"
-            android:label="Power Supply and Relay Room">
-        </activity>
+            android:label="Power Supply and Relay Room"
+            android:parentActivityName=".MainGearsActivity"/>
         <activity
             android:name=".LevelCrossingActivity"
-            android:label="Level Crossing">
-        </activity>
+            android:label="Level Crossing"
+            android:parentActivityName=".MainGearsActivity"/>
         <activity
             android:name=".RecordsActivity"
-            android:label="Records">
-        </activity>
+            android:label="Records"
+            android:parentActivityName=".MainGearsActivity"/>
         <activity
             android:name=".NonSNTActivity"
-            android:label="Non SNT Deficiencies">
-        </activity>
+            android:label="Non SNT Deficiencies"
+            android:parentActivityName=".MainGearsActivity"/>
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login" />
+        <activity
+            android:name=".RegistrationActivity"
+            android:label="Register"
+            android:parentActivityName=".MainGearsActivity"/>
+        <activity
+            android:name=".InspectionNotesActivity"
+            android:label="Inspection Notes"
+            android:parentActivityName=".MainGearsActivity"/>
+        <activity
+            android:name=".AboutDeveloper"
+            android:label="About Developer"
+            android:parentActivityName=".MainGearsActivity"/>
+        <activity
+            android:name=".AboutITCenterActivity"
+            android:label="About IT Center, NWR"
+            android:parentActivityName=".MainGearsActivity"/>
 
     </application>
 

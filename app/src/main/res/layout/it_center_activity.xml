@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dp"
+    android:background="@color/color_background">
+
+    <LinearLayout
+        android:id="@+id/relay1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:padding="5dp"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/it_center_is_responsible_for_developing_various_android_ios_web_application_for_nwr_and_most_of_the_applications_are_developed_in_house"
+            android:textAlignment="viewStart"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/it_center_also_takes_care_of_various_network_aspects_firewalls_antiviruses_wireless_lan_etc"
+            android:textAlignment="viewStart"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/it_center_nwr_is_located_at_third_floor_headquarters_office_building_jaipur_and_is_headed_by_chief_information_officer_cio_mr_sanjeev_verma"
+            android:textAlignment="viewStart"
+            android:textSize="18sp" />
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

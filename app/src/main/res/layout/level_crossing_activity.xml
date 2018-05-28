@@ -183,6 +183,47 @@
                 android:minLines="4"
                 android:padding="5dp"
                 android:scrollbars="vertical" />
+
+            <LinearLayout
+                android:id="@+id/levelCrossingLayout4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/levelCrossingActionByTextView"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="5dp"
+                    android:text="@string/action_by"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/levelCrossingActionBySpinner"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:minHeight="30dp"
+                    android:entries="@array/jaipurActionBy"
+                    android:background="@drawable/edittext_border" />
+            </LinearLayout>
+            <EditText
+                android:id="@+id/levelCrossingActionByEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone"
+                android:background="@drawable/edittext_border"
+                android:ems="10"
+                android:hint="@string/officer_designation"
+                android:inputType="textPersonName"
+                android:padding="5dp"
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -226,6 +267,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:text="@string/submit"
+            android:onClick="saveLevelCrossingData"
             android:textColor="@android:color/background_light"
             android:textSize="20sp" />
 

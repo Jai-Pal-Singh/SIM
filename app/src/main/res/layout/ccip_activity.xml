@@ -40,12 +40,20 @@
                 android:entries="@array/interlocking" />
         </LinearLayout>
 
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/ccipLinearLayout1"
+            android:background="@android:color/darker_gray"/>
+
         <TextView
             android:id="@+id/EnsureTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/ccipLinearLayout1"
-            android:layout_marginTop="20dp"
+            android:layout_below="@id/view1"
+            android:layout_marginTop="15dp"
             android:layout_marginStart="5dp"
             android:layout_marginEnd="10dp"
             android:text="@string/ensure_the_following"
@@ -129,12 +137,20 @@
             android:padding="5dp"
             android:scrollbars="vertical" />
 
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/ccipDeficiencyEditText"
+            android:background="@android:color/darker_gray"/>
+
         <TextView
             android:id="@+id/counterDetailsTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/ccipDeficiencyEditText"
-            android:layout_marginTop="20dp"
+            android:layout_below="@id/view2"
+            android:layout_marginTop="15dp"
             android:layout_marginStart="5dp"
             android:layout_marginEnd="10dp"
             android:text="@string/counter_details"
@@ -150,7 +166,7 @@
             android:layout_marginStart="10dp"
             android:padding="5dp"
             android:layout_below="@id/counterDetailsTextView"
-            android:text="@string/eerb"
+            android:text="@string/errb"
             android:textSize="18sp" />
 
         <EditText
@@ -211,6 +227,7 @@
             android:layout_alignBottom="@id/COGGNTextView"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="10dp"
+            android:padding="5dp"
             android:background="@drawable/edittext_border"
             android:ems="10"
             android:inputType="number" />
@@ -224,7 +241,7 @@
             android:layout_marginStart="10dp"
             android:padding="5dp"
             android:layout_below="@id/COGGNTextView"
-            android:text="@string/eerb"
+            android:text="@string/cocyn"
             android:textSize="18sp" />
 
         <EditText
@@ -249,7 +266,7 @@
             android:layout_marginStart="10dp"
             android:padding="5dp"
             android:layout_below="@id/COCYNTextView"
-            android:text="@string/rrbu"
+            android:text="@string/ebpu"
             android:textSize="18sp" />
 
         <EditText
@@ -273,7 +290,7 @@
             android:layout_marginEnd="20dp"
             android:layout_marginStart="10dp"
             android:padding="5dp"
-            android:layout_below="@id/EBPUEditText"
+            android:layout_below="@id/EBPUTextView"
             android:text="@string/ech"
             android:textSize="18sp" />
 
@@ -290,12 +307,20 @@
             android:ems="10"
             android:inputType="number" />
 
+        <View
+            android:id="@+id/view3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/ECHEditText"
+            android:background="@android:color/darker_gray"/>
+
         <LinearLayout
             android:id="@+id/ccipLinearLayout2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="20dp"
-            android:layout_below="@id/ECHTextView">
+            android:layout_marginTop="15dp"
+            android:layout_below="@id/view3">
             <TextView
                 android:id="@+id/lastAnnualTextView"
                 android:layout_weight="2"
@@ -314,21 +339,75 @@
                 android:layout_marginEnd="10dp"
                 android:padding="5dp"
                 android:background="@drawable/edittext_border"
+                android:focusableInTouchMode="false"
                 android:ems="10"
                 android:inputType="date" />
         </LinearLayout>
+
+        <View
+            android:id="@+id/view4"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/ccipLinearLayout2"
+            android:background="@android:color/darker_gray"/>
+
+        <LinearLayout
+            android:id="@+id/ccipLinearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_below="@+id/view4"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/ccipActionByTextView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/action_by"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/ccipActionBySpinner"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="27dp"
+                android:entries="@array/jaipurActionBy"
+                android:background="@drawable/edittext_border" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/ccipActionByEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ccipLinearLayout3"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            android:background="@drawable/edittext_border"
+            android:ems="10"
+            android:hint="@string/officer_designation"
+            android:inputType="textPersonName"
+            android:padding="5dp"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/ccipSubmitButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
-            android:layout_below="@+id/ccipLinearLayout2"
+            android:layout_below="@+id/ccipActionByEditText"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:text="@string/submit"
+            android:onClick="saveCcipData"
             android:textColor="@android:color/background_light"
             android:textSize="20sp" />
 

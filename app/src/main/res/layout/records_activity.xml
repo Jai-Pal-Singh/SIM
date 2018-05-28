@@ -20,309 +20,317 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginEnd="10dp"
+            android:layout_marginEnd="5dp"
             android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
             android:text="@string/signal_failure_register_last_3_months_failures"
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <LinearLayout
-            android:id="@+id/recordsLinearLayout1"
+        <TableLayout
+            android:id="@+id/tableLayout1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/signalFailureTextView"
             android:layout_marginTop="10dp"
-            android:orientation="horizontal">
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_below="@id/signalFailureTextView">
 
-            <TextView
-                android:id="@+id/signalMonthTextView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/month"
-                android:textSize="18sp" />
+            <TableRow android:id="@+id/tableRow11">
+                <TextView
+                    android:id="@+id/signalMonthTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/month"
+                    android:padding="3dp"
+                    android:textAlignment="center"
+                    android:background="@drawable/cell_title"
+                    android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/signalPointTextView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/point"
-                android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/signalPointTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/point"
+                    android:padding="3dp"
+                    android:textAlignment="center"
+                    android:background="@drawable/cell_title"
+                    android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/signalTrackCircuitTextView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/track_circuit"
-                android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/signalTrackCircuitTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/track_circuit"
+                    android:padding="3dp"
+                    android:textAlignment="center"
+                    android:background="@drawable/cell_title"
+                    android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/signalBITextView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/bi_bpac"
-                android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/signalBITextView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/bi_bpac"
+                    android:padding="3dp"
+                    android:textAlignment="center"
+                    android:background="@drawable/cell_title"
+                    android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/signalPowerSupplyTextView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/power_supply"
-                android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/signalPowerSupplyTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/power_supply"
+                    android:padding="3dp"
+                    android:textAlignment="center"
+                    android:background="@drawable/cell_title"
+                    android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/signalOthersTextView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/others"
-                android:textSize="18sp" />
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/signalOthersTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/others"
+                    android:padding="3dp"
+                    android:textAlignment="center"
+                    android:background="@drawable/cell_title"
+                    android:textSize="18sp" />
+            </TableRow>
+            <TableRow
+                android:id="@+id/tableRow12">
+                <TextView
+                    android:id="@+id/signalMonth1TextView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/_1"
+                    android:padding="3dp"
+                    android:textAlignment="center"
+                    android:background="@drawable/cell_title"
+                    android:textSize="18sp" />
 
-        <LinearLayout
-            android:id="@+id/recordsLinearLayout2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/recordsLinearLayout1"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/signalPoint1EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/cell_shape"
+                    android:inputType="number"
+                    android:padding="3dp"
+                    android:textAlignment="center"
+                    android:maxLength="2"
+                    android:textSize="18sp"
+                    tools:ignore="LabelFor" />
 
-            <TextView
-                android:id="@+id/signalMonth1TextView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/_1"
-                android:textSize="18sp" />
+                <EditText
+                    android:id="@+id/signalTrackCircuit1EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:padding="3dp"
+                    android:textAlignment="center"
+                    android:maxLength="2"
+                    android:textSize="18sp"
+                    android:background="@drawable/cell_shape"/>
 
-            <EditText
-                android:id="@+id/signalPoint1EditText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/edittext_border"
-                android:inputType="number"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:maxLength="2"
-                android:textSize="18sp"
-                tools:ignore="LabelFor" />
+                <EditText
+                    android:id="@+id/signalBI1EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:padding="3dp"
+                    android:textAlignment="center"
+                    android:maxLength="2"
+                    android:background="@drawable/cell_shape"
+                    android:textSize="18sp" />
 
-            <EditText
-                android:id="@+id/signalTrackCircuit1EditText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="number"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:maxLength="2"
-                android:textSize="18sp"
-                android:background="@drawable/edittext_border"/>
+                <EditText
+                    android:id="@+id/signalPowerSupply1EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:padding="3dp"
+                    android:textAlignment="center"
+                    android:maxLength="2"
+                    android:background="@drawable/cell_shape"
+                    android:textSize="18sp" />
 
-            <EditText
-                android:id="@+id/signalBI1EditText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="number"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:maxLength="2"
-                android:background="@drawable/edittext_border"
-                android:textSize="18sp" />
+                <EditText
+                    android:id="@+id/signalOthers1EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:padding="3dp"
+                    android:textAlignment="center"
+                    android:maxLength="2"
+                    android:background="@drawable/cell_shape"
+                    android:textSize="18sp" />
+            </TableRow>
+            <TableRow
+                android:id="@+id/tableRow13">
+                <TextView
+                    android:id="@+id/signalMonth2TextView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/_2"
+                    android:padding="3dp"
+                    android:textAlignment="center"
+                    android:background="@drawable/cell_title"
+                    android:textSize="18sp" />
 
-            <EditText
-                android:id="@+id/signalPowerSupply1EditText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="number"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:maxLength="2"
-                android:background="@drawable/edittext_border"
-                android:textSize="18sp" />
+                <EditText
+                    android:id="@+id/signalPoint2EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:padding="3dp"
+                    android:textAlignment="center"
+                    android:maxLength="2"
+                    android:background="@drawable/cell_shape"
+                    android:textSize="18sp" />
 
-            <EditText
-                android:id="@+id/signalOthers1EditText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="number"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:maxLength="2"
-                android:background="@drawable/edittext_border"
-                android:textSize="18sp" />
-        </LinearLayout>
+                <EditText
+                    android:id="@+id/signalTrackCircuit2EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:padding="3dp"
+                    android:textAlignment="center"
+                    android:maxLength="2"
+                    android:background="@drawable/cell_shape"
+                    android:textSize="18sp" />
 
-        <LinearLayout
-            android:id="@+id/recordsLinearLayout3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/recordsLinearLayout2"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/signalBI2EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:padding="3dp"
+                    android:textAlignment="center"
+                    android:maxLength="2"
+                    android:background="@drawable/cell_shape"
+                    android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/signalMonth2TextView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/_2"
-                android:textSize="18sp" />
+                <EditText
+                    android:id="@+id/signalPowerSupply2EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:padding="3dp"
+                    android:textAlignment="center"
+                    android:maxLength="2"
+                    android:background="@drawable/cell_shape"
+                    android:textSize="18sp" />
 
-            <EditText
-                android:id="@+id/signalPoint2EditText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="number"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:maxLength="2"
-                android:background="@drawable/edittext_border"
-                android:textSize="18sp" />
+                <EditText
+                    android:id="@+id/signalOthers2EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:padding="3dp"
+                    android:textAlignment="center"
+                    android:maxLength="2"
+                    android:background="@drawable/cell_shape"
+                    android:textSize="18sp" />
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:id="@+id/signalMonth3TextView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/_3"
+                    android:padding="3dp"
+                    android:textAlignment="center"
+                    android:background="@drawable/cell_title"
+                    android:textSize="18sp" />
 
-            <EditText
-                android:id="@+id/signalTrackCircuit2EditText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="number"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:maxLength="2"
-                android:background="@drawable/edittext_border"
-                android:textSize="18sp" />
+                <EditText
+                    android:id="@+id/signalPoint3EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:padding="3dp"
+                    android:textAlignment="center"
+                    android:maxLength="2"
+                    android:background="@drawable/cell_shape"
+                    android:textSize="18sp" />
 
-            <EditText
-                android:id="@+id/signalBI2EditText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="number"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:maxLength="2"
-                android:background="@drawable/edittext_border"
-                android:textSize="18sp" />
+                <EditText
+                    android:id="@+id/signalTrackCircuit3EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:padding="3dp"
+                    android:textAlignment="center"
+                    android:maxLength="2"
+                    android:background="@drawable/cell_shape"
+                    android:textSize="18sp" />
 
-            <EditText
-                android:id="@+id/signalPowerSupply2EditText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="number"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:maxLength="2"
-                android:background="@drawable/edittext_border"
-                android:textSize="18sp" />
+                <EditText
+                    android:id="@+id/signalBI3EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:padding="3dp"
+                    android:textAlignment="center"
+                    android:maxLength="2"
+                    android:background="@drawable/cell_shape"
+                    android:textSize="18sp" />
 
-            <EditText
-                android:id="@+id/signalOthers2EditText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="number"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:maxLength="2"
-                android:background="@drawable/edittext_border"
-                android:textSize="18sp" />
-        </LinearLayout>
+                <EditText
+                    android:id="@+id/signalPowerSupply3EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:padding="3dp"
+                    android:textAlignment="center"
+                    android:maxLength="2"
+                    android:background="@drawable/cell_shape"
+                    android:textSize="18sp" />
 
-        <LinearLayout
-            android:id="@+id/recordsLinearLayout4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/recordsLinearLayout3"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/signalMonth3TextView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/_3"
-                android:textSize="18sp" />
-
-            <EditText
-                android:id="@+id/signalPoint3EditText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="number"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:maxLength="2"
-                android:background="@drawable/edittext_border"
-                android:textSize="18sp" />
-
-            <EditText
-                android:id="@+id/signalTrackCircuit3EditText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="number"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:maxLength="2"
-                android:background="@drawable/edittext_border"
-                android:textSize="18sp" />
-
-            <EditText
-                android:id="@+id/signalBI3EditText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="number"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:maxLength="2"
-                android:background="@drawable/edittext_border"
-                android:textSize="18sp" />
-
-            <EditText
-                android:id="@+id/signalPowerSupply3EditText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="number"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:maxLength="2"
-                android:background="@drawable/edittext_border"
-                android:textSize="18sp" />
-
-            <EditText
-                android:id="@+id/signalOthers3EditText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="number"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:maxLength="2"
-                android:background="@drawable/edittext_border"
-                android:textSize="18sp" />
-        </LinearLayout>
+                <EditText
+                    android:id="@+id/signalOthers3EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:padding="3dp"
+                    android:textAlignment="center"
+                    android:maxLength="2"
+                    android:background="@drawable/cell_shape"
+                    android:textSize="18sp" />
+            </TableRow>
+        </TableLayout>
 
         <EditText
             android:id="@+id/signalFailureRemarkEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/recordsLinearLayout4"
-            android:layout_marginEnd="10dp"
-            android:layout_marginStart="10dp"
+            android:layout_below="@id/tableLayout1"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="15dp"
             android:background="@drawable/edittext_border"
             android:ems="10"
@@ -332,121 +340,140 @@
             android:minLines="4"
             android:padding="5dp"
             android:scrollbars="vertical" />
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:layout_below="@id/signalFailureRemarkEditText"
+            android:background="@android:color/darker_gray"/>
 
         <TextView
             android:id="@+id/disconnectionReconnectionTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/signalFailureRemarkEditText"
+            android:layout_below="@id/view1"
             android:layout_marginEnd="10dp"
             android:layout_marginStart="5dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:text="@string/disconnection_and_reconnection_reister_last_3_months"
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <LinearLayout
-            android:id="@+id/recordsLinearLayout5"
+        <TableLayout
+            android:id="@+id/tableLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/disconnectionReconnectionTextView"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/disconnectionMonthTextView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/month"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/disconnection1TextView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/_1"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/disconnection2TextView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/_2"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/disconnection3TextView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/_3"
-                android:textSize="18sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/recordsLinearLayout6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/recordsLinearLayout5"
             android:layout_marginTop="10dp"
-            android:orientation="horizontal">
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_below="@id/disconnectionReconnectionTextView">
 
-            <TextView
-                android:id="@+id/disconnectionMonthDRTextView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/d_r"
-                android:textSize="18sp" />
+            <TableRow android:id="@+id/tableRow21">
+                <TextView
+                    android:id="@+id/disconnectionMonthTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/month"
+                    android:padding="3dp"
+                    android:textAlignment="center"
+                    android:background="@drawable/cell_title"
+                    android:textSize="18sp" />
 
-            <EditText
-                android:id="@+id/disconnection1DREditText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="number"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:maxLength="2"
-                android:textSize="18sp"
-                android:background="@drawable/edittext_border"
-                tools:ignore="LabelFor" />
+                <TextView
+                    android:id="@+id/disconnection1TextView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/cell_title"
+                    android:padding="3dp"
+                    android:text="@string/_1"
+                    android:textAlignment="center"
+                    android:textSize="18sp" />
 
-            <EditText
-                android:id="@+id/disconnection2DREditText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="number"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:maxLength="2"
-                android:background="@drawable/edittext_border"
-                android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/disconnection2TextView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/_2"
+                    android:padding="3dp"
+                    android:textAlignment="center"
+                    android:background="@drawable/cell_title"
+                    android:textSize="18sp" />
 
-            <EditText
-                android:id="@+id/disconnection3DREditText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="number"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:maxLength="2"
-                android:background="@drawable/edittext_border"
-                android:textSize="18sp" />
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/disconnection3TextView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/_3"
+                    android:padding="3dp"
+                    android:textAlignment="center"
+                    android:background="@drawable/cell_title"
+                    android:textSize="18sp" />
+            </TableRow>
+
+            <TableRow android:id="@+id/tableRow22">
+                <TextView
+                    android:id="@+id/disconnectionMonthDRTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/d_r"
+                    android:padding="3dp"
+                    android:textAlignment="center"
+                    android:background="@drawable/cell_title"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/disconnection1DREditText"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:padding="3dp"
+                    android:textAlignment="center"
+                    android:maxLength="2"
+                    android:textSize="18sp"
+                    android:background="@drawable/cell_shape"
+                    tools:ignore="LabelFor" />
+
+                <EditText
+                    android:id="@+id/disconnection2DREditText"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:padding="3dp"
+                    android:textAlignment="center"
+                    android:maxLength="2"
+                    android:background="@drawable/cell_shape"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/disconnection3DREditText"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:padding="3dp"
+                    android:textAlignment="center"
+                    android:maxLength="2"
+                    android:background="@drawable/cell_shape"
+                    android:textSize="18sp" />
+            </TableRow>
+        </TableLayout>
 
         <EditText
             android:id="@+id/disconnectionReconnectionEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/recordsLinearLayout6"
-            android:layout_marginEnd="10dp"
-            android:layout_marginStart="10dp"
+            android:layout_below="@id/tableLayout2"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="15dp"
             android:background="@drawable/edittext_border"
             android:ems="10"
@@ -456,121 +483,140 @@
             android:minLines="4"
             android:padding="5dp"
             android:scrollbars="vertical" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:layout_below="@id/disconnectionReconnectionEditText"
+            android:background="@android:color/darker_gray"/>
 
         <TextView
             android:id="@+id/relayRoomTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/disconnectionReconnectionEditText"
+            android:layout_below="@id/view2"
             android:layout_marginEnd="10dp"
             android:layout_marginStart="5dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:text="@string/relay_room_opening_register_last_3_months"
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <LinearLayout
-            android:id="@+id/recordsLinearLayout7"
+        <TableLayout
+            android:id="@+id/tableLayout3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/relayRoomTextView"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/relayRoomMonthTextView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/month"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/relayRoom1TextView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/_1"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/relayRoom2TextView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/_2"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/relayRoom3TextView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/_3"
-                android:textSize="18sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/recordsLinearLayout8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/recordsLinearLayout7"
             android:layout_marginTop="10dp"
-            android:orientation="horizontal">
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_below="@id/relayRoomTextView">
 
-            <TextView
-                android:id="@+id/relayRoomMonthRRTextView"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/rr_opening"
-                android:textSize="18sp" />
+            <TableRow>
+                <TextView
+                    android:id="@+id/relayRoomMonthTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:text="@string/month"
+                    android:padding="3dp"
+                    android:textAlignment="center"
+                    android:background="@drawable/cell_title"
+                    android:textSize="18sp" />
 
-            <EditText
-                android:id="@+id/relayRoom1RREditText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="number"
-                android:textSize="18sp"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:maxLength="2"
-                android:background="@drawable/edittext_border"
-                tools:ignore="LabelFor" />
+                <TextView
+                    android:id="@+id/relayRoom1TextView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/_1"
+                    android:padding="3dp"
+                    android:textAlignment="center"
+                    android:background="@drawable/cell_title"
+                    android:textSize="18sp" />
 
-            <EditText
-                android:id="@+id/relayRoom2RREditText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="number"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:maxLength="2"
-                android:background="@drawable/edittext_border"
-                android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/relayRoom2TextView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/_2"
+                    android:padding="3dp"
+                    android:textAlignment="center"
+                    android:background="@drawable/cell_title"
+                    android:textSize="18sp" />
 
-            <EditText
-                android:id="@+id/relayRoom3RREditText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="number"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:maxLength="2"
-                android:background="@drawable/edittext_border"
-                android:textSize="18sp" />
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/relayRoom3TextView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/_3"
+                    android:padding="3dp"
+                    android:textAlignment="center"
+                    android:background="@drawable/cell_title"
+                    android:textSize="18sp" />
+            </TableRow>
+
+            <TableRow >
+                <TextView
+                    android:id="@+id/relayRoomMonthRRTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:text="@string/rr_opening"
+                    android:padding="3dp"
+                    android:textAlignment="center"
+                    android:background="@drawable/cell_title"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/relayRoom1RREditText"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:textSize="18sp"
+                    android:padding="3dp"
+                    android:textAlignment="center"
+                    android:maxLength="2"
+                    android:background="@drawable/cell_shape"
+                    tools:ignore="LabelFor" />
+
+                <EditText
+                    android:id="@+id/relayRoom2RREditText"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:padding="3dp"
+                    android:textAlignment="center"
+                    android:maxLength="2"
+                    android:background="@drawable/cell_shape"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/relayRoom3RREditText"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:padding="3dp"
+                    android:textAlignment="center"
+                    android:maxLength="2"
+                    android:background="@drawable/cell_shape"
+                    android:textSize="18sp" />
+            </TableRow>
+        </TableLayout>
 
         <EditText
             android:id="@+id/relayRoomEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/recordsLinearLayout8"
-            android:layout_marginEnd="10dp"
-            android:layout_marginStart="10dp"
+            android:layout_below="@id/tableLayout3"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="15dp"
             android:background="@drawable/edittext_border"
             android:ems="10"
@@ -581,12 +627,35 @@
             android:padding="5dp"
             android:scrollbars="vertical" />
 
+        <View
+            android:id="@+id/view3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:layout_below="@id/relayRoomEditText"
+            android:background="@android:color/darker_gray"/>
+
+        <TextView
+            android:id="@+id/EnsureTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_below="@id/view3"
+            android:text="@string/ensure_the_following"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
         <LinearLayout
             android:id="@+id/recordsLinearLayout9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/relayRoomEditText"
-            android:layout_marginTop="20dp">
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
+            android:layout_below="@id/EnsureTextView"
+            android:layout_marginTop="15dp">
 
             <TextView
                 android:id="@+id/signalInfringementTextView"
@@ -596,8 +665,7 @@
                 android:layout_marginStart="5dp"
                 android:layout_weight="1"
                 android:text="@string/signal_infringement_register"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textSize="18sp" />
 
             <Spinner
                 android:id="@+id/signalInfringementSpinner"
@@ -605,8 +673,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/edittext_border"
-                android:entries="@array/status"
-                android:minHeight="30dp" />
+                android:entries="@array/status"/>
         </LinearLayout>
 
         <LinearLayout
@@ -614,7 +681,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/recordsLinearLayout9"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
             android:orientation="horizontal">
             <TextView
                 android:id="@+id/earthTestingTextView"
@@ -624,8 +693,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginStart="5dp"
                 android:text="@string/earth_testing_record"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textSize="18sp" />
 
             <Spinner
                 android:id="@+id/earthTestingSpinner"
@@ -633,7 +701,6 @@
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:entries="@array/status"
-                android:minHeight="30dp"
                 android:background="@drawable/edittext_border" />
         </LinearLayout>
 
@@ -642,7 +709,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/recordsLinearLayout10"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
             android:orientation="horizontal">
             <TextView
                 android:id="@+id/cableMeggeringTextView"
@@ -652,8 +721,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginStart="5dp"
                 android:text="@string/cable_meggering_record"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textSize="18sp" />
 
             <Spinner
                 android:id="@+id/cableMeggeringSpinner"
@@ -661,7 +729,6 @@
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:entries="@array/status"
-                android:minHeight="30dp"
                 android:background="@drawable/edittext_border" />
         </LinearLayout>
 
@@ -669,6 +736,8 @@
             android:id="@+id/recordsLinearLayout12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
             android:layout_below="@id/recordsLinearLayout11"
             android:layout_marginTop="20dp"
             android:orientation="horizontal">
@@ -681,8 +750,7 @@
                 android:layout_marginStart="5dp"
                 android:layout_weight="1"
                 android:text="@string/updated_circuit_diagrams_were_availabble"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textSize="18sp" />
 
             <Spinner
                 android:id="@+id/updatedCktDiagramSpinner"
@@ -698,7 +766,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/recordsLinearLayout12"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
             android:orientation="horizontal">
             <TextView
                 android:id="@+id/cableRouteTextView"
@@ -708,8 +778,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginStart="5dp"
                 android:text="@string/cable_route_plan"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textSize="18sp" />
 
             <Spinner
                 android:id="@+id/cableRouteSpinner"
@@ -717,7 +786,6 @@
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:entries="@array/status"
-                android:minHeight="30dp"
                 android:background="@drawable/edittext_border" />
         </LinearLayout>
 
@@ -726,7 +794,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/recordsLinearLayout13"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
             android:orientation="horizontal">
             <TextView
                 android:id="@+id/cableCoreTextView"
@@ -736,8 +806,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginStart="5dp"
                 android:text="@string/cable_core_chart"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textSize="18sp" />
 
             <Spinner
                 android:id="@+id/cableCoreSpinner"
@@ -745,7 +814,6 @@
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:entries="@array/status"
-                android:minHeight="30dp"
                 android:background="@drawable/edittext_border" />
         </LinearLayout>
 
@@ -754,7 +822,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/recordsLinearLayout14"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
             android:orientation="horizontal">
             <TextView
                 android:id="@+id/signalInterlockingTextView"
@@ -764,8 +834,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginStart="5dp"
                 android:text="@string/signal_interlocking_plan_sip"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textSize="18sp"/>
 
             <Spinner
                 android:id="@+id/signalInterlockingSpinner"
@@ -773,7 +842,6 @@
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:entries="@array/status"
-                android:minHeight="30dp"
                 android:background="@drawable/edittext_border" />
         </LinearLayout>
 
@@ -782,7 +850,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/recordsLinearLayout15"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
             android:orientation="horizontal">
             <TextView
                 android:id="@+id/SMC1TextView"
@@ -792,8 +862,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginStart="5dp"
                 android:text="@string/smc_1_11"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textSize="18sp" />
 
             <Spinner
                 android:id="@+id/SMC1Spinner"
@@ -801,17 +870,18 @@
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:entries="@array/status"
-                android:minHeight="30dp"
                 android:background="@drawable/edittext_border" />
         </LinearLayout>
 
         <LinearLayout
-        android:id="@+id/recordsLinearLayout23"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/recordsLinearLayout16"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal">
+            android:id="@+id/recordsLinearLayout23"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/recordsLinearLayout16"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
+            android:orientation="horizontal">
         <TextView
             android:id="@+id/SMC12TextView"
             android:layout_width="0dp"
@@ -820,8 +890,7 @@
             android:layout_marginEnd="10dp"
             android:layout_marginStart="5dp"
             android:text="@string/smc_12"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textSize="18sp" />
 
         <Spinner
             android:id="@+id/SMC12Spinner"
@@ -829,16 +898,17 @@
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:entries="@array/status"
-            android:minHeight="30dp"
             android:background="@drawable/edittext_border" />
-    </LinearLayout>
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/recordsLinearLayout24"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/recordsLinearLayout23"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
             android:orientation="horizontal">
             <TextView
                 android:id="@+id/signalHistoryTextView"
@@ -848,18 +918,68 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginStart="5dp"
                 android:text="@string/signal_history_book"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textSize="18sp" />
 
             <Spinner
                 android:id="@+id/signalHistorySpinner"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
-                android:minHeight="30dp"
                 android:entries="@array/status"
                 android:background="@drawable/edittext_border" />
         </LinearLayout>
+
+        <View
+            android:id="@+id/view6"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:layout_below="@id/recordsLinearLayout24"
+            android:background="@android:color/darker_gray"/>
+
+        <LinearLayout
+            android:id="@+id/recordsLinearLayout25"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/view6"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/recordsActionByTextView"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="5dp"
+                android:text="@string/action_by"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/recordsActionBySpinner"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:minHeight="30dp"
+                android:entries="@array/jaipurActionBy"
+                android:background="@drawable/edittext_border" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/recordsActionByEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/recordsLinearLayout25"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            android:background="@drawable/edittext_border"
+            android:ems="10"
+            android:hint="@string/officer_designation"
+            android:inputType="textPersonName"
+            android:padding="5dp"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/recordSubmitButton"
@@ -868,10 +988,11 @@
             android:background="@color/colorPrimary"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:layout_below="@id/recordsLinearLayout24"
+            android:layout_below="@id/recordsActionByEditText"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:text="@string/submit"
+            android:onClick="saveRecordsData"
             android:textColor="@android:color/background_light"
             android:textSize="18sp" />
 

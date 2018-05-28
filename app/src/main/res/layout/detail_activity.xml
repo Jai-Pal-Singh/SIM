@@ -25,9 +25,16 @@
             android:background="@drawable/edittext_border"
             android:ems="10"
             android:hint="@string/name_of_on_duty_station_master"
-            android:inputType="textPersonName"
+            android:inputType="textCapWords|textPersonName"
             android:padding="5dp"
             android:textSize="20sp" />
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:background="@android:color/darker_gray"/>
 
         <TextView
             android:id="@+id/SMKeyTextView"
@@ -35,13 +42,14 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:text="@string/sm_s_key_was_found_in_working_order"
             android:textSize="20sp"
             android:textStyle="bold" />
 
 
         <RadioGroup
+            android:id="@+id/SmKeyRadioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -56,6 +64,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_weight="1"
                 android:text="@string/yes"
+                android:checked="true"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -66,6 +75,13 @@
                 android:text="@string/no"
                 android:textSize="18sp" />
         </RadioGroup>
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:background="@android:color/darker_gray"/>
 
         <TextView
             android:id="@+id/TelecomInstallationTextView"
@@ -89,6 +105,7 @@
             android:textSize="18sp" />
 
         <RadioGroup
+            android:id="@+id/VHFSetRadioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -102,7 +119,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_weight="1"
-                android:text="@string/yes"
+                android:text="@string/working"
+                android:checked="true"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -110,7 +128,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/no"
+                android:text="@string/notworking"
                 android:textSize="18sp" />
         </RadioGroup>
 
@@ -125,20 +143,21 @@
             android:textSize="18sp" />
 
         <RadioGroup
+            android:id="@+id/ControlPhoneRadioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="10dp"
             android:orientation="horizontal">
-
             <RadioButton
                 android:id="@+id/ControlPhoneYesRadioButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_weight="1"
-                android:text="@string/yes"
+                android:text="@string/working"
+                android:checked="true"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -146,7 +165,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/no"
+                android:text="@string/notworking"
                 android:textSize="18sp" />
         </RadioGroup>
 
@@ -161,6 +180,7 @@
             android:textSize="18sp" />
 
         <RadioGroup
+            android:id="@+id/RailwayPhoneRadioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -174,7 +194,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_weight="1"
-                android:text="@string/yes"
+                android:text="@string/working"
+                android:checked="true"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -182,7 +203,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/no"
+                android:text="@string/notworking"
                 android:textSize="18sp" />
         </RadioGroup>
 
@@ -197,6 +218,7 @@
             android:textSize="18sp" />
 
         <RadioGroup
+            android:id="@+id/VHFRepeaterRadioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -210,7 +232,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_weight="1"
-                android:text="@string/yes"
+                android:text="@string/working"
+                android:checked="true"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -218,9 +241,24 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/no"
+                android:text="@string/notworking"
                 android:textSize="18sp" />
         </RadioGroup>
+
+        <EditText
+            android:id="@+id/vhfRepeaterActionByEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            android:background="@drawable/edittext_border"
+            android:ems="10"
+            android:hint="@string/officer_designation"
+            android:inputType="textPersonName"
+            android:padding="5dp"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/PASystemTextView"
@@ -233,6 +271,7 @@
             android:textSize="18sp" />
 
         <RadioGroup
+            android:id="@+id/PASystemRadioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -246,7 +285,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_weight="1"
-                android:text="@string/yes"
+                android:text="@string/working"
+                android:checked="true"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -254,7 +294,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/no"
+                android:text="@string/notworking"
                 android:textSize="18sp" />
         </RadioGroup>
 
@@ -271,13 +311,62 @@
             android:hint="@string/any_other_deficiencies"
             android:inputType="textMultiLine" />
 
+        <LinearLayout
+            android:id="@+id/detailLinearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/vhfSetActionByTextView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/action_by"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/vhfSetActionBySpinner"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="27dp"
+                android:entries="@array/jaipurActionBy"
+                android:background="@drawable/edittext_border" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/vhfSetActionByEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            android:background="@drawable/edittext_border"
+            android:ems="10"
+            android:hint="@string/officer_designation"
+            android:inputType="textPersonName"
+            android:padding="5dp"
+            android:textSize="18sp" />
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:background="@android:color/darker_gray"/>
+
         <TextView
             android:id="@+id/CrankHandleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:text="@string/crank_handle_testing_by_sm_and_pointsman"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -312,6 +401,7 @@
                 android:paddingRight="5dp"
                 android:clickable="true"
                 android:inputType="date"
+                android:focusableInTouchMode="false"
                 android:focusable="true" />
 
         </RelativeLayout>
@@ -342,9 +432,9 @@
                 android:layout_marginEnd="30dp"
                 android:background="@drawable/edittext_border"
                 android:ems="10"
+                android:inputType="text|textCapCharacters"
                 android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:inputType="text|number" />
+                android:paddingRight="5dp" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -373,10 +463,17 @@
                 android:layout_marginEnd="30dp"
                 android:background="@drawable/edittext_border"
                 android:ems="10"
+                android:inputType="text"
                 android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:inputType="text|number" />
+                android:paddingRight="5dp" />
         </RelativeLayout>
+
+        <View
+            android:id="@+id/view4"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:background="@android:color/darker_gray"/>
 
         <TextView
             android:id="@+id/OFCHutTextView"
@@ -384,7 +481,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:text="@string/ofc_hut"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -439,6 +536,7 @@
             android:textSize="18sp" />
 
         <RadioGroup
+            android:id="@+id/DigitalEquipmentRadioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -452,7 +550,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_weight="1"
-                android:text="@string/ok"
+                android:text="@string/working"
+                android:checked="true"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -460,7 +559,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/not_ok"
+                android:text="@string/notworking"
                 android:textSize="18sp" />
         </RadioGroup>
 
@@ -475,6 +574,7 @@
             android:textSize="18sp" />
 
         <RadioGroup
+            android:id="@+id/BatteryRecordsRadioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -489,6 +589,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_weight="1"
                 android:text="@string/yes"
+                android:checked="true"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -511,6 +612,7 @@
             android:textSize="18sp" />
 
         <RadioGroup
+            android:id="@+id/EarthTerminationRadioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -525,6 +627,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_weight="1"
                 android:text="@string/found"
+                android:checked="true"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -550,16 +653,93 @@
             android:inputType="textMultiLine"
             android:singleLine="true" />
 
+        <LinearLayout
+            android:id="@+id/detailLinearLayout6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/digitalEquipActionByTextView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/action_by"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/digitalEquipActionBySpinner"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="27dp"
+                android:entries="@array/jaipurActionBy"
+                android:background="@drawable/edittext_border" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/digitalEquipActionByEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            android:background="@drawable/edittext_border"
+            android:ems="10"
+            android:hint="@string/officer_designation"
+            android:inputType="textPersonName"
+            android:padding="5dp"
+            android:textSize="18sp" />
+
+        <View
+            android:id="@+id/view5"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:background="@android:color/darker_gray"/>
+
         <TextView
             android:id="@+id/TestedSocketsTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:text="@string/emergency_sockets_tested_if_any"
             android:textSize="20sp"
             android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/EmergencySocketRadioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/EmergencySocketOkRadioButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_weight="1"
+                android:text="@string/working"
+                android:checked="true"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/EmergencySocketNotOkRadioButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/notworking"
+                android:textSize="18sp" />
+        </RadioGroup>
 
         <EditText
             android:id="@+id/TestedSocketsEditText"
@@ -576,6 +756,55 @@
             android:inputType="textMultiLine"
             android:singleLine="true" />
 
+        <LinearLayout
+            android:id="@+id/detailLinearLayout7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/testedSocketsActionByTextView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/action_by"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/testedSocketsActionBySpinner"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="27dp"
+                android:entries="@array/jaipurActionBy"
+                android:background="@drawable/edittext_border" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/testedSocketsActionByEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            android:visibility="visible"
+            android:background="@drawable/edittext_border"
+            android:ems="10"
+            android:hint="@string/officer_designation"
+            android:inputType="textPersonName"
+            android:padding="5dp"
+            android:textSize="18sp" />
+
+        <View
+            android:id="@+id/view7"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:background="@android:color/darker_gray"/>
+
         <Button
             android:id="@+id/SubmitButton"
             android:layout_width="match_parent"
@@ -587,6 +816,7 @@
             android:background="@color/colorPrimary"
             android:text="@string/submit"
             android:textColor="@android:color/background_light"
+            android:onClick="saveDetailActivityData"
             android:textSize="18sp" />
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

@@ -6,16 +6,44 @@
     android:orientation="vertical"
     android:layout_marginTop="10dp"
     xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView
-        android:id="@+id/axleCounter3TextView"
+
+    <View
+        android:id="@+id/view1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/axle_counter_2"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:layout_height="1dp"
+        android:layout_marginTop="15dp"
+        android:background="@android:color/darker_gray"/>
+
+    <LinearLayout
+        android:id="@+id/axleCountersLayout21"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/axleCounter3TextView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/axle_counter_2"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/axleCounter2EditTextForReplicate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/edittext_border"
+            android:hint="JU - BGKT"
+            android:inputType="textCapCharacters"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:textSize="20sp" />
+    </LinearLayout>
 
     <LinearLayout
     android:id="@+id/axleCountersLayout5"
@@ -34,7 +62,7 @@
         android:text="@string/working_on"
         android:textSize="18sp" />
     <Spinner
-        android:id="@+id/workingAC2Spinner"
+        android:id="@+id/workingAC2SpinnerForReplicate"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="match_parent"
@@ -60,7 +88,7 @@
         android:text="@string/electrical_parameter_records_were_maintained"
         android:textSize="18sp" />
     <Spinner
-        android:id="@+id/electricalAC2Spinner"
+        android:id="@+id/electricalAC2SpinnerForReplicate"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="match_parent"
@@ -86,7 +114,7 @@
         android:textSize="18sp" />
 
     <EditText
-        android:id="@+id/resetAC2EditText"
+        android:id="@+id/resetAC2EditTextForReplicate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -97,4 +125,62 @@
         android:textAlignment="center"
         android:textSize="18sp" />
     </LinearLayout>
+
+    <EditText
+        android:id="@+id/acdeficiencyEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/edittext_border"
+        android:ems="10"
+        android:hint="@string/any_deficiency_found"
+        android:inputType="textMultiLine"
+        android:maxLines="4"
+        android:minLines="4"
+        android:padding="5dp"
+        android:scrollbars="vertical" />
+
+    <LinearLayout
+        android:id="@+id/axleCountersLayout8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/axleCountersActionByTextViewForReplicate"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="5dp"
+            android:text="@string/action_by"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/acActionBySpinnerForReplicate"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:minHeight="30dp"
+            android:entries="@array/jaipurActionBy"
+            android:background="@drawable/edittext_border" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/acActionByEditTextForReplicate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:visibility="gone"
+        android:background="@drawable/edittext_border"
+        android:ems="10"
+        android:hint="@string/officer_designation"
+        android:inputType="textPersonName"
+        android:padding="5dp"
+        android:textSize="18sp" />
 </LinearLayout>

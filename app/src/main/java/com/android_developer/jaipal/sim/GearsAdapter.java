@@ -3,6 +3,7 @@ package com.android_developer.jaipal.sim;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -24,6 +25,8 @@ public class GearsAdapter  extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     private static final int LENGTH = 10;
 //    private final Button submitBtn;
     private final String[] name;
+//    private  String division, inspectionDate;
+    Bundle extras;
     private final Drawable[] picture;
     private Context mContext;
     private LayoutInflater mInflater;
@@ -31,10 +34,11 @@ public class GearsAdapter  extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     private static final int TYPE_ITEM = 1;
     private static final int TYPE_FOOTER = 2;
 
-    public GearsAdapter(Context context, String[] gear, Drawable[] gear_picture) {
+    public GearsAdapter(Context context, String[] gear, Drawable[] gear_picture, Bundle extra) {
         name = gear;
         picture = gear_picture;
         mContext = context;
+        extras = extra;
         this.mInflater = LayoutInflater.from( context );
     }
 

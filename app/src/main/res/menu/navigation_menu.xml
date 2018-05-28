@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <group
+        android:id="@+id/gp1"
+        android:checkableBehavior="none">
+        <item android:id="@+id/Register"
+            android:title="@string/register_a_user"
+            android:icon="@mipmap/icons8addusermale24"/>
+    </group>
+
+    <group
+        android:id="@+id/gp2"
+        android:checkableBehavior="none">
+        <item android:id="@+id/downloadInspectionNotes"
+            android:title="@string/download_inspection_notes"
+            android:icon="@mipmap/ic_get_app_black_24dp"/>
+    </group>
+
+    <group
+        android:id="@+id/gp3"
+        android:checkableBehavior="none">
+        <item android:id="@+id/AboutITCenter"
+            android:title="@string/about_it_center_nwr"
+            android:icon="@mipmap/icons8about24"/>
+    </group>
+
+    <group
+        android:id="@+id/gp4"
+        android:checkableBehavior="none">
+        <item android:id="@+id/AboutDeveloper"
+            android:title="@string/about_developer"
+            android:icon="@mipmap/icons8workspace24"/>
+    </group>
+
+    <group
+        android:id="@+id/gp5"
+        android:checkableBehavior="none">
+        <item android:id="@+id/logout"
+            android:title="@string/log_out"
+            android:icon="@mipmap/if_logout_71898"/>
+    </group>
+
+</menu>
