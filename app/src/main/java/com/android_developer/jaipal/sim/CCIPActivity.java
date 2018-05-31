@@ -59,10 +59,10 @@ public class CCIPActivity extends AppCompatActivity implements View.OnClickListe
         applyOnFocusChangeListener( COCYNEditText );
         applyOnFocusChangeListener( EBPUEditText );
         applyOnFocusChangeListener( ECHEditText );
-        applyOnFocusChangeListener( lastAnnualDateEditText );
+        applyOnFocusChangeListenerForDate( lastAnnualDateEditText );
         applyOnFocusChangeListener( ccipActionByEditTxt );
 
-        setActionBySpinner(selectedDivision,ccipActionBySpr);
+        setActionBySpinner(selectedDivision,ccipActionBySpr,sharedpreferences.getInt( "ccipActionBySprPosition",0));
         applyOnItemSelectedListener(ccipActionBySpr,ccipActionByEditTxt);
     }
 
@@ -104,6 +104,7 @@ public class CCIPActivity extends AppCompatActivity implements View.OnClickListe
         SharedPreferences.Editor editor = sharedpreferences.edit();
         editor.putBoolean( "ccipActivityComplete",isActivityComplete );
         editor.putString( "typeOfInterlockingSpinner",typeOfInterlockingSpinner.getSelectedItem().toString() );
+        editor.putInt( "typeOfInterlockingSpinnerPosition",typeOfInterlockingSpinner.getSelectedItemPosition() );
         editor.putBoolean(getResources().getString( R.string.sip_swrd_is_as_per_the_physical_yard_layout ), SIPCheckBox.isChecked());
         editor.putBoolean(getResources().getString( R.string.counters_on_panel_vdu_are_same_as_recorded_in_counter_register ), countersCheckBox.isChecked());
         editor.putBoolean(getResources().getString( R.string.sample_checking_of_calling_on_signal_coggb_counter_increment ), sampleCheckingCheckBox.isChecked());
@@ -119,12 +120,14 @@ public class CCIPActivity extends AppCompatActivity implements View.OnClickListe
         editor.putString( "ECHEditText", ECHEditText.getText().toString() );
         editor.putString( "lastAnnualDateEditText", lastAnnualDateEditText.getText().toString() );
         editor.putString( "ccipActionBySpr",ccipActionBySpr.getSelectedItem().toString() );
+        editor.putInt( "ccipActionBySprPosition",ccipActionBySpr.getSelectedItemPosition() );
         editor.putString( "ccipActionByEditTxt",ccipActionByEditTxt.getText().toString() );
         editor.apply();
     }
 
     private void getSavedDataFromSharedPreferences() {
         sharedpreferences = getSharedPreferences( MyPREFERENCES, Context.MODE_PRIVATE );
+        typeOfInterlockingSpinner.setSelection( sharedpreferences.getInt( "typeOfInterlockingSpinnerPosition",0) );
         SIPCheckBox.setChecked( sharedpreferences.getBoolean( getResources().getString( R.string.sip_swrd_is_as_per_the_physical_yard_layout ), false ) );
         countersCheckBox.setChecked( sharedpreferences.getBoolean( getResources().getString( R.string.counters_on_panel_vdu_are_same_as_recorded_in_counter_register ), false ) );
         sampleCheckingCheckBox.setChecked( sharedpreferences.getBoolean( getResources().getString( R.string.sample_checking_of_calling_on_signal_coggb_counter_increment ), false ) );
@@ -147,6 +150,22 @@ public class CCIPActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View view) {
                 datePicker.show();
+            }
+        });
+
+        lastAnnualDateEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    // code to execute when EditText loses focus
+                    if(TextUtils.isEmpty(lastAnnualDateEditText.getText().toString())){
+                        lastAnnualDateEditText.setError( "Invalid Input" );
+                    }
+                    else
+                        lastAnnualDateEditText.setError( null );
+                }
+                else
+                    lastAnnualDateEditText.setError( null );
             }
         });
 
@@ -189,6 +208,8 @@ public class CCIPActivity extends AppCompatActivity implements View.OnClickListe
                     if(TextUtils.isEmpty(inputEditTxt.getText().toString())){
                         inputEditTxt.setError( "Invalid Input" );
                     }
+                    else
+                        inputEditTxt.setError( null );
                 }
                 else
                     inputEditTxt.setError( null );
@@ -196,7 +217,30 @@ public class CCIPActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
-    private void setActionBySpinner(String selectedDivision, Spinner ActionBySpr) {
+    private void applyOnFocusChangeListenerForDate(final EditText inputEditTxt) {
+        inputEditTxt.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    // code to execute when EditText loses focus
+                    if(TextUtils.isEmpty(inputEditTxt.getText().toString())){
+                        inputEditTxt.requestFocus();
+                        inputEditTxt.setError( "Invalid Input" );
+                    }
+                    else {
+                        inputEditTxt.requestFocus();
+                        inputEditTxt.setError( null );
+                    }
+                }
+                else{
+                    inputEditTxt.requestFocus();
+                    inputEditTxt.setError( null );
+                }
+            }
+        });
+    }
+
+    private void setActionBySpinner(String selectedDivision, Spinner ActionBySpr, int position) {
         ArrayAdapter<String> adapter;
         String[] actionBy;
         final List<String> actionByList;
@@ -207,6 +251,7 @@ public class CCIPActivity extends AppCompatActivity implements View.OnClickListe
                 adapter = new ArrayAdapter<String>( this, R.layout.support_simple_spinner_dropdown_item, actionByList );
                 adapter.setDropDownViewResource( R.layout.support_simple_spinner_dropdown_item );
                 ActionBySpr.setAdapter( adapter );
+                ActionBySpr.setSelection( position );
                 break;
             case "JU":
                 actionBy = createActionByList(stationCode, "SSE/Sig/","SSE/Tele/",getResources().getStringArray( R.array.jodhpurActionBy ));
@@ -214,6 +259,7 @@ public class CCIPActivity extends AppCompatActivity implements View.OnClickListe
                 adapter = new ArrayAdapter<String>( this, R.layout.support_simple_spinner_dropdown_item, actionByList );
                 adapter.setDropDownViewResource( R.layout.support_simple_spinner_dropdown_item );
                 ActionBySpr.setAdapter( adapter );
+                ActionBySpr.setSelection( position );
                 break;
             case "AII":
                 actionBy = createActionByList(stationCode, "SSE/Sig/","SSE/Tele/",getResources().getStringArray( R.array.ajmerActionBy ));
@@ -221,6 +267,7 @@ public class CCIPActivity extends AppCompatActivity implements View.OnClickListe
                 adapter = new ArrayAdapter<String>( this, R.layout.support_simple_spinner_dropdown_item, actionByList );
                 adapter.setDropDownViewResource( R.layout.support_simple_spinner_dropdown_item );
                 ActionBySpr.setAdapter( adapter );
+                ActionBySpr.setSelection( position );
                 break;
             case "BKN":
                 actionBy = createActionByList(stationCode, "SSE/Sig/","SSE/Tele/",getResources().getStringArray( R.array.bikanerActionBy ));
@@ -228,6 +275,7 @@ public class CCIPActivity extends AppCompatActivity implements View.OnClickListe
                 adapter = new ArrayAdapter<String>( this, R.layout.support_simple_spinner_dropdown_item, actionByList );
                 adapter.setDropDownViewResource( R.layout.support_simple_spinner_dropdown_item );
                 ActionBySpr.setAdapter( adapter );
+                ActionBySpr.setSelection( position );
                 break;
         }
     }

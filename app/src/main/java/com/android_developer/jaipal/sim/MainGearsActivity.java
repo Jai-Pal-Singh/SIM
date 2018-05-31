@@ -115,13 +115,13 @@ public class MainGearsActivity extends AppCompatActivity {
         sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
 
         if(sharedpreferences.getBoolean( "detailActivityComplete",false ) && sharedpreferences.getBoolean( "pointsCrossingActivityComplete",false ) && sharedpreferences.getBoolean( "trackCircuitsActivityComplete",false )  && sharedpreferences.getBoolean( "signalsActivityComplete",false )  && sharedpreferences.getBoolean( "ccipActivityComplete",false ) && sharedpreferences.getBoolean( "biAcActivityComplete",false ) && sharedpreferences.getBoolean( "powerActivityComplete",false ) && sharedpreferences.getBoolean( "levelActivityComplete",false ) && sharedpreferences.getBoolean( "recordsActivityComplete",false ) && sharedpreferences.getBoolean( "nonSntActivityComplete",false )) {
-//            sendDataToDBTask task = new sendDataToDBTask();
-//            task.execute();
+            sendDataToDBTask task = new sendDataToDBTask();
+            task.execute();
 //            sendSMS sms = new sendSMS();
 //            sms.execute(  );
 //            if(task.getStatus()==AsyncTask.Status.FINISHED) {
-            generatePdf generate = new generatePdf();
-            generate.execute(  );
+//            generatePdf generate = new generatePdf();
+//            generate.execute(  );
 //            }
 //            GenerateInspectionNote generateInspectionNote = new GenerateInspectionNote( mContext );
 //            generateInspectionNote.uploadPdf();
@@ -632,6 +632,9 @@ public class MainGearsActivity extends AppCompatActivity {
         editor.remove("digitalEquipActionByEditText" );
         editor.remove("TestedSocketsEditText" );
         editor.remove("testedSocketsActionByEditText" );
+        editor.remove("vhfSetActionBySprPosition" );
+        editor.remove("digitalEquipActionBySprPosition" );
+        editor.remove("testedSocketsActionBySprPosition" );
         editor.remove( "detailActivityComplete" );
 //        Points and Crossings
         editor.remove( getResources().getString( R.string.point_doesn_t_get_operated_when_point_zone_tr_is_dropped ) );
@@ -652,6 +655,9 @@ public class MainGearsActivity extends AppCompatActivity {
         editor.remove( "pointsCrossingLastJointActionBySpinner" );
         editor.remove( "pointsCrossingLastJointActionByEditText" );
         editor.remove( "pointsCrossingActivityComplete" );
+        editor.remove( "pointsCrossingEnsureActionBySpinnerPosition" );
+        editor.remove( "pointsCrossingDetailsActionBySprPosition" );
+        editor.remove( "pointsCrossingLastJointActionBySprPosition" );
         //Track Circuits
         editor.remove( getResources().getString( R.string.double_bonding_has_been_done_on_all_the_continuous_rail_joints_and_sejs ) );
         editor.remove( getResources().getString( R.string.j_type_pandrol_clip_has_been_used_at_glued_joints_to_avoid_shorting_of_tc ) );
@@ -662,6 +668,7 @@ public class MainGearsActivity extends AppCompatActivity {
         editor.remove( "tracksDeficiencyEditText" );
         editor.remove( "trackCircuitsActionByEditText" );
         editor.remove( "trackCircuitsActivityComplete" );
+        editor.remove( "trackCircuitsActionBySpinnerPosition" );
         //Signals
         editor.remove( getResources().getString( R.string.signal_lamp_voltae_90_of_rated_value ) );
         editor.remove( getResources().getString( R.string.vecr_drops_with_fusing_of_minimum_3_route_leds ) );
@@ -708,6 +715,7 @@ public class MainGearsActivity extends AppCompatActivity {
         editor.remove( "voltage10EditText" );
         editor.remove( "current10EditText" );
         editor.remove( "signalsActionBySpinner" );
+        editor.remove( "signalsActionBySpinnerPosition" );
         editor.remove( "signalsActionByEditText" );
         editor.remove( "signalsActivityComplete" );
         //CCIP VDU
@@ -729,6 +737,8 @@ public class MainGearsActivity extends AppCompatActivity {
         editor.remove( "ccipActionBySpr" );
         editor.remove( "ccipActionByEditTxt" );
         editor.remove( "ccipActivityComplete" );
+        editor.remove( "ccipActionBySprPosition" );
+        editor.remove( "typeOfInterlockingSpinnerPosition" );
         //BlockInstruments and Axle Counter
         editor.remove( "bi1EditTxt" );
         editor.remove( "localBI1EditTxt" );
@@ -803,10 +813,23 @@ public class MainGearsActivity extends AppCompatActivity {
         editor.remove( "powerSupplyActionBySpr" );
         editor.remove( "powerSupplyActionByEditTxt" );
         editor.remove( "powerActivityComplete" );
+        editor.remove( "ipsMakespnrPosition" );
+        editor.remove( "relayRoomOpeningSpinnerPosition" );
+        editor.remove( "spareRelaySpinnerPosition" );
+        editor.remove( "whiteWashingRelaySpinnerPosition" );
+        editor.remove( "electricalGeneralSpinnerPosition" );
+        editor.remove( "earthingArrangementsSpinnerPosition" );
+        editor.remove( "whetherAMCSpinnerPosition" );
+        editor.remove( "maintenanceRecordsSpinnerPosition" );
+        editor.remove( "eiMakeSpnrPosition" );
+        editor.remove( "eiRackSpinnerPosition" );
+        editor.remove( "voltageParameterSpinnerPosition" );
+        editor.remove( "powerSupplyActionBySprPosition" );
         //Level Crossing
         editor.remove( "gateNo" );
         editor.remove( "nameOfGateman" );
         editor.remove( "gateTypeSpnr" );
+        editor.remove( "gateTypeSpnrPosition" );
         editor.remove( getResources().getString( R.string.positive_boom_locking_tested ) );
         editor.remove( getResources().getString( R.string.booms_were_painted ) );
         editor.remove( getResources().getString( R.string.gateman_having_adequate_safety_knowledge ) );
@@ -814,9 +837,10 @@ public class MainGearsActivity extends AppCompatActivity {
         editor.remove( getResources().getString( R.string.sse_je_inspections_are_as_per_their_maintenance_schedule ) );
         editor.remove( getResources().getString( R.string.inspection_maintenance_records_were_maintained ) );
         editor.remove( getResources().getString( R.string.other_electrical_and_mechanical_parameter_of_gates_were_checked ) );
-        editor.remove( "voltageParameterSpinner" );
-        editor.remove( "powerSupplyActionBySpr" );
-        editor.remove( "powerSupplyActionByEditTxt" );
+        editor.remove( "anyDeficiencyFound" );
+        editor.remove( "levelCrossingActionBySpr" );
+        editor.remove( "levelCrossingActionBySprPosition" );
+        editor.remove( "levelCrossingActionByEditTxt" );
         removeLevelCrossingReplicatedGates(sharedpreferences.getInt("levelCrossingGateCount",0));
         editor.remove( "levelActivityComplete" );
         //Records
@@ -857,6 +881,17 @@ public class MainGearsActivity extends AppCompatActivity {
         editor.remove( "recordsActionBySpr" );
         editor.remove( "recordsActionByEditTxt" );
         editor.remove( "recordsActivityComplete" );
+        editor.remove( "signalInfringementSpinnerPosition" );
+        editor.remove( "earthTestingSpinnerPosition" );
+        editor.remove( "cableMeggeringSpinnerPosition" );
+        editor.remove( "cableRouteSpinnerPosition" );
+        editor.remove( "cableCoreSpinnerPosition" );
+        editor.remove( "SMC1SpinnerPosition" );
+        editor.remove( "SMC12SpinnerPosition" );
+        editor.remove( "signalHistorySpinnerPosition" );
+        editor.remove( "updatedCktDiagramSpinnerPosition" );
+        editor.remove( "signalInterlockingSpinnerPosition" );
+        editor.remove( "recordsActionBySprPosition" );
         //Non SNT
         editor.remove( "engineeringDeficiencyEditText" );
         editor.remove( "electricalDeficiencyEditText" );
@@ -909,6 +944,7 @@ public class MainGearsActivity extends AppCompatActivity {
             editor.remove( "gateNo"+gateNumber );
             editor.remove( "nameOfGateman"+gateNumber );
             editor.remove( "gateTypeSpnr"+gateNumber );
+            editor.remove( "gateTypeSpnrPosition"+gateNumber );
             editor.remove( getResources().getString( R.string.positive_boom_locking_tested )+gateNumber );
             editor.remove( getResources().getString( R.string.booms_were_painted )+gateNumber );
             editor.remove( getResources().getString( R.string.gateman_having_adequate_safety_knowledge )+gateNumber );
@@ -916,9 +952,10 @@ public class MainGearsActivity extends AppCompatActivity {
             editor.remove( getResources().getString( R.string.sse_je_inspections_are_as_per_their_maintenance_schedule )+gateNumber );
             editor.remove( getResources().getString( R.string.inspection_maintenance_records_were_maintained )+gateNumber );
             editor.remove( getResources().getString( R.string.other_electrical_and_mechanical_parameter_of_gates_were_checked )+gateNumber );
-            editor.remove( "voltageParameterSpinner"+gateNumber );
-            editor.remove( "powerSupplyActionBySpr"+gateNumber );
-            editor.remove( "powerSupplyActionByEditTxt"+gateNumber );
+            editor.remove( "anyDeficiencyFound"+gateNumber );
+            editor.remove( "levelCrossingActionBySpr"+gateNumber );
+            editor.remove( "levelCrossingActionBySprForReplicate"+gateNumber );
+            editor.remove( "levelCrossingActionByEditTxt"+gateNumber );
             editor.apply();
         }
     }
@@ -994,7 +1031,9 @@ public class MainGearsActivity extends AppCompatActivity {
                 Looper.prepare();
                 GenerateInspectionNote generateInspectionNote = new GenerateInspectionNote( mContext );
                 generateInspectionNote.uploadPdf();
-//                generateInspectionNote.previewPdf();
+                generateInspectionNote.previewPdf();
+                removeAllSharedPreferences();
+
                 success =1;
             } else {
                 success = 0;

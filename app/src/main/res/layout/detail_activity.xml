@@ -4,8 +4,8 @@
     android:id="@+id/groupsScrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_background"
     android:layout_margin="5dp"
+    android:background="@color/color_background"
     tools:context="com.android_developer.jaipal.sim.DetailActivity">
 
     <LinearLayout
@@ -34,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="15dp"
-            android:background="@android:color/darker_gray"/>
+            android:background="@android:color/darker_gray" />
 
         <TextView
             android:id="@+id/SMKeyTextView"
@@ -63,8 +63,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_weight="1"
-                android:text="@string/yes"
                 android:checked="true"
+                android:text="@string/yes"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -81,7 +81,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="15dp"
-            android:background="@android:color/darker_gray"/>
+            android:background="@android:color/darker_gray" />
 
         <TextView
             android:id="@+id/TelecomInstallationTextView"
@@ -119,8 +119,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_weight="1"
-                android:text="@string/working"
                 android:checked="true"
+                android:text="@string/working"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -150,14 +150,15 @@
             android:layout_marginRight="20dp"
             android:layout_marginTop="10dp"
             android:orientation="horizontal">
+
             <RadioButton
                 android:id="@+id/ControlPhoneYesRadioButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_weight="1"
-                android:text="@string/working"
                 android:checked="true"
+                android:text="@string/working"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -194,8 +195,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_weight="1"
-                android:text="@string/working"
                 android:checked="true"
+                android:text="@string/working"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -232,8 +233,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_weight="1"
-                android:text="@string/working"
                 android:checked="true"
+                android:text="@string/working"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -249,16 +250,16 @@
             android:id="@+id/vhfRepeaterActionByEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
             android:layout_marginEnd="20dp"
+            android:layout_marginStart="50dp"
             android:layout_marginTop="10dp"
-            android:visibility="gone"
             android:background="@drawable/edittext_border"
             android:ems="10"
             android:hint="@string/officer_designation"
             android:inputType="textPersonName"
             android:padding="5dp"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/PASystemTextView"
@@ -285,8 +286,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_weight="1"
-                android:text="@string/working"
                 android:checked="true"
+                android:text="@string/working"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -305,19 +306,19 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="10dp"
-            android:padding="5dp"
             android:background="@drawable/edittext_border"
             android:ems="10"
             android:hint="@string/any_other_deficiencies"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:padding="5dp" />
 
         <LinearLayout
             android:id="@+id/detailLinearLayout1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
             <TextView
@@ -332,33 +333,33 @@
             <Spinner
                 android:id="@+id/vhfSetActionBySpinner"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="27dp"
-                android:entries="@array/jaipurActionBy"
-                android:background="@drawable/edittext_border" />
+                android:layout_weight="1"
+                android:background="@drawable/edittext_border"
+                android:entries="@array/jaipurActionBy" />
         </LinearLayout>
 
         <EditText
             android:id="@+id/vhfSetActionByEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
-            android:visibility="gone"
             android:background="@drawable/edittext_border"
             android:ems="10"
             android:hint="@string/officer_designation"
             android:inputType="textPersonName"
             android:padding="5dp"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:visibility="gone" />
 
         <View
             android:id="@+id/view3"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="15dp"
-            android:background="@android:color/darker_gray"/>
+            android:background="@android:color/darker_gray" />
 
         <TextView
             android:id="@+id/CrankHandleTextView"
@@ -396,13 +397,13 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="30dp"
                 android:background="@drawable/edittext_border"
-                android:ems="10"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
                 android:clickable="true"
-                android:inputType="date"
+                android:ems="10"
+                android:focusable="true"
                 android:focusableInTouchMode="false"
-                android:focusable="true" />
+                android:inputType="date"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp" />
 
         </RelativeLayout>
 
@@ -473,7 +474,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="15dp"
-            android:background="@android:color/darker_gray"/>
+            android:background="@android:color/darker_gray" />
 
         <TextView
             android:id="@+id/OFCHutTextView"
@@ -510,9 +511,9 @@
                 android:layout_marginEnd="50dp"
                 android:background="@drawable/edittext_border"
                 android:ems="10"
+                android:inputType="numberDecimal"
                 android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:inputType="numberDecimal" />
+                android:paddingRight="5dp" />
 
             <TextView
                 android:id="@+id/VoltsTextView"
@@ -550,8 +551,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_weight="1"
-                android:text="@string/working"
                 android:checked="true"
+                android:text="@string/working"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -588,8 +589,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_weight="1"
-                android:text="@string/yes"
                 android:checked="true"
+                android:text="@string/yes"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -626,8 +627,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_weight="1"
-                android:text="@string/found"
                 android:checked="true"
+                android:text="@string/found"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -646,20 +647,20 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="10dp"
-            android:padding="5dp"
             android:background="@drawable/edittext_border"
             android:ems="10"
             android:hint="@string/any_other_deficiencies"
             android:inputType="textMultiLine"
+            android:padding="5dp"
             android:singleLine="true" />
 
         <LinearLayout
             android:id="@+id/detailLinearLayout6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
             <TextView
@@ -674,33 +675,33 @@
             <Spinner
                 android:id="@+id/digitalEquipActionBySpinner"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="27dp"
-                android:entries="@array/jaipurActionBy"
-                android:background="@drawable/edittext_border" />
+                android:layout_weight="1"
+                android:background="@drawable/edittext_border"
+                android:entries="@array/jaipurActionBy" />
         </LinearLayout>
 
         <EditText
             android:id="@+id/digitalEquipActionByEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
-            android:visibility="gone"
             android:background="@drawable/edittext_border"
             android:ems="10"
             android:hint="@string/officer_designation"
             android:inputType="textPersonName"
             android:padding="5dp"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:visibility="gone" />
 
         <View
             android:id="@+id/view5"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="15dp"
-            android:background="@android:color/darker_gray"/>
+            android:background="@android:color/darker_gray" />
 
         <TextView
             android:id="@+id/TestedSocketsTextView"
@@ -728,8 +729,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_weight="1"
-                android:text="@string/working"
                 android:checked="true"
+                android:text="@string/working"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -749,20 +750,20 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="10dp"
-            android:padding="5dp"
             android:background="@drawable/edittext_border"
             android:ems="10"
             android:hint="@string/km_no_of_socket_and_deficiencies_if_any"
             android:inputType="textMultiLine"
+            android:padding="5dp"
             android:singleLine="true" />
 
         <LinearLayout
             android:id="@+id/detailLinearLayout7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
             <TextView
@@ -777,33 +778,33 @@
             <Spinner
                 android:id="@+id/testedSocketsActionBySpinner"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="27dp"
-                android:entries="@array/jaipurActionBy"
-                android:background="@drawable/edittext_border" />
+                android:layout_weight="1"
+                android:background="@drawable/edittext_border"
+                android:entries="@array/jaipurActionBy" />
         </LinearLayout>
 
         <EditText
             android:id="@+id/testedSocketsActionByEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
-            android:visibility="visible"
             android:background="@drawable/edittext_border"
             android:ems="10"
             android:hint="@string/officer_designation"
             android:inputType="textPersonName"
             android:padding="5dp"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:visibility="visible" />
 
         <View
             android:id="@+id/view7"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="15dp"
-            android:background="@android:color/darker_gray"/>
+            android:background="@android:color/darker_gray" />
 
         <Button
             android:id="@+id/SubmitButton"
@@ -814,9 +815,9 @@
             android:layout_marginRight="30dp"
             android:layout_marginTop="20dp"
             android:background="@color/colorPrimary"
+            android:onClick="saveDetailActivityData"
             android:text="@string/submit"
             android:textColor="@android:color/background_light"
-            android:onClick="saveDetailActivityData"
             android:textSize="18sp" />
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

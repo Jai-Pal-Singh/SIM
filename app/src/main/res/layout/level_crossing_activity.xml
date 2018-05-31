@@ -271,5 +271,19 @@
             android:textColor="@android:color/background_light"
             android:textSize="20sp" />
 
+        <Button
+            android:id="@+id/levelCrossingGenerateInspectionNoteButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:text="@string/submit_and_generate_inspection_note_for_lc"
+            android:onClick="submitLevelCrossingData"
+            android:textColor="@android:color/background_light"
+            android:textSize="20sp" />
+
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

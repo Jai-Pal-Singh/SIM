@@ -19,19 +19,6 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GoogleApiAvailability;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.ResultCallback;
-import com.google.android.gms.drive.Drive;
-import com.google.android.gms.drive.DriveApi;
-import com.google.android.gms.drive.DriveFolder;
-import com.google.android.gms.drive.DriveId;
-import com.google.android.gms.drive.Metadata;
-import com.google.android.gms.drive.MetadataChangeSet;
-import com.google.android.gms.drive.query.Filters;
-import com.google.android.gms.drive.query.Query;
-import com.google.android.gms.drive.query.SearchableField;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -68,17 +55,15 @@ import java.util.Date;
 import static android.content.ContentValues.TAG;
 import static com.itextpdf.text.html.HtmlTags.FONT;
 
-public class GenerateInspectionNote extends Activity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener{
+public class GenerateInspectionNote extends Activity {
 
     Document document;
     File file;
+    String path;
+    String fileName;
     FileOutputStream fOut;
     Context mContext;
 
-    private GoogleApiClient mGoogleApiClient;
-    private static final String TAG = "<< DRIVE >>";
-    protected static final int REQUEST_CODE_RESOLUTION = 1337;
-    private String FOLDER_NAME = "SnT Inspection Management";
     private SharedPreferences sharedpreferences;
     public static final String MyPREFERENCES = "MyPrefs" ;
     private static Font catFont = new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD);
@@ -93,7 +78,7 @@ public class GenerateInspectionNote extends Activity implements GoogleApiClient.
         sharedpreferences = mContext.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         try {
             document = new Document( PageSize.A4, 25, 25, 25, 25);
-            String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/SIM";
+            path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/SIM";
             File dir = new File(path);
             if(!dir.exists())
                 dir.mkdirs();
@@ -102,8 +87,9 @@ public class GenerateInspectionNote extends Activity implements GoogleApiClient.
             String authDesig = sharedpreferences.getString("authDesignation", "");
             String newAuthDesig = authDesig.replaceAll( "/","_" );
 
-
-            file = new File(dir, sharedpreferences.getString("stationCode", "")+"_"+newAuthDesig+"_"+dateFormat.format(date)+".pdf");
+            fileName = sharedpreferences.getString("stationCode", "")+"_"+newAuthDesig+"_"+dateFormat.format(date)+".pdf";
+//            file = new File(dir, sharedpreferences.getString("stationCode", "")+"_"+newAuthDesig+"_"+dateFormat.format(date)+".pdf");
+            file = new File( dir, fileName );
             fOut = new FileOutputStream(file);
             PdfWriter writer =PdfWriter.getInstance(document, fOut);
             Header event = new Header();
@@ -1260,164 +1246,8 @@ public class GenerateInspectionNote extends Activity implements GoogleApiClient.
     }
 
     public void uploadPdf(){
-        if (mGoogleApiClient != null) {
-            upload_to_drive();
-        } else {
-            mGoogleApiClient = new GoogleApiClient.Builder(mContext).addApi(Drive.API)
-                    .addScope(Drive.SCOPE_FILE)
-//                    .addScope(Drive.SCOPE_APPFOLDER) // required for App Folder sample
-                    .addConnectionCallbacks(this)
-                    .addOnConnectionFailedListener(this)
-                    .setAccountName("sntinspection@gmail.com")
-                    .build();
-        mGoogleApiClient.connect();
-        upload_to_drive();
-            Log.e(TAG, "Could not fucking connect to google drive manager");
-        }
-    }
-    private void upload_to_drive() {
-
-        //async check if folder exists... if not, create it. continue after with create_file_in_folder(driveId);
-        check_folder_exists();
-    }
-
-    private void check_folder_exists() {
-        Query query =
-                new Query.Builder().addFilter( Filters.and(Filters.eq( SearchableField.TITLE, FOLDER_NAME), Filters.eq(SearchableField.TRASHED, false)))
-                        .build();
-        Drive.DriveApi.query(mGoogleApiClient, query).setResultCallback(new ResultCallback<DriveApi.MetadataBufferResult>() {
-            @Override public void onResult(DriveApi.MetadataBufferResult result) {
-                if (!result.getStatus().isSuccess()) {
-                    Log.e(TAG, "Cannot create folder in the root.");
-                } else {
-                    boolean isFound = false;
-                    for (Metadata m : result.getMetadataBuffer()) {
-                        if (m.getTitle().equals(FOLDER_NAME)) {
-                            Log.e(TAG, "Folder exists");
-                            isFound = true;
-                            DriveId driveId = m.getDriveId();
-                            create_file_in_folder(driveId);
-                            break;
-                        }
-                    }
-                    if (!isFound) {
-                        Log.i(TAG, "Folder not found; creating it.");
-                        MetadataChangeSet changeSet = new MetadataChangeSet.Builder().setTitle(FOLDER_NAME).build();
-                        Drive.DriveApi.getRootFolder(mGoogleApiClient)
-                                .createFolder(mGoogleApiClient, changeSet)
-                                .setResultCallback(new ResultCallback<DriveFolder.DriveFolderResult>() {
-                                    @Override public void onResult(DriveFolder.DriveFolderResult result) {
-                                        if (!result.getStatus().isSuccess()) {
-                                            Log.e(TAG, "U AR A MORON! Error while trying to create the folder");
-                                        } else {
-                                            Log.i(TAG, "Created a folder");
-                                            DriveId driveId = result.getDriveFolder().getDriveId();
-                                            create_file_in_folder(driveId);
-                                        }
-                                    }
-                                });
-                    }
-                }
-            }
-        });
-    }
-
-    private void create_file_in_folder(final DriveId driveId) {
-
-        Drive.DriveApi.newDriveContents(mGoogleApiClient).setResultCallback(new ResultCallback<DriveApi.DriveContentsResult>() {
-            @Override public void onResult(@NonNull DriveApi.DriveContentsResult driveContentsResult) {
-                if (!driveContentsResult.getStatus().isSuccess()) {
-                    Log.e(TAG, "U AR A MORON! Error while trying to create new file contents");
-                    return;
-                }
-
-                OutputStream outputStream = driveContentsResult.getDriveContents().getOutputStream();
-
-                //------ THIS IS AN EXAMPLE FOR FILE --------
-                Toast.makeText(mContext, "Uploading to drive. If you didn't fucked up something like usual you should see it there", Toast.LENGTH_LONG).show();
-//                final File theFile = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/xtests/tehfile.txt"); //>>>>>> WHAT FILE ?
-                final File theFile = file;
-                try {
-                    FileInputStream fileInputStream = new FileInputStream(theFile);
-                    byte[] buffer = new byte[1024];
-                    int bytesRead;
-                    while ((bytesRead = fileInputStream.read(buffer)) != -1) {
-                        outputStream.write(buffer, 0, bytesRead);
-                    }
-                } catch (IOException e1) {
-                    Log.i(TAG, "U AR A MORON! Unable to write file contents.");
-                }
-
-                MetadataChangeSet changeSet = new MetadataChangeSet.Builder().setTitle(theFile.getName()).setMimeType("text/plain").setStarred(false).build();
-                DriveFolder folder = driveId.asDriveFolder();
-                folder.createFile(mGoogleApiClient, changeSet, driveContentsResult.getDriveContents())
-                        .setResultCallback(new ResultCallback<DriveFolder.DriveFileResult>() {
-                            @Override public void onResult(@NonNull DriveFolder.DriveFileResult driveFileResult) {
-                                if (!driveFileResult.getStatus().isSuccess()) {
-                                    Log.e(TAG, "U AR A MORON!  Error while trying to create the file");
-                                    return;
-                                }
-                                Log.v(TAG, "Created a file: " + driveFileResult.getDriveFile().getDriveId());
-                            }
-                        });
-            }
-        });
-    }
-
-    @Override protected void onResume() {
-        super.onResume();
-        if (mGoogleApiClient == null) {
-            mGoogleApiClient = new GoogleApiClient.Builder(this).addApi(Drive.API)
-                    .addScope(Drive.SCOPE_FILE)
-//                    .addScope(Drive.SCOPE_APPFOLDER) // required for App Folder sample
-                    .addConnectionCallbacks(this)
-                    .addOnConnectionFailedListener(this)
-                    .setAccountName("sntinspection@gmail.com")
-                    .build();
-        }
-        mGoogleApiClient.connect();
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_CODE_RESOLUTION && resultCode == RESULT_OK) {
-            mGoogleApiClient.connect();
-        }
-    }
-
-    @Override protected void onPause() {
-        if (mGoogleApiClient != null) {
-            mGoogleApiClient.disconnect();
-        }
-        super.onPause();
-    }
-
-    @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {}
-
-    @Override
-    public void onConnected(@Nullable Bundle bundle) {
+//        FileUploadHandler fileUploadHandler = new FileUploadHandler();
 
     }
 
-    @Override
-    public void onConnectionSuspended(int i) {
-        Log.e(TAG, "onConnectionSuspended [" + String.valueOf(i) + "]");
-    }
-
-    @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-        Log.i(TAG, "GoogleApiClient connection failed: " + connectionResult.toString());
-        if (!connectionResult.hasResolution()) {
-            // show the localized error dialog.
-            GoogleApiAvailability.getInstance().getErrorDialog(this, connectionResult.getErrorCode(), 0).show();
-            return;
-        }
-        try {
-            connectionResult.startResolutionForResult(this, REQUEST_CODE_RESOLUTION);
-        } catch (IntentSender.SendIntentException e) {
-            Log.e(TAG, "U AR A MORON! Exception while starting resolution activity", e);
-        }
-    }
 }

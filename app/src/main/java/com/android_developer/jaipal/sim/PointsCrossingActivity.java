@@ -62,11 +62,11 @@ public class PointsCrossingActivity extends AppCompatActivity implements View.On
         applyOnFocusChangeListener( pointsCrossingDetailsActionByEditTxt );
         applyOnFocusChangeListener( pointsCrossingLastJointActionByEditTxt );
 
-        setActionBySpinner(selectedDivision,pointsCrossingEnsureActionBySpr);
+        setActionBySpinner(selectedDivision,pointsCrossingEnsureActionBySpr,sharedpreferences.getInt( "pointsCrossingEnsureActionBySpinnerPosition",0));
         applyOnItemSelectedListener(pointsCrossingEnsureActionBySpr, pointsCrossingEnsureActionByEditTxt);
-        setActionBySpinner(selectedDivision,pointsCrossingDetailsActionBySpr);
+        setActionBySpinner(selectedDivision,pointsCrossingDetailsActionBySpr,sharedpreferences.getInt( "pointsCrossingDetailsActionBySprPosition",0));
         applyOnItemSelectedListener(pointsCrossingDetailsActionBySpr, pointsCrossingDetailsActionByEditTxt );
-        setActionBySpinner(selectedDivision,pointsCrossingLastJointActionBySpr);
+        setActionBySpinner(selectedDivision,pointsCrossingLastJointActionBySpr,sharedpreferences.getInt( "pointsCrossingLastJointActionBySprPosition",0));
         applyOnItemSelectedListener(pointsCrossingLastJointActionBySpr, pointsCrossingLastJointActionByEditTxt );
     }
 
@@ -163,7 +163,7 @@ public class PointsCrossingActivity extends AppCompatActivity implements View.On
         });
     }
 
-    private void setActionBySpinner(String selectedDivision, Spinner ActionBySpr) {
+    private void setActionBySpinner(String selectedDivision, Spinner ActionBySpr, int position) {
         ArrayAdapter<String> adapter;
         String[] actionBy;
         final List<String> actionByList;
@@ -174,6 +174,7 @@ public class PointsCrossingActivity extends AppCompatActivity implements View.On
                 adapter = new ArrayAdapter<String>( this, R.layout.support_simple_spinner_dropdown_item, actionByList );
                 adapter.setDropDownViewResource( R.layout.support_simple_spinner_dropdown_item );
                 ActionBySpr.setAdapter( adapter );
+                ActionBySpr.setSelection( position );
                 break;
             case "JU":
                 actionBy = createActionByList(stationCode, "SSE/Sig/","SSE/Tele/",getResources().getStringArray( R.array.jodhpurActionBy ));
@@ -181,6 +182,7 @@ public class PointsCrossingActivity extends AppCompatActivity implements View.On
                 adapter = new ArrayAdapter<String>( this, R.layout.support_simple_spinner_dropdown_item, actionByList );
                 adapter.setDropDownViewResource( R.layout.support_simple_spinner_dropdown_item );
                 ActionBySpr.setAdapter( adapter );
+                ActionBySpr.setSelection( position );
                 break;
             case "AII":
                 actionBy = createActionByList(stationCode, "SSE/Sig/","SSE/Tele/",getResources().getStringArray( R.array.ajmerActionBy ));
@@ -188,6 +190,7 @@ public class PointsCrossingActivity extends AppCompatActivity implements View.On
                 adapter = new ArrayAdapter<String>( this, R.layout.support_simple_spinner_dropdown_item, actionByList );
                 adapter.setDropDownViewResource( R.layout.support_simple_spinner_dropdown_item );
                 ActionBySpr.setAdapter( adapter );
+                ActionBySpr.setSelection( position );
                 break;
             case "BKN":
                 actionBy = createActionByList(stationCode, "SSE/Sig/","SSE/Tele/",getResources().getStringArray( R.array.bikanerActionBy ));
@@ -195,6 +198,7 @@ public class PointsCrossingActivity extends AppCompatActivity implements View.On
                 adapter = new ArrayAdapter<String>( this, R.layout.support_simple_spinner_dropdown_item, actionByList );
                 adapter.setDropDownViewResource( R.layout.support_simple_spinner_dropdown_item );
                 ActionBySpr.setAdapter( adapter );
+                ActionBySpr.setSelection( position );
                 break;
         }
     }
@@ -238,15 +242,18 @@ public class PointsCrossingActivity extends AppCompatActivity implements View.On
         editor.putBoolean(getResources().getString( R.string.records_of_point_maintenance_were_maintained_and_were_placed_in_respective_point_machines ), pointMaintenanceCheckBox.isChecked());
         editor.putString( "pointsDeficiencyEditText", pointsDeficiencyEditText.getText().toString() );
         editor.putString( "pointsCrossingEnsureActionBySpinner",pointsCrossingEnsureActionBySpr.getSelectedItem().toString() );
+        editor.putInt( "pointsCrossingEnsureActionBySpinnerPosition",pointsCrossingEnsureActionBySpr.getSelectedItemPosition());
         editor.putString( "pointsCrossingEnsureActionByEditText",pointsCrossingEnsureActionByEditTxt.getText().toString() );
         editor.putString( "pointsDetailEditText", pointsDetailEditText.getText().toString() );
         editor.putString( "obstructionCurrentEditText", obstructionCurrentEditText.getText().toString() );
         editor.putString( "lockedPointsEditText", lockedPointsEditText.getText().toString() );
         editor.putString( "pointsCrossingDetailsActionBySpinner",pointsCrossingDetailsActionBySpr.getSelectedItem().toString() );
+        editor.putInt( "pointsCrossingDetailsActionBySprPosition",pointsCrossingDetailsActionBySpr.getSelectedItemPosition());
         editor.putString( "pointsCrossingDetailsActionByEditText",pointsCrossingDetailsActionByEditTxt.getText().toString() );
         editor.putString( "selectDateEditText", selectDateEtxt.getText().toString() );
         editor.putString( "lastJointDeficiencyEditText", lastJointDeficiencyEditText.getText().toString() );
         editor.putString( "pointsCrossingLastJointActionBySpinner",pointsCrossingLastJointActionBySpr.getSelectedItem().toString() );
+        editor.putInt( "pointsCrossingLastJointActionBySprPosition",pointsCrossingLastJointActionBySpr.getSelectedItemPosition());
         editor.putString( "pointsCrossingLastJointActionByEditText",pointsCrossingLastJointActionByEditTxt.getText().toString() );
         editor.putBoolean( "pointsCrossingActivityComplete",isActivityComplete );
         editor.apply();

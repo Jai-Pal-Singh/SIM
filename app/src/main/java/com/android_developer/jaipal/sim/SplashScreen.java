@@ -19,7 +19,7 @@ import android.widget.Toast;
 public class SplashScreen extends Activity {
 
     // Splash screen timer
-    private static int SPLASH_TIME_OUT = 200;
+    private static int SPLASH_TIME_OUT = 2000;
     private SharedPreferences sharedpreferences;
     private static final String MyPREFERENCES = "MyPrefs" ;
 

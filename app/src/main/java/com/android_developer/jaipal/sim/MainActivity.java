@@ -247,6 +247,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             Intent myIntent = new Intent(MainActivity.this, AboutDeveloper.class);
             startActivity(myIntent);
         }
+        if(id == R.id.feedback){
+            Intent myIntent = new Intent(MainActivity.this, Feedback.class);
+            startActivity(myIntent);
+        }
         if(id == R.id.logout){
             finish();
             sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);

@@ -40,9 +40,10 @@ public class TrackCircuitsActivity extends AppCompatActivity{
         initialUISetup();
         getDivisionFromSharedPreferences();
         getSavedDataFromSharedPreferences();
+        sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         isActivityComplete = false;
         applyOnFocusChangeListener( trackCircuitsActionByEditTxt );
-        setActionBySpinner(selectedDivision,trackCircuitsActionBySpr);
+        setActionBySpinner(selectedDivision,trackCircuitsActionBySpr,sharedpreferences.getInt( "trackCircuitsActionBySpinnerPosition",0));
         applyOnItemSelectedListener(trackCircuitsActionBySpr,trackCircuitsActionByEditTxt);
     }
 
@@ -109,7 +110,7 @@ public class TrackCircuitsActivity extends AppCompatActivity{
         });
     }
 
-    private void setActionBySpinner(String selectedDivision, Spinner ActionBySpr) {
+    private void setActionBySpinner(String selectedDivision, Spinner ActionBySpr, int position) {
         ArrayAdapter<String> adapter;
         String[] actionBy;
         final List<String> actionByList;
@@ -120,6 +121,7 @@ public class TrackCircuitsActivity extends AppCompatActivity{
                 adapter = new ArrayAdapter<String>( this, R.layout.support_simple_spinner_dropdown_item, actionByList );
                 adapter.setDropDownViewResource( R.layout.support_simple_spinner_dropdown_item );
                 ActionBySpr.setAdapter( adapter );
+                ActionBySpr.setSelection( position );
                 break;
             case "JU":
                 actionBy = createActionByList(stationCode, "SSE/Sig/","SSE/Tele/",getResources().getStringArray( R.array.jodhpurActionBy ));
@@ -127,6 +129,7 @@ public class TrackCircuitsActivity extends AppCompatActivity{
                 adapter = new ArrayAdapter<String>( this, R.layout.support_simple_spinner_dropdown_item, actionByList );
                 adapter.setDropDownViewResource( R.layout.support_simple_spinner_dropdown_item );
                 ActionBySpr.setAdapter( adapter );
+                ActionBySpr.setSelection( position );
                 break;
             case "AII":
                 actionBy = createActionByList(stationCode, "SSE/Sig/","SSE/Tele/",getResources().getStringArray( R.array.ajmerActionBy ));
@@ -134,6 +137,7 @@ public class TrackCircuitsActivity extends AppCompatActivity{
                 adapter = new ArrayAdapter<String>( this, R.layout.support_simple_spinner_dropdown_item, actionByList );
                 adapter.setDropDownViewResource( R.layout.support_simple_spinner_dropdown_item );
                 ActionBySpr.setAdapter( adapter );
+                ActionBySpr.setSelection( position );
                 break;
             case "BKN":
                 actionBy = createActionByList(stationCode, "SSE/Sig/","SSE/Tele/",getResources().getStringArray( R.array.bikanerActionBy ));
@@ -141,6 +145,7 @@ public class TrackCircuitsActivity extends AppCompatActivity{
                 adapter = new ArrayAdapter<String>( this, R.layout.support_simple_spinner_dropdown_item, actionByList );
                 adapter.setDropDownViewResource( R.layout.support_simple_spinner_dropdown_item );
                 ActionBySpr.setAdapter( adapter );
+                ActionBySpr.setSelection( position );
                 break;
         }
     }
@@ -196,6 +201,7 @@ public class TrackCircuitsActivity extends AppCompatActivity{
         editor.putBoolean(getResources().getString( R.string.records_of_tc_parameters_were_maintained_and_placed_in_respective_location_boxes ), recordsTCCheckBox.isChecked());
         editor.putString( "tracksDeficiencyEditText", tracksDeficiencyEditText.getText().toString() );
         editor.putString( "trackCircuitsActionBySpinner",trackCircuitsActionBySpr.getSelectedItem().toString() );
+        editor.putInt( "trackCircuitsActionBySpinnerPosition",trackCircuitsActionBySpr.getSelectedItemPosition() );
         editor.putString( "trackCircuitsActionByEditText",trackCircuitsActionByEditTxt.getText().toString() );
         editor.putBoolean( "trackCircuitsActivityComplete",isActivityComplete );
         editor.apply();

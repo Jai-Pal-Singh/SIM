@@ -71,7 +71,7 @@ public class RegistrationActivity extends AppCompatActivity implements AdapterVi
         //User Validation
         awesomeValidation.addValidation(this, R.id.nameEditText, "^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$",R.string.namerror);
         awesomeValidation.addValidation(this, R.id.registrationDesginationEditText, "^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\/\\s\\\\]{0,}$", R.string.desigerror);
-        awesomeValidation.addValidation(this, R.id.registrationPhoneNumberEditText, "^[2-9]{2}[0-9]{8}$", R.string.mobileerror);
+        awesomeValidation.addValidation(this, R.id.registrationPhoneNumberEditText, "^[0-9]{10}$", R.string.mobileerror);
 //        awesomeValidation.addValidation(this, R.id.registrationOfficialEmailAddressEditText, Patterns.EMAIL_ADDRESS, R.string.emailerror);
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////
     }
@@ -166,7 +166,7 @@ public class RegistrationActivity extends AppCompatActivity implements AdapterVi
                     email = "-";
                 }
                 else
-                    email = registrationPhoneNumberEditText.getText().toString();
+                    email = registrationOfficialEmailAddressEditText.getText().toString();
                 if(userCount==0) {
                     success = getData.registerUser( nameEditText.getText().toString(), registrationDesginationEditText.getText().toString(), registrationPhoneNumberEditText.getText().toString(), email, AESCrypt.encrypt( registrationPhoneNumberEditText.getText().toString() ) );
                 }

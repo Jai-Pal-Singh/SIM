@@ -19,14 +19,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyC68HMlBUjl1ITrHtSGhGzHYxQplNs3TeA" />
-
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-
         <!-- Splash screen -->
         <activity
             android:name=".SplashScreen"
@@ -108,6 +100,10 @@
         <activity
             android:name=".AboutITCenterActivity"
             android:label="About IT Center, NWR"
+            android:parentActivityName=".MainGearsActivity"/>
+        <activity
+            android:name=".Feedback"
+            android:label="Feedback"
             android:parentActivityName=".MainGearsActivity"/>
 
     </application>

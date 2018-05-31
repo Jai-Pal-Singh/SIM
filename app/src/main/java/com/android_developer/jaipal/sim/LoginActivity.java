@@ -1,29 +1,15 @@
 package com.android_developer.jaipal.sim;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.annotation.TargetApi;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.app.LoaderManager.LoaderCallbacks;
-
-import android.content.CursorLoader;
-import android.content.Loader;
-import android.database.Cursor;
-import android.net.Uri;
 import android.os.AsyncTask;
 
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.text.InputType;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -32,15 +18,10 @@ import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.util.Log;
-import android.util.Patterns;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.inputmethod.EditorInfo;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -51,16 +32,9 @@ import android.widget.Toast;
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.regex.Pattern;
-
-import static android.Manifest.permission.READ_CONTACTS;
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -87,7 +61,7 @@ public class LoginActivity extends AppCompatActivity {
         applyOnFocusChangeListener( loginPhoneNumberEditText );
         applyOnFocusChangeListener( password );
         makeForgetPasswordClickable();
-        awesomeValidation.addValidation( this, R.id.loginPhoneNumberEditText, "^[2-9]{2}[0-9]{8}$", R.string.mobileerror );
+        awesomeValidation.addValidation( this, R.id.loginPhoneNumberEditText, "^[0-9]{10}$", R.string.mobileerror );
 
         login.setOnClickListener(new OnClickListener(){
 
@@ -336,6 +310,7 @@ public class LoginActivity extends AppCompatActivity {
                 editor.putString( "active", hs.get( "active" ) );
                 editor.putString( "admin", hs.get( "admin" ) );
                 editor.putString( "email", hs.get( "email" ) );
+                editor.putString( "phone",loginPhoneNumberEditText.getText().toString() );
                 editor.apply();
                 try {
                     if (AESCrypt.encrypt( password.getText().toString() ).equals( hs.get( "pass" ) )) {

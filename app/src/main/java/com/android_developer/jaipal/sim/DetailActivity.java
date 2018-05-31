@@ -55,6 +55,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         requestWindowFeature( Window.FEATURE_ACTION_BAR );
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detail_activity);
+        findViewsById();
         getDivisionFromSharedPreferences();
         isActivityComplete = false;
 
@@ -73,9 +74,9 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         applyOnFocusChangeListener( TestedCHEditText );
         applyOnFocusChangeListener( BatteryVoltageEditText );
 
-        setActionBySpinner(selectedDivision,vhfSetActionBySpr);
-        setActionBySpinner(selectedDivision,digitalEquipActionBySpr);
-        setActionBySpinner(selectedDivision,testedSocketsActionBySpr);
+        setActionBySpinner(selectedDivision,vhfSetActionBySpr,sharedpreferences.getInt( "vhfSetActionBySprPosition",0));
+        setActionBySpinner(selectedDivision,digitalEquipActionBySpr,sharedpreferences.getInt( "digitalEquipActionBySprPosition",0));
+        setActionBySpinner(selectedDivision,testedSocketsActionBySpr,sharedpreferences.getInt( "testedSocketsActionBySprPosition",0));
 
         applyOnItemSelectedListener(vhfSetActionBySpr, vhfSetActionByEditTxt);
         applyOnItemSelectedListener(digitalEquipActionBySpr, digitalEquipActionByEditTxt);
@@ -144,7 +145,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         datePicker.getDatePicker().setMaxDate(System.currentTimeMillis());
     }
 
-    private void setActionBySpinner(String selectedDivision, Spinner ActionBySpr) {
+    private void setActionBySpinner(String selectedDivision, Spinner ActionBySpr, int position) {
         ArrayAdapter<String> adapter;
         String[] actionBy;
         final List<String> actionByList;
@@ -155,6 +156,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                 adapter = new ArrayAdapter<String>( this, R.layout.support_simple_spinner_dropdown_item, actionByList );
                 adapter.setDropDownViewResource( R.layout.support_simple_spinner_dropdown_item );
                 ActionBySpr.setAdapter( adapter );
+                ActionBySpr.setSelection( position );
                 break;
             case "JU":
                 actionBy = createActionByList(stationCode, "SSE/Tele/","SSE/Sig/",getResources().getStringArray( R.array.jodhpurActionBy ));
@@ -162,6 +164,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                 adapter = new ArrayAdapter<String>( this, R.layout.support_simple_spinner_dropdown_item, actionByList );
                 adapter.setDropDownViewResource( R.layout.support_simple_spinner_dropdown_item );
                 ActionBySpr.setAdapter( adapter );
+                ActionBySpr.setSelection( position );
                 break;
             case "AII":
                 actionBy = createActionByList(stationCode, "SSE/Tele/","SSE/Sig/",getResources().getStringArray( R.array.ajmerActionBy ));
@@ -169,6 +172,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                 adapter = new ArrayAdapter<String>( this, R.layout.support_simple_spinner_dropdown_item, actionByList );
                 adapter.setDropDownViewResource( R.layout.support_simple_spinner_dropdown_item );
                 ActionBySpr.setAdapter( adapter );
+                ActionBySpr.setSelection( position );
                 break;
             case "BKN":
                 actionBy = createActionByList(stationCode, "SSE/Tele/","SSE/Sig/",getResources().getStringArray( R.array.bikanerActionBy ));
@@ -176,6 +180,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                 adapter = new ArrayAdapter<String>( this, R.layout.support_simple_spinner_dropdown_item, actionByList );
                 adapter.setDropDownViewResource( R.layout.support_simple_spinner_dropdown_item );
                 ActionBySpr.setAdapter( adapter );
+                ActionBySpr.setSelection( position );
                 break;
         }
     }
@@ -247,11 +252,14 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         int selectedId;
         sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedpreferences.edit();
+
         editor.putString( "SMeditText",SMeditText.getText().toString() );
-        selectedId = SmKeyRadioGroup.getCheckedRadioButtonId();
-        radioButton = findViewById(selectedId);
+
+//        selectedId = SmKeyRadioGroup.getCheckedRadioButtonId();
+        radioButton = findViewById(SmKeyRadioGroup.getCheckedRadioButtonId());
         editor.putString( "SMKeyValue", radioButton.getText().toString() );
         editor.putInt( "SMKey", SmKeyRadioGroup.getCheckedRadioButtonId() );
+
         selectedId = VHFSetRadioGroup.getCheckedRadioButtonId();
         radioButton = findViewById(selectedId);
         editor.putString( "VHFsetValue", radioButton.getText().toString() );
@@ -299,8 +307,11 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         editor.putString( "TestedSocketsEditText",TestedSocketsEditText.getText().toString() );
         editor.putString( "testedSocketsActionByEditText",testedSocketsActionByEditTxt.getText().toString() );
         editor.putString( "vhfSetActionBySpinner",vhfSetActionBySpr.getSelectedItem().toString() );
+        editor.putInt( "vhfSetActionBySprPosition",vhfSetActionBySpr.getSelectedItemPosition() );
         editor.putString( "digitalEquipActionBySpr",digitalEquipActionBySpr.getSelectedItem().toString() );
+        editor.putInt( "digitalEquipActionBySprPosition",digitalEquipActionBySpr.getSelectedItemPosition() );
         editor.putString( "testedSocketsActionBySpr",testedSocketsActionBySpr.getSelectedItem().toString() );
+        editor.putInt( "testedSocketsActionBySprPosition",testedSocketsActionBySpr.getSelectedItemPosition() );
         editor.putBoolean( "detailActivityComplete",isActivityComplete );
         editor.apply();
     }
@@ -308,12 +319,9 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         SMeditText.setText( sharedpreferences.getString( "SMeditText",null ) );
         radioButton = findViewById(sharedpreferences.getInt( "SMKey",R.id.SMKeyYesRadioButton ));
-        Log.e("radiobuttontext","radio button text : "+sharedpreferences.getInt( "SMKey",R.id.SMKeyYesRadioButton ));
-        Log.e("SMKey","SMKey id: "+SmKeyRadioGroup.getCheckedRadioButtonId());
-        Log.e("SMKeyYesRadioButton","SMKeyYesRadioButton id : "+R.id.SMKeyYesRadioButton );
-//        radioButton.setChecked( true );
-//        radioButton = (RadioButton) findViewById(sharedpreferences.getInt( "VHFset",R.id.VHFYesRadioButton ));
-//        radioButton.setChecked( true );
+        radioButton.setChecked( true );
+        radioButton = (RadioButton) findViewById(sharedpreferences.getInt( "VHFset",R.id.VHFYesRadioButton ));
+        radioButton.setChecked( true );
         radioButton = findViewById(sharedpreferences.getInt( "ControlPhone",R.id.ControlPhoneYesRadioButton ));radioButton.setChecked( true );
         radioButton = findViewById(sharedpreferences.getInt( "RailwayPhone",R.id.RailwayPhoneYesRadioButton ));radioButton.setChecked( true );
         radioButton = findViewById(sharedpreferences.getInt( "VHFrepeater",R.id.VHFRepeaterYesRadioButton ));radioButton.setChecked( true );

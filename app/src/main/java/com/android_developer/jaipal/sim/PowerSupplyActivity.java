@@ -65,7 +65,7 @@ public class PowerSupplyActivity extends AppCompatActivity implements View.OnCli
 
         applyOnItemSelectedListener(ipsMakespnr, ipsMakeEditTxt);
         applyOnItemSelectedListener(eiMakeSpnr, eiMakeEditTxt);
-        setActionBySpinner(selectedDivision,powerSupplyActionBySpr);
+        setActionBySpinner(selectedDivision,powerSupplyActionBySpr,sharedpreferences.getInt( "powerSupplyActionBySprPosition",0 ));
         applyOnItemSelectedListener(powerSupplyActionBySpr, powerSupplyActionByEditTxt);
 
         //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -210,11 +210,36 @@ public class PowerSupplyActivity extends AppCompatActivity implements View.OnCli
         editor.putString( "voltageParameterSpinner",voltageParameterSpinner.getSelectedItem().toString() );
         editor.putString( "powerSupplyActionBySpr",powerSupplyActionBySpr.getSelectedItem().toString() );
         editor.putString( "powerSupplyActionByEditTxt",powerSupplyActionByEditTxt.getText().toString() );
+        editor.putInt( "ipsMakespnrPosition",ipsMakespnr.getSelectedItemPosition());
+        editor.putInt( "relayRoomOpeningSpinnerPosition",relayRoomOpeningSpinner.getSelectedItemPosition());
+        editor.putInt( "spareRelaySpinnerPosition",spareRelaySpinner.getSelectedItemPosition());
+        editor.putInt( "whiteWashingRelaySpinnerPosition",whiteWashingRelaySpinner.getSelectedItemPosition());
+        editor.putInt( "electricalGeneralSpinnerPosition",electricalGeneralSpinner.getSelectedItemPosition());
+        editor.putInt( "earthingArrangementsSpinnerPosition",earthingArrangementsSpinner.getSelectedItemPosition());
+        editor.putInt( "whetherAMCSpinnerPosition",whetherAMCSpinner.getSelectedItemPosition());
+        editor.putInt( "maintenanceRecordsSpinnerPosition",maintenanceRecordsSpinner.getSelectedItemPosition());
+        editor.putInt( "eiMakeSpnrPosition",eiMakeSpnr.getSelectedItemPosition());
+        editor.putInt( "eiRackSpinnerPosition",eiRackSpinner.getSelectedItemPosition());
+        editor.putInt( "voltageParameterSpinnerPosition",voltageParameterSpinner.getSelectedItemPosition());
+        editor.putInt( "powerSupplyActionBySprPosition",powerSupplyActionBySpr.getSelectedItemPosition());
+
         editor.apply();
     }
 
     private void getSavedDataFromSharedPreferences() {
         sharedpreferences = getSharedPreferences( MyPREFERENCES, Context.MODE_PRIVATE );
+        ipsMakespnr.setSelection( sharedpreferences.getInt( "ipsMakespnrPosition",0 ) );
+        relayRoomOpeningSpinner.setSelection( sharedpreferences.getInt( "relayRoomOpeningSpinnerPosition",0 ) );
+        spareRelaySpinner.setSelection( sharedpreferences.getInt( "spareRelaySpinnerPosition",0 ) );
+        whiteWashingRelaySpinner.setSelection( sharedpreferences.getInt( "whiteWashingRelaySpinnerPosition",0 ) );
+        electricalGeneralSpinner.setSelection( sharedpreferences.getInt( "electricalGeneralSpinnerPosition",0 ) );
+        earthingArrangementsSpinner.setSelection( sharedpreferences.getInt( "earthingArrangementsSpinnerPosition",0 ) );
+        whetherAMCSpinner.setSelection( sharedpreferences.getInt( "whetherAMCSpinnerPosition",0 ) );
+        maintenanceRecordsSpinner.setSelection( sharedpreferences.getInt( "maintenanceRecordsSpinnerPosition",0 ) );
+        eiMakeSpnr.setSelection( sharedpreferences.getInt( "eiMakeSpnrPosition",0 ) );
+        eiRackSpinner.setSelection( sharedpreferences.getInt( "eiRackSpinnerPosition",0 ) );
+
+        voltageParameterSpinner.setSelection( sharedpreferences.getInt( "voltageParameterSpinnerPosition",0 ) );
         ipsMakeEditTxt.setText( sharedpreferences.getString( "ipsMakeEditTxt",null ) );
         amcExecutedCheckBox.setChecked( sharedpreferences.getBoolean( getResources().getString( R.string.amc_executed ), false ) );
         smrLoadCheckBox.setChecked( sharedpreferences.getBoolean( getResources().getString( R.string.smr_load_sharing_is_working_fine ), false ) );
@@ -268,7 +293,7 @@ public class PowerSupplyActivity extends AppCompatActivity implements View.OnCli
         });
     }
 
-    private void setActionBySpinner(String selectedDivision, Spinner ActionBySpr) {
+    private void setActionBySpinner(String selectedDivision, Spinner ActionBySpr, int position) {
         ArrayAdapter<String> adapter;
         String[] actionBy;
         final List<String> actionByList;
@@ -279,6 +304,7 @@ public class PowerSupplyActivity extends AppCompatActivity implements View.OnCli
                 adapter = new ArrayAdapter<String>( this, R.layout.support_simple_spinner_dropdown_item, actionByList );
                 adapter.setDropDownViewResource( R.layout.support_simple_spinner_dropdown_item );
                 ActionBySpr.setAdapter( adapter );
+                ActionBySpr.setSelection( position );
                 break;
             case "JU":
                 actionBy = createActionByList(stationCode, "SSE/Sig/","SSE/Tele/",getResources().getStringArray( R.array.jodhpurActionBy ));
@@ -286,6 +312,7 @@ public class PowerSupplyActivity extends AppCompatActivity implements View.OnCli
                 adapter = new ArrayAdapter<String>( this, R.layout.support_simple_spinner_dropdown_item, actionByList );
                 adapter.setDropDownViewResource( R.layout.support_simple_spinner_dropdown_item );
                 ActionBySpr.setAdapter( adapter );
+                ActionBySpr.setSelection( position );
                 break;
             case "AII":
                 actionBy = createActionByList(stationCode, "SSE/Sig/","SSE/Tele/",getResources().getStringArray( R.array.ajmerActionBy ));
@@ -293,6 +320,7 @@ public class PowerSupplyActivity extends AppCompatActivity implements View.OnCli
                 adapter = new ArrayAdapter<String>( this, R.layout.support_simple_spinner_dropdown_item, actionByList );
                 adapter.setDropDownViewResource( R.layout.support_simple_spinner_dropdown_item );
                 ActionBySpr.setAdapter( adapter );
+                ActionBySpr.setSelection( position );
                 break;
             case "BKN":
                 actionBy = createActionByList(stationCode, "SSE/Sig/","SSE/Tele/",getResources().getStringArray( R.array.bikanerActionBy ));
@@ -300,6 +328,7 @@ public class PowerSupplyActivity extends AppCompatActivity implements View.OnCli
                 adapter = new ArrayAdapter<String>( this, R.layout.support_simple_spinner_dropdown_item, actionByList );
                 adapter.setDropDownViewResource( R.layout.support_simple_spinner_dropdown_item );
                 ActionBySpr.setAdapter( adapter );
+                ActionBySpr.setSelection( position );
                 break;
         }
     }

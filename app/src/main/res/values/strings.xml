@@ -240,5 +240,8 @@
     <string name="it_center_nwr_is_located_at_third_floor_headquarters_office_building_jaipur_and_is_headed_by_chief_information_officer_cio_mr_sanjeev_verma">IT Center, NWR is located at third floor, Headquarters Office building, Jaipur and is headed by Chief Information Officer (CIO) Mr. Sanjeev Verma.</string>
     <string name="aashish_periwal_is_an_s_t_officer_of_irsse_2014_batch_and_is_currently_working_as_asa_it_in_it_center_nwr_he_has_previously_worked_as_adste_jodhpur"><![CDATA[Aashish Periwal is an S&T Officer of IRSSE-2014 Batch and is currently working as ASA/IT in IT Center, NWR. He has previously worked as ADSTE/Jodhpur.]]></string>
     <string name="aashish_periwal_asa_it">Aashish Periwal (ASA/IT)</string>
+    <string name="feedback">Feedback</string>
+    <string name="send_feedback">Send Feedback</string>
+    <string name="submit_and_generate_inspection_note_for_lc">SUBMIT AND GENERATE INSPECTION NOTE FOR LC</string>
 
 </resources>

@@ -77,7 +77,7 @@ public class RecordsActivity extends AppCompatActivity implements AdapterView.On
         applyOnFocusChangeListener( relayRoom3RREditText );
         applyOnFocusChangeListener( recordsActionByEditTxt );
 
-        setActionBySpinner(selectedDivision,recordsActionBySpr);
+        setActionBySpinner(selectedDivision,recordsActionBySpr, sharedpreferences.getInt( "recordsActionBySprPosition",0 ));
         applyOnItemSelectedListener(recordsActionBySpr, recordsActionByEditTxt);
         //////////////////////////////////////////////////////////////////////////////////////////////////
         //get Inspection Month and set it in the tables
@@ -186,11 +186,34 @@ public class RecordsActivity extends AppCompatActivity implements AdapterView.On
         editor.putString( "signalHistorySpinner",signalHistorySpinner.getSelectedItem().toString() );
         editor.putString( "recordsActionBySpr",recordsActionBySpr.getSelectedItem().toString() );
         editor.putString( "recordsActionByEditTxt",recordsActionByEditTxt.getText().toString() );
+        editor.putInt( "signalInfringementSpinnerPosition",signalInfringementSpinner.getSelectedItemPosition() );
+        editor.putInt( "earthTestingSpinnerPosition",earthTestingSpinner.getSelectedItemPosition() );
+        editor.putInt( "cableMeggeringSpinnerPosition",cableMeggeringSpinner.getSelectedItemPosition() );
+        editor.putInt( "updatedCktDiagramSpinnerPosition",updatedCktDiagramSpinner.getSelectedItemPosition() );
+        editor.putInt( "cableRouteSpinnerPosition",cableRouteSpinner.getSelectedItemPosition() );
+        editor.putInt( "cableCoreSpinnerPosition",cableCoreSpinner.getSelectedItemPosition() );
+        editor.putInt( "signalInterlockingSpinnerPosition",signalInterlockingSpinner.getSelectedItemPosition() );
+        editor.putInt( "SMC1SpinnerPosition",SMC1Spinner.getSelectedItemPosition() );
+        editor.putInt( "SMC12SpinnerPosition",SMC12Spinner.getSelectedItemPosition() );
+        editor.putInt( "signalHistorySpinnerPosition",signalHistorySpinner.getSelectedItemPosition() );
+        editor.putInt( "recordsActionBySprPosition",recordsActionBySpr.getSelectedItemPosition() );
+
         editor.apply();
     }
 
     private void getSavedDataFromSharedPreferences() {
         sharedpreferences = getSharedPreferences( MyPREFERENCES, Context.MODE_PRIVATE );
+        signalInfringementSpinner.setSelection( sharedpreferences.getInt( "signalInfringementSpinnerPosition",0 ) );
+        earthTestingSpinner.setSelection( sharedpreferences.getInt( "earthTestingSpinnerPosition",0 ) );
+        cableMeggeringSpinner.setSelection( sharedpreferences.getInt( "cableMeggeringSpinnerPosition",0 ) );
+        cableRouteSpinner.setSelection( sharedpreferences.getInt( "cableRouteSpinnerPosition",0 ) );
+        cableCoreSpinner.setSelection( sharedpreferences.getInt( "cableCoreSpinnerPosition",0 ) );
+        SMC1Spinner.setSelection( sharedpreferences.getInt( "SMC1SpinnerPosition",0 ) );
+        SMC12Spinner.setSelection( sharedpreferences.getInt( "SMC12SpinnerPosition",0 ) );
+        signalHistorySpinner.setSelection( sharedpreferences.getInt( "signalHistorySpinnerPosition",0 ) );
+        updatedCktDiagramSpinner.setSelection( sharedpreferences.getInt( "updatedCktDiagramSpinnerPosition",0 ) );
+        signalInterlockingSpinner.setSelection( sharedpreferences.getInt( "signalInterlockingSpinnerPosition",0 ) );
+
         signalPoint1EditText.setText( sharedpreferences.getString( "signalPoint1EditText",null ) );
         signalTrackCircuit1EditText.setText( sharedpreferences.getString( "signalTrackCircuit1EditText",null ) );
         signalBI1EditText.setText( sharedpreferences.getString( "signalBI1EditText",null ) );
@@ -274,38 +297,42 @@ public class RecordsActivity extends AppCompatActivity implements AdapterView.On
         }
     }
 
-    private void setActionBySpinner(String selectedDivision, Spinner ActionBySpr) {
+    private void setActionBySpinner(String selectedDivision, Spinner ActionBySpr, int position) {
         ArrayAdapter<String> adapter;
         String[] actionBy;
         final List<String> actionByList;
         switch (selectedDivision) {
             case "JP":
-                actionBy = createActionByList(stationCode,"SSE/Sig/","SSE/Tele/", getResources().getStringArray( R.array.jaipurActionBy ));
+                actionBy = createActionByList(stationCode, "SSE/Sig/","SSE/Tele/",getResources().getStringArray( R.array.jaipurActionBy ));
                 actionByList = new ArrayList<>( Arrays.asList( actionBy ) );
-                adapter = new ArrayAdapter<>( this, R.layout.support_simple_spinner_dropdown_item, actionByList );
+                adapter = new ArrayAdapter<String>( this, R.layout.support_simple_spinner_dropdown_item, actionByList );
                 adapter.setDropDownViewResource( R.layout.support_simple_spinner_dropdown_item );
                 ActionBySpr.setAdapter( adapter );
+                ActionBySpr.setSelection( position );
                 break;
             case "JU":
                 actionBy = createActionByList(stationCode, "SSE/Sig/","SSE/Tele/",getResources().getStringArray( R.array.jodhpurActionBy ));
                 actionByList = new ArrayList<>( Arrays.asList( actionBy ) );
-                adapter = new ArrayAdapter<>( this, R.layout.support_simple_spinner_dropdown_item, actionByList );
+                adapter = new ArrayAdapter<String>( this, R.layout.support_simple_spinner_dropdown_item, actionByList );
                 adapter.setDropDownViewResource( R.layout.support_simple_spinner_dropdown_item );
                 ActionBySpr.setAdapter( adapter );
+                ActionBySpr.setSelection( position );
                 break;
             case "AII":
-                actionBy = createActionByList(stationCode,"SSE/Sig/","SSE/Tele/", getResources().getStringArray( R.array.ajmerActionBy ));
+                actionBy = createActionByList(stationCode, "SSE/Sig/","SSE/Tele/",getResources().getStringArray( R.array.ajmerActionBy ));
                 actionByList = new ArrayList<>( Arrays.asList( actionBy ) );
-                adapter = new ArrayAdapter<>( this, R.layout.support_simple_spinner_dropdown_item, actionByList );
+                adapter = new ArrayAdapter<String>( this, R.layout.support_simple_spinner_dropdown_item, actionByList );
                 adapter.setDropDownViewResource( R.layout.support_simple_spinner_dropdown_item );
                 ActionBySpr.setAdapter( adapter );
+                ActionBySpr.setSelection( position );
                 break;
             case "BKN":
                 actionBy = createActionByList(stationCode, "SSE/Sig/","SSE/Tele/",getResources().getStringArray( R.array.bikanerActionBy ));
                 actionByList = new ArrayList<>( Arrays.asList( actionBy ) );
-                adapter = new ArrayAdapter<>( this, R.layout.support_simple_spinner_dropdown_item, actionByList );
+                adapter = new ArrayAdapter<String>( this, R.layout.support_simple_spinner_dropdown_item, actionByList );
                 adapter.setDropDownViewResource( R.layout.support_simple_spinner_dropdown_item );
                 ActionBySpr.setAdapter( adapter );
+                ActionBySpr.setSelection( position );
                 break;
         }
     }

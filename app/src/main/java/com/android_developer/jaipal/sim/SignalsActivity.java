@@ -43,7 +43,7 @@ public class SignalsActivity extends AppCompatActivity {
         isActivityComplete=false;
 
         applyOnFocusChangeListener( signalsActionByEditText );
-        setActionBySpinner(selectedDivision,signalsActionBySpinner);
+        setActionBySpinner(selectedDivision,signalsActionBySpinner,sharedpreferences.getInt( "signalsActionBySpinnerPosition",0));
         applyOnItemSelectedListener(signalsActionBySpinner,signalsActionByEditText);
     }
 
@@ -170,6 +170,7 @@ public class SignalsActivity extends AppCompatActivity {
         editor.putString( "voltage10EditText", voltage10EditText.getText().toString() );
         editor.putString( "current10EditText", current10EditText.getText().toString() );
         editor.putString( "signalsActionBySpinner",signalsActionBySpinner.getSelectedItem().toString() );
+        editor.putInt( "signalsActionBySpinnerPosition",signalsActionBySpinner.getSelectedItemPosition() );
         editor.putString( "signalsActionByEditText",signalsActionByEditText.getText().toString() );
         editor.apply();
     }
@@ -245,7 +246,7 @@ public class SignalsActivity extends AppCompatActivity {
         return !isAnyFieldsEmpty;
     }
 
-    private void setActionBySpinner(String selectedDivision, Spinner ActionBySpr) {
+    private void setActionBySpinner(String selectedDivision, Spinner ActionBySpr, int position) {
         ArrayAdapter<String> adapter;
         String[] actionBy;
         final List<String> actionByList;
@@ -256,6 +257,7 @@ public class SignalsActivity extends AppCompatActivity {
                 adapter = new ArrayAdapter<String>( this, R.layout.support_simple_spinner_dropdown_item, actionByList );
                 adapter.setDropDownViewResource( R.layout.support_simple_spinner_dropdown_item );
                 ActionBySpr.setAdapter( adapter );
+                ActionBySpr.setSelection( position );
                 break;
             case "JU":
                 actionBy = createActionByList(stationCode, "SSE/Sig/","SSE/Tele/",getResources().getStringArray( R.array.jodhpurActionBy ));
@@ -263,6 +265,7 @@ public class SignalsActivity extends AppCompatActivity {
                 adapter = new ArrayAdapter<String>( this, R.layout.support_simple_spinner_dropdown_item, actionByList );
                 adapter.setDropDownViewResource( R.layout.support_simple_spinner_dropdown_item );
                 ActionBySpr.setAdapter( adapter );
+                ActionBySpr.setSelection( position );
                 break;
             case "AII":
                 actionBy = createActionByList(stationCode, "SSE/Sig/","SSE/Tele/",getResources().getStringArray( R.array.ajmerActionBy ));
@@ -270,6 +273,7 @@ public class SignalsActivity extends AppCompatActivity {
                 adapter = new ArrayAdapter<String>( this, R.layout.support_simple_spinner_dropdown_item, actionByList );
                 adapter.setDropDownViewResource( R.layout.support_simple_spinner_dropdown_item );
                 ActionBySpr.setAdapter( adapter );
+                ActionBySpr.setSelection( position );
                 break;
             case "BKN":
                 actionBy = createActionByList(stationCode, "SSE/Sig/","SSE/Tele/",getResources().getStringArray( R.array.bikanerActionBy ));
@@ -277,6 +281,7 @@ public class SignalsActivity extends AppCompatActivity {
                 adapter = new ArrayAdapter<String>( this, R.layout.support_simple_spinner_dropdown_item, actionByList );
                 adapter.setDropDownViewResource( R.layout.support_simple_spinner_dropdown_item );
                 ActionBySpr.setAdapter( adapter );
+                ActionBySpr.setSelection( position );
                 break;
         }
     }

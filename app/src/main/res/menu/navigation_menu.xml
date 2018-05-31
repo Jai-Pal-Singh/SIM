@@ -7,7 +7,7 @@
         android:checkableBehavior="none">
         <item android:id="@+id/Register"
             android:title="@string/register_a_user"
-            android:icon="@mipmap/icons8addusermale24"/>
+            android:icon="@mipmap/register"/>
     </group>
 
     <group
@@ -15,7 +15,7 @@
         android:checkableBehavior="none">
         <item android:id="@+id/downloadInspectionNotes"
             android:title="@string/download_inspection_notes"
-            android:icon="@mipmap/ic_get_app_black_24dp"/>
+            android:icon="@mipmap/cloud_download"/>
     </group>
 
     <group
@@ -23,7 +23,7 @@
         android:checkableBehavior="none">
         <item android:id="@+id/AboutITCenter"
             android:title="@string/about_it_center_nwr"
-            android:icon="@mipmap/icons8about24"/>
+            android:icon="@mipmap/about"/>
     </group>
 
     <group
@@ -31,7 +31,15 @@
         android:checkableBehavior="none">
         <item android:id="@+id/AboutDeveloper"
             android:title="@string/about_developer"
-            android:icon="@mipmap/icons8workspace24"/>
+            android:icon="@mipmap/workspace"/>
+    </group>
+
+    <group
+        android:id="@+id/gp6"
+        android:checkableBehavior="none">
+        <item android:id="@+id/feedback"
+            android:title="@string/feedback"
+            android:icon="@mipmap/feedback"/>
     </group>
 
     <group
@@ -39,7 +47,7 @@
         android:checkableBehavior="none">
         <item android:id="@+id/logout"
             android:title="@string/log_out"
-            android:icon="@mipmap/if_logout_71898"/>
+            android:icon="@mipmap/signout"/>
     </group>
 
 </menu>
