@@ -43,6 +43,7 @@ public class LevelCrossingActivity extends AppCompatActivity {
     private String selectedDivision="", stationCode="";
     private SharedPreferences sharedpreferences;
     private static final String MyPREFERENCES = "MyPrefs" ;
+    LCInspectionNotes lcInspectionNotes;
     setUpStorageVariablesForDefaultGate defaultGateSetUp;
     setUpStorageVariablesForAddedGate[] addedGateSetUp = new setUpStorageVariablesForAddedGate[10];
     Boolean isActivityComplete;
@@ -268,6 +269,7 @@ public class LevelCrossingActivity extends AppCompatActivity {
             updateIsActivityInSharedPreferences();
             sendDataToDBTask task = new sendDataToDBTask();
             task.execute();
+//            FileUploadHandler fileUploadHandler = new FileUploadHandler();
 //            Toast.makeText(getApplicationContext(), "Entries Saved", Toast.LENGTH_SHORT).show();
         }
         else{
@@ -653,6 +655,8 @@ public class LevelCrossingActivity extends AppCompatActivity {
             Boolean dataSent = null;
             try {
                 dataSent = sendLevelCrossingData();
+//                SmsHandler smsHandler = new SmsHandler( LevelCrossingActivity.this );
+//                FileUploadHandler fileUploadHandler = new FileUploadHandler(LevelCrossingActivity.this);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -671,10 +675,11 @@ public class LevelCrossingActivity extends AppCompatActivity {
                 levelCrossingGenerateInspectionNoteButton.setEnabled( true );
                 if(success==0)
                     showAlertDialog( "Couldn't send the data. Please check your internet connection!" );
+                else{
+                    generatePdf generate = new generatePdf();
+                    generate.execute(  );
+                }
             }
-            generatePdf generate = new generatePdf();
-            generate.execute(  );
-
         }
     }
 
@@ -760,10 +765,10 @@ public class LevelCrossingActivity extends AppCompatActivity {
         protected Void doInBackground(Void... arg0) {
             if (isStoragePermissionGranted() ) {
                 Looper.prepare();
-                LCInspectionNotes generateInspectionNote = new LCInspectionNotes( LevelCrossingActivity.this );
-//                generateInspectionNote.uploadPdf();
-                generateInspectionNote.previewPdf();
-                removeSharedPreference();
+                lcInspectionNotes = new LCInspectionNotes( LevelCrossingActivity.this );
+//                lcInspectionNotes.uploadPdf();
+//                lcInspectionNotes.previewPdf();
+//                removeSharedPreference();
                 success =1;
             } else {
                 success = 0;
@@ -778,10 +783,58 @@ public class LevelCrossingActivity extends AppCompatActivity {
                 levelCrossingGenerateInspectionNoteButton.setEnabled( true );
                 if(success==0)
                     showAlertDialog( "Couldn't generate Inspection Note. Please review Storage Permission!" );
+                else{
+                    UploadGeneratedPdf uploadGeneratedPdf = new UploadGeneratedPdf();
+                    uploadGeneratedPdf.execute(  );
+                }
             }
         }
     }
 
+    private class UploadGeneratedPdf extends AsyncTask<Void, Void, Void> {
+        int success = 0;
+        int dataUpload = -3;
+        private ProgressDialog progressDialog;
+        SharedPreferences sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+        @Override
+        protected void onPreExecute() {
+            progressDialog = new ProgressDialog( LevelCrossingActivity.this );
+            progressDialog.setMessage( "Uploading Inspection Note... " );
+            progressDialog.setCancelable( false );
+            progressDialog.setIndeterminate( true );
+            progressDialog.show();
+        }
+
+        @Override
+        protected Void doInBackground(Void... arg0) {
+            GetData getData = new GetData();
+            if (isStoragePermissionGranted() ) {
+                Looper.prepare();
+                lcInspectionNotes.uploadPdf();
+                dataUpload = getData.inspectionNoteInsertionQuery(lcInspectionNotes.returnFileName(),sharedpreferences.getString("authDesignation", ""),sharedpreferences.getString("stationCode", ""),lcInspectionNotes.returnDateTime(),sharedpreferences.getString("division", ""));
+                success =1;
+            } else {
+                success = 0;
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            if (progressDialog != null) {
+                progressDialog.dismiss();
+                levelCrossingGenerateInspectionNoteButton.setEnabled( true );
+                if(dataUpload==-2 || success==0)
+                    showAlertDialog( "Couldn't upload the Inspection Note. Please check your internet connection!" );
+                else if(dataUpload==-1)
+                    showAlertDialog( "Could not Connect to server. Try again after sometime" );
+                else{
+                    lcInspectionNotes.previewPdf();
+                    removeSharedPreference();
+                }
+            }
+        }
+    }
     public  boolean isStoragePermissionGranted() {
         if (Build.VERSION.SDK_INT >= 23) {
             if (ContextCompat.checkSelfPermission(LevelCrossingActivity.this,android.Manifest.permission.WRITE_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(LevelCrossingActivity.this,android.Manifest.permission.READ_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED) {

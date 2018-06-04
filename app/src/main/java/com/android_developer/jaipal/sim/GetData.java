@@ -9,7 +9,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Types;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import oracle.jdbc.OraclePreparedStatement;
 
@@ -818,5 +820,87 @@ public class GetData {
             count  ="-1";
         }
         return count;
+    }
+
+    public int inspectionNoteInsertionQuery(String filename, String authDesignation, String stationCode, String dateTime, String division) {
+        ResultSet result = null ;
+        int tcid = 0;
+        try {
+            ConnectToOracle connectToOracle = new ConnectToOracle();
+            connect = connectToOracle.connections();
+            if (connect==null){
+                connectionResult = "Check Your Internet Connection!";
+                Log.e( "error : ",connectionResult );
+                tcid = -2;
+            }
+            else {
+                String cols[] = {"TCID"};
+                String query = "INSERT INTO USERNAME.INSPECTIONNOTES (FILENAME, INSPECTEDBY, STATION, TIME, DIVISION) VALUES(?,?,?,?,?) RETURNING INID INTO ?";
+                OraclePreparedStatement st = (OraclePreparedStatement) connect.prepareStatement( query  );
+                st.setString( 1,filename );st.setString( 2,authDesignation );
+                st.setString( 3,stationCode );st.setString( 4,dateTime );
+                st.setString( 5,division );
+                st.registerReturnParameter(6, Types.NUMERIC);
+                st.executeUpdate();
+                result = st.getReturnResultSet();
+                result.next();
+                tcid = result.getInt( 1 );
+                st.close();
+                connectionResult = "Suceessful";
+                Log.e( "Connection Result : ",connectionResult );
+                connect.close();
+            }
+        }
+        catch (Exception ex){
+            connectionResult = ex.getMessage();
+            Log.e( "Connection Result : ",connectionResult );
+            tcid  =-1;
+        }
+        return tcid;
+    }
+
+    public List<InspectionNoteDataModel> getInpectionNoteData(){
+        List<InspectionNoteDataModel> data=new ArrayList<>();
+        ResultSet result = null ;
+        try {
+            ConnectToOracle connectToOracle = new ConnectToOracle();
+            connect = connectToOracle.connections();
+            if (connect==null){
+                connectionResult = "Check Your Internet Connection!";
+                Log.e( "error : ",connectionResult );
+                data = null;
+            }
+            else {
+                String query = "select * from USERNAME.INSPECTIONNOTES ORDER BY INID DESC";
+                PreparedStatement st = connect.prepareStatement( query );
+
+                result =st.executeQuery();
+
+                StringBuffer stringBuffer = new StringBuffer();
+                InspectionNoteDataModel dataModel = null;
+                while (result.next()) {
+                    dataModel= new InspectionNoteDataModel();
+                    dataModel.setFilename(result.getString( "FILENAME" ));
+                    dataModel.setInspectedBy(result.getString( "INSPECTEDBY" ));
+                    dataModel.setStationCode(result.getString( "STATION" ));
+                    dataModel.setTime(result.getString( "TIME" ));
+                    dataModel.setDivision(result.getString( "DIVISION" ));
+
+//                    stringBuffer.append(dataModel);
+                    // stringBuffer.append(dataModel);
+                    data.add(dataModel);
+                }
+                st.close();
+                connectionResult = "Suceessful";
+                Log.e( "Connection Result : ",connectionResult );
+                connect.close();
+            }
+        }
+        catch (Exception ex){
+            connectionResult = ex.getMessage();
+            Log.e( "Connection Result : ",connectionResult );
+            data  = null;
+        }
+        return data;
     }
 }

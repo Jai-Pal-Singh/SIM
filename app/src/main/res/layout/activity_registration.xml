@@ -28,32 +28,39 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <AutoCompleteTextView
                 android:id="@+id/nameEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:capitalize="words"
                 android:ems="10"
                 android:hint="@string/name"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:singleLine="true" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <AutoCompleteTextView
                 android:id="@+id/registrationDesginationEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:capitalize="words"
                 android:ems="10"
                 android:hint="@string/designation"
-                android:inputType="textPersonName"/>
+                android:inputType="textPersonName"
+                android:singleLine="true" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <AutoCompleteTextView
                 android:id="@+id/registrationPhoneNumberEditText"
                 android:layout_width="match_parent"
@@ -61,12 +68,16 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="@string/phone_number"
-                android:inputType="phone" />
+                android:inputType="phone"
+                android:maxLength="10"
+                android:phoneNumber="true"
+                android:singleLine="true" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <AutoCompleteTextView
                 android:id="@+id/registrationOfficialEmailAddressEditText"
                 android:layout_width="match_parent"
@@ -74,7 +85,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="@string/official_email_address"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:singleLine="true" />
         </android.support.design.widget.TextInputLayout>
 
         <Button

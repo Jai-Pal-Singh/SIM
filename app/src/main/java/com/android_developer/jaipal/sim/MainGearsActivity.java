@@ -53,6 +53,7 @@ public class MainGearsActivity extends AppCompatActivity {
     int gtid,pcid,sid,ccipid,biid,acid,psid,lcid,rid,nonsntid,tcid,sinid;
     String lc="",bi="",ac="";
     Bundle extras;
+    GenerateInspectionNote generateInspectionNote;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +61,7 @@ public class MainGearsActivity extends AppCompatActivity {
         requestWindowFeature( Window.FEATURE_ACTION_BAR );
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_main_gears );
-//        getSupportActionBar().setDisplayHomeAsUpEnabled( true );
+
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(builder.build());
         // Get the application context
@@ -117,16 +118,6 @@ public class MainGearsActivity extends AppCompatActivity {
         if(sharedpreferences.getBoolean( "detailActivityComplete",false ) && sharedpreferences.getBoolean( "pointsCrossingActivityComplete",false ) && sharedpreferences.getBoolean( "trackCircuitsActivityComplete",false )  && sharedpreferences.getBoolean( "signalsActivityComplete",false )  && sharedpreferences.getBoolean( "ccipActivityComplete",false ) && sharedpreferences.getBoolean( "biAcActivityComplete",false ) && sharedpreferences.getBoolean( "powerActivityComplete",false ) && sharedpreferences.getBoolean( "levelActivityComplete",false ) && sharedpreferences.getBoolean( "recordsActivityComplete",false ) && sharedpreferences.getBoolean( "nonSntActivityComplete",false )) {
             sendDataToDBTask task = new sendDataToDBTask();
             task.execute();
-//            sendSMS sms = new sendSMS();
-//            sms.execute(  );
-//            if(task.getStatus()==AsyncTask.Status.FINISHED) {
-//            generatePdf generate = new generatePdf();
-//            generate.execute(  );
-//            }
-//            GenerateInspectionNote generateInspectionNote = new GenerateInspectionNote( mContext );
-//            generateInspectionNote.uploadPdf();
-//            generateInspectionNote.previewPdf();
-//            removeAllSharedPreferences();
         }
         else{
             Toast.makeText( this, "Please fill all entries and Save them", Toast.LENGTH_SHORT ).show();
@@ -610,135 +601,135 @@ public class MainGearsActivity extends AppCompatActivity {
     private void removeAllSharedPreferences() {
         sharedpreferences = getSharedPreferences( MyPREFERENCES, Context.MODE_PRIVATE );
         SharedPreferences.Editor editor = sharedpreferences.edit();
-        //General Telecom
-        editor.remove("SMeditText" );
-        editor.remove("SMKey" );
-        editor.remove("VHFset" );
-        editor.remove("ControlPhone" );
-        editor.remove("RailwayPhone" );
-        editor.remove("VHFrepeater" );
-        editor.remove("PAsystem" );
-        editor.remove("DigitalEquipmentRadioGroup" );
-        editor.remove("BatteryRecordsRadioGroup" );
-        editor.remove("EarthTerminationRadioGroup" );
-        editor.remove("EmergencySocketRadioGroup" );
-        editor.remove("TelecomInstallationEditText" );
-        editor.remove("vhfSetActionByEditText" );
-        editor.remove("TestingDateEditText" );
-        editor.remove("TestedPointsEditText" );
-        editor.remove("TestedCHEditText" );
-        editor.remove("BatteryVoltageEditText" );
-        editor.remove("OFCHutEditText" );
-        editor.remove("digitalEquipActionByEditText" );
-        editor.remove("TestedSocketsEditText" );
-        editor.remove("testedSocketsActionByEditText" );
-        editor.remove("vhfSetActionBySprPosition" );
-        editor.remove("digitalEquipActionBySprPosition" );
-        editor.remove("testedSocketsActionBySprPosition" );
-        editor.remove( "detailActivityComplete" );
-//        Points and Crossings
-        editor.remove( getResources().getString( R.string.point_doesn_t_get_operated_when_point_zone_tr_is_dropped ) );
-        editor.remove( getResources().getString( R.string.point_does_not_stop_when_point_zone_tr_is_dropped_during_point_operation ) );
-        editor.remove( getResources().getString( R.string.opening_of_point_is_around_115mm_shall_not_be_less_than_95mm_in_any_case ) );
-        editor.remove( getResources().getString( R.string.filler_gauge_shall_be_in_between_1mm_to_3mm ) );
-        editor.remove( getResources().getString( R.string.records_of_point_maintenance_were_maintained_and_were_placed_in_respective_point_machines ) );
-        editor.remove( "pointsDeficiencyEditText" );
-        editor.remove( "pointsCrossingEnsureActionBySpinner" );
-        editor.remove( "pointsCrossingEnsureActionByEditText" );
-        editor.remove( "pointsDetailEditText" );
-        editor.remove( "obstructionCurrentEditText" );
-        editor.remove( "lockedPointsEditText" );
-        editor.remove( "pointsCrossingDetailsActionBySpinner" );
-        editor.remove( "pointsCrossingDetailsActionByEditText" );
-        editor.remove( "selectDateEditText" );
-        editor.remove( "lastJointDeficiencyEditText" );
-        editor.remove( "pointsCrossingLastJointActionBySpinner" );
-        editor.remove( "pointsCrossingLastJointActionByEditText" );
-        editor.remove( "pointsCrossingActivityComplete" );
-        editor.remove( "pointsCrossingEnsureActionBySpinnerPosition" );
-        editor.remove( "pointsCrossingDetailsActionBySprPosition" );
-        editor.remove( "pointsCrossingLastJointActionBySprPosition" );
-        //Track Circuits
-        editor.remove( getResources().getString( R.string.double_bonding_has_been_done_on_all_the_continuous_rail_joints_and_sejs ) );
-        editor.remove( getResources().getString( R.string.j_type_pandrol_clip_has_been_used_at_glued_joints_to_avoid_shorting_of_tc ) );
-        editor.remove( getResources().getString( R.string.when_both_rails_are_shorted_using_tsr_tc_indication_on_panel_is_red_including_track_circuited_sidings ) );
-        editor.remove( getResources().getString( R.string.specific_gravity_of_tc_battery_is_in_between_1180_1220 ) );
-        editor.remove( getResources().getString( R.string.relay_end_voltage_is_less_than_3_times_of_pick_up_voltage_of_tr_qt2_qta2_type ) );
-        editor.remove( getResources().getString( R.string.records_of_tc_parameters_were_maintained_and_placed_in_respective_location_boxes ) );
-        editor.remove( "tracksDeficiencyEditText" );
-        editor.remove( "trackCircuitsActionByEditText" );
-        editor.remove( "trackCircuitsActivityComplete" );
-        editor.remove( "trackCircuitsActionBySpinnerPosition" );
-        //Signals
-        editor.remove( getResources().getString( R.string.signal_lamp_voltae_90_of_rated_value ) );
-        editor.remove( getResources().getString( R.string.vecr_drops_with_fusing_of_minimum_3_route_leds ) );
-        editor.remove( getResources().getString( R.string.signals_are_cascaded_for_e_g_fusing_of_a_signal_s_particular_aspect_other_than_red_illuminates_a_more_restrictive_aspect ) );
-        editor.remove( getResources().getString( R.string.red_lamp_protection_working_e_g_fusing_of_red_aspect_of_signal_should_illuminate_signal_in_rear_with_most_restrictive_aspect_red ) );
-        editor.remove( "signalNo1EditText" );
-        editor.remove( "aspect1EditText" );
-        editor.remove( "voltage1EditText" );
-        editor.remove( "current1EditText" );
-        editor.remove( "signalNo2EditText" );
-        editor.remove( "aspect2EditText" );
-        editor.remove( "voltage2EditText" );
-        editor.remove( "current2EditText" );
-        editor.remove( "signalNo3EditText" );
-        editor.remove( "aspect3EditText" );
-        editor.remove( "voltage3EditText" );
-        editor.remove( "current3EditText" );
-        editor.remove( "signalNo4EditText" );
-        editor.remove( "aspect4EditText" );
-        editor.remove( "voltage4EditText" );
-        editor.remove( "current4EditText" );
-        editor.remove( "signalNo5EditText" );
-        editor.remove( "aspect5EditText" );
-        editor.remove( "voltage5EditText" );
-        editor.remove( "current5EditText" );
-        editor.remove( "signalNo6EditText" );
-        editor.remove( "aspect6EditText" );
-        editor.remove( "voltage6EditText" );
-        editor.remove( "current6EditText" );
-        editor.remove( "signalNo7EditText" );
-        editor.remove( "aspect7EditText" );
-        editor.remove( "voltage7EditText" );
-        editor.remove( "current7EditText" );
-        editor.remove( "signalNo8EditText" );
-        editor.remove( "aspect8EditText" );
-        editor.remove( "voltage8EditText" );
-        editor.remove( "current8EditText" );
-        editor.remove( "signalNo9EditText" );
-        editor.remove( "aspect9EditText" );
-        editor.remove( "voltage9EditText" );
-        editor.remove( "current9EditText" );
-        editor.remove( "signalNo10EditText" );
-        editor.remove( "aspect10EditText" );
-        editor.remove( "voltage10EditText" );
-        editor.remove( "current10EditText" );
-        editor.remove( "signalsActionBySpinner" );
-        editor.remove( "signalsActionBySpinnerPosition" );
-        editor.remove( "signalsActionByEditText" );
-        editor.remove( "signalsActivityComplete" );
-        //CCIP VDU
-        editor.remove( "typeOfInterlockingSpinner" );
-        editor.remove( getResources().getString( R.string.sip_swrd_is_as_per_the_physical_yard_layout ) );
-        editor.remove( getResources().getString( R.string.counters_on_panel_vdu_are_same_as_recorded_in_counter_register ) );
-        editor.remove( getResources().getString( R.string.sample_checking_of_calling_on_signal_coggb_counter_increment ) );
-        editor.remove( getResources().getString( R.string.sample_checking_of_calling_on_signal_cancellation_cocyn_errb_counter_increment ) );
-        editor.remove( getResources().getString( R.string.testing_of_emergency_classover_in_double_line_sections ) );
-        editor.remove( getResources().getString( R.string.sample_check_of_approach_locking_dead_approach_locking ) );
-        editor.remove( "ccipDeficiencyEditText" );
-        editor.remove( "ERRBEditText" );
-        editor.remove( "RRBUEditText" );
-        editor.remove( "COGGNEditText" );
-        editor.remove( "COCYNEditText" );
-        editor.remove( "EBPUEditText" );
-        editor.remove( "ECHEditText" );
-        editor.remove( "lastAnnualDateEditText" );
-        editor.remove( "ccipActionBySpr" );
-        editor.remove( "ccipActionByEditTxt" );
-        editor.remove( "ccipActivityComplete" );
-        editor.remove( "ccipActionBySprPosition" );
-        editor.remove( "typeOfInterlockingSpinnerPosition" );
+//        //General Telecom
+//        editor.remove("SMeditText" );
+//        editor.remove("SMKey" );
+//        editor.remove("VHFset" );
+//        editor.remove("ControlPhone" );
+//        editor.remove("RailwayPhone" );
+//        editor.remove("VHFrepeater" );
+//        editor.remove("PAsystem" );
+//        editor.remove("DigitalEquipmentRadioGroup" );
+//        editor.remove("BatteryRecordsRadioGroup" );
+//        editor.remove("EarthTerminationRadioGroup" );
+//        editor.remove("EmergencySocketRadioGroup" );
+//        editor.remove("TelecomInstallationEditText" );
+//        editor.remove("vhfSetActionByEditText" );
+//        editor.remove("TestingDateEditText" );
+//        editor.remove("TestedPointsEditText" );
+//        editor.remove("TestedCHEditText" );
+//        editor.remove("BatteryVoltageEditText" );
+//        editor.remove("OFCHutEditText" );
+//        editor.remove("digitalEquipActionByEditText" );
+//        editor.remove("TestedSocketsEditText" );
+//        editor.remove("testedSocketsActionByEditText" );
+//        editor.remove("vhfSetActionBySprPosition" );
+//        editor.remove("digitalEquipActionBySprPosition" );
+//        editor.remove("testedSocketsActionBySprPosition" );
+//        editor.remove( "detailActivityComplete" );
+////        Points and Crossings
+//        editor.remove( getResources().getString( R.string.point_doesn_t_get_operated_when_point_zone_tr_is_dropped ) );
+//        editor.remove( getResources().getString( R.string.point_does_not_stop_when_point_zone_tr_is_dropped_during_point_operation ) );
+//        editor.remove( getResources().getString( R.string.opening_of_point_is_around_115mm_shall_not_be_less_than_95mm_in_any_case ) );
+//        editor.remove( getResources().getString( R.string.filler_gauge_shall_be_in_between_1mm_to_3mm ) );
+//        editor.remove( getResources().getString( R.string.records_of_point_maintenance_were_maintained_and_were_placed_in_respective_point_machines ) );
+//        editor.remove( "pointsDeficiencyEditText" );
+//        editor.remove( "pointsCrossingEnsureActionBySpinner" );
+//        editor.remove( "pointsCrossingEnsureActionByEditText" );
+//        editor.remove( "pointsDetailEditText" );
+//        editor.remove( "obstructionCurrentEditText" );
+//        editor.remove( "lockedPointsEditText" );
+//        editor.remove( "pointsCrossingDetailsActionBySpinner" );
+//        editor.remove( "pointsCrossingDetailsActionByEditText" );
+//        editor.remove( "selectDateEditText" );
+//        editor.remove( "lastJointDeficiencyEditText" );
+//        editor.remove( "pointsCrossingLastJointActionBySpinner" );
+//        editor.remove( "pointsCrossingLastJointActionByEditText" );
+//        editor.remove( "pointsCrossingActivityComplete" );
+//        editor.remove( "pointsCrossingEnsureActionBySpinnerPosition" );
+//        editor.remove( "pointsCrossingDetailsActionBySprPosition" );
+//        editor.remove( "pointsCrossingLastJointActionBySprPosition" );
+//        //Track Circuits
+//        editor.remove( getResources().getString( R.string.double_bonding_has_been_done_on_all_the_continuous_rail_joints_and_sejs ) );
+//        editor.remove( getResources().getString( R.string.j_type_pandrol_clip_has_been_used_at_glued_joints_to_avoid_shorting_of_tc ) );
+//        editor.remove( getResources().getString( R.string.when_both_rails_are_shorted_using_tsr_tc_indication_on_panel_is_red_including_track_circuited_sidings ) );
+//        editor.remove( getResources().getString( R.string.specific_gravity_of_tc_battery_is_in_between_1180_1220 ) );
+//        editor.remove( getResources().getString( R.string.relay_end_voltage_is_less_than_3_times_of_pick_up_voltage_of_tr_qt2_qta2_type ) );
+//        editor.remove( getResources().getString( R.string.records_of_tc_parameters_were_maintained_and_placed_in_respective_location_boxes ) );
+//        editor.remove( "tracksDeficiencyEditText" );
+//        editor.remove( "trackCircuitsActionByEditText" );
+//        editor.remove( "trackCircuitsActivityComplete" );
+//        editor.remove( "trackCircuitsActionBySpinnerPosition" );
+//        //Signals
+//        editor.remove( getResources().getString( R.string.signal_lamp_voltae_90_of_rated_value ) );
+//        editor.remove( getResources().getString( R.string.vecr_drops_with_fusing_of_minimum_3_route_leds ) );
+//        editor.remove( getResources().getString( R.string.signals_are_cascaded_for_e_g_fusing_of_a_signal_s_particular_aspect_other_than_red_illuminates_a_more_restrictive_aspect ) );
+//        editor.remove( getResources().getString( R.string.red_lamp_protection_working_e_g_fusing_of_red_aspect_of_signal_should_illuminate_signal_in_rear_with_most_restrictive_aspect_red ) );
+//        editor.remove( "signalNo1EditText" );
+//        editor.remove( "aspect1EditText" );
+//        editor.remove( "voltage1EditText" );
+//        editor.remove( "current1EditText" );
+//        editor.remove( "signalNo2EditText" );
+//        editor.remove( "aspect2EditText" );
+//        editor.remove( "voltage2EditText" );
+//        editor.remove( "current2EditText" );
+//        editor.remove( "signalNo3EditText" );
+//        editor.remove( "aspect3EditText" );
+//        editor.remove( "voltage3EditText" );
+//        editor.remove( "current3EditText" );
+//        editor.remove( "signalNo4EditText" );
+//        editor.remove( "aspect4EditText" );
+//        editor.remove( "voltage4EditText" );
+//        editor.remove( "current4EditText" );
+//        editor.remove( "signalNo5EditText" );
+//        editor.remove( "aspect5EditText" );
+//        editor.remove( "voltage5EditText" );
+//        editor.remove( "current5EditText" );
+//        editor.remove( "signalNo6EditText" );
+//        editor.remove( "aspect6EditText" );
+//        editor.remove( "voltage6EditText" );
+//        editor.remove( "current6EditText" );
+//        editor.remove( "signalNo7EditText" );
+//        editor.remove( "aspect7EditText" );
+//        editor.remove( "voltage7EditText" );
+//        editor.remove( "current7EditText" );
+//        editor.remove( "signalNo8EditText" );
+//        editor.remove( "aspect8EditText" );
+//        editor.remove( "voltage8EditText" );
+//        editor.remove( "current8EditText" );
+//        editor.remove( "signalNo9EditText" );
+//        editor.remove( "aspect9EditText" );
+//        editor.remove( "voltage9EditText" );
+//        editor.remove( "current9EditText" );
+//        editor.remove( "signalNo10EditText" );
+//        editor.remove( "aspect10EditText" );
+//        editor.remove( "voltage10EditText" );
+//        editor.remove( "current10EditText" );
+//        editor.remove( "signalsActionBySpinner" );
+//        editor.remove( "signalsActionBySpinnerPosition" );
+//        editor.remove( "signalsActionByEditText" );
+//        editor.remove( "signalsActivityComplete" );
+//        //CCIP VDU
+//        editor.remove( "typeOfInterlockingSpinner" );
+//        editor.remove( getResources().getString( R.string.sip_swrd_is_as_per_the_physical_yard_layout ) );
+//        editor.remove( getResources().getString( R.string.counters_on_panel_vdu_are_same_as_recorded_in_counter_register ) );
+//        editor.remove( getResources().getString( R.string.sample_checking_of_calling_on_signal_coggb_counter_increment ) );
+//        editor.remove( getResources().getString( R.string.sample_checking_of_calling_on_signal_cancellation_cocyn_errb_counter_increment ) );
+//        editor.remove( getResources().getString( R.string.testing_of_emergency_classover_in_double_line_sections ) );
+//        editor.remove( getResources().getString( R.string.sample_check_of_approach_locking_dead_approach_locking ) );
+//        editor.remove( "ccipDeficiencyEditText" );
+//        editor.remove( "ERRBEditText" );
+//        editor.remove( "RRBUEditText" );
+//        editor.remove( "COGGNEditText" );
+//        editor.remove( "COCYNEditText" );
+//        editor.remove( "EBPUEditText" );
+//        editor.remove( "ECHEditText" );
+//        editor.remove( "lastAnnualDateEditText" );
+//        editor.remove( "ccipActionBySpr" );
+//        editor.remove( "ccipActionByEditTxt" );
+//        editor.remove( "ccipActivityComplete" );
+//        editor.remove( "ccipActionBySprPosition" );
+//        editor.remove( "typeOfInterlockingSpinnerPosition" );
         //BlockInstruments and Axle Counter
         editor.remove( "bi1EditTxt" );
         editor.remove( "localBI1EditTxt" );
@@ -781,123 +772,123 @@ public class MainGearsActivity extends AppCompatActivity {
         removeBiReplicatedGates(sharedpreferences.getInt("biCount",0));
         removeAcReplicatedGates(sharedpreferences.getInt("acCount",0));
         editor.remove( "biAcActivityComplete" );
-        //Power Supply
-        editor.remove( "ipsMakespnr" );
-        editor.remove( "ipsMakeEditTxt" );
-        editor.remove( getResources().getString( R.string.amc_executed ) );
-        editor.remove( getResources().getString( R.string.smr_load_sharing_is_working_fine ) );
-        editor.remove( getResources().getString( R.string.earthing_of_ips_equipment_was_proper ) );
-        editor.remove( "ipsOnEditText" );
-        editor.remove( "ipsOFFEditText" );
-        editor.remove( "ipsAfterEditText" );
-        editor.remove( "specificGravityEditText" );
-        editor.remove( "specificGravityMaxEditText" );
-        editor.remove( getResources().getString( R.string.records_of_battery_readings_were_maintained ) );
-        editor.remove( getResources().getString( R.string.white_washing_required_in_battery_room ) );
-        editor.remove( "relayRoomOpeningSpinner" );
-        editor.remove( "spareRelaySpinner" );
-        editor.remove( "whiteWashingRelaySpinner" );
-        editor.remove( "electricalGeneralSpinner" );
-        editor.remove( "earthingArrangementsSpinner" );
-        editor.remove( "whetherAMCSpinner" );
-        editor.remove( "maintenanceRecordsSpinner" );
-        editor.remove( "dataLoggerDate" );
-        editor.remove( "lastValidationByEditText" );
-        editor.remove( "eiMakeSpnr" );
-        editor.remove( "eiMakeEditTxt" );
-        editor.remove( "lastSystemSwitchAEditText" );
-        editor.remove( "lastSystemSwitchBEditText" );
-        editor.remove( "eiDate" );
-        editor.remove( "eiRackSpinner" );
-        editor.remove( "voltageParameterSpinner" );
-        editor.remove( "powerSupplyActionBySpr" );
-        editor.remove( "powerSupplyActionByEditTxt" );
-        editor.remove( "powerActivityComplete" );
-        editor.remove( "ipsMakespnrPosition" );
-        editor.remove( "relayRoomOpeningSpinnerPosition" );
-        editor.remove( "spareRelaySpinnerPosition" );
-        editor.remove( "whiteWashingRelaySpinnerPosition" );
-        editor.remove( "electricalGeneralSpinnerPosition" );
-        editor.remove( "earthingArrangementsSpinnerPosition" );
-        editor.remove( "whetherAMCSpinnerPosition" );
-        editor.remove( "maintenanceRecordsSpinnerPosition" );
-        editor.remove( "eiMakeSpnrPosition" );
-        editor.remove( "eiRackSpinnerPosition" );
-        editor.remove( "voltageParameterSpinnerPosition" );
-        editor.remove( "powerSupplyActionBySprPosition" );
-        //Level Crossing
-        editor.remove( "gateNo" );
-        editor.remove( "nameOfGateman" );
-        editor.remove( "gateTypeSpnr" );
-        editor.remove( "gateTypeSpnrPosition" );
-        editor.remove( getResources().getString( R.string.positive_boom_locking_tested ) );
-        editor.remove( getResources().getString( R.string.booms_were_painted ) );
-        editor.remove( getResources().getString( R.string.gateman_having_adequate_safety_knowledge ) );
-        editor.remove( getResources().getString( R.string.gate_telephone_s_found_in_working_order ) );
-        editor.remove( getResources().getString( R.string.sse_je_inspections_are_as_per_their_maintenance_schedule ) );
-        editor.remove( getResources().getString( R.string.inspection_maintenance_records_were_maintained ) );
-        editor.remove( getResources().getString( R.string.other_electrical_and_mechanical_parameter_of_gates_were_checked ) );
-        editor.remove( "anyDeficiencyFound" );
-        editor.remove( "levelCrossingActionBySpr" );
-        editor.remove( "levelCrossingActionBySprPosition" );
-        editor.remove( "levelCrossingActionByEditTxt" );
-        removeLevelCrossingReplicatedGates(sharedpreferences.getInt("levelCrossingGateCount",0));
-        editor.remove( "levelActivityComplete" );
-        //Records
-        editor.remove( "signalPoint1EditText" );
-        editor.remove( "signalTrackCircuit1EditText" );
-        editor.remove( "signalBI1EditText" );
-        editor.remove( "signalPowerSupply1EditText" );
-        editor.remove( "signalOthers1EditText" );
-        editor.remove( "signalPoint2EditText" );
-        editor.remove( "signalTrackCircuit2EditText" );
-        editor.remove( "signalBI2EditText" );
-        editor.remove( "signalPowerSupply2EditText" );
-        editor.remove( "signalOthers2EditText" );
-        editor.remove( "signalPoint3EditText" );
-        editor.remove( "signalTrackCircuit3EditText" );
-        editor.remove( "signalBI3EditText" );
-        editor.remove( "signalPowerSupply3EditText" );
-        editor.remove( "signalOthers3EditText" );
-        editor.remove( "signalFailureRemarkEditText" );
-        editor.remove( "disconnection1DREditText" );
-        editor.remove( "disconnection2DREditText" );
-        editor.remove( "disconnection3DREditText" );
-        editor.remove( "disconnectionReconnectionEditText" );
-        editor.remove( "relayRoom1RREditText" );
-        editor.remove( "relayRoom2RREditText" );
-        editor.remove( "relayRoom3RREditText" );
-        editor.remove( "relayRoomEditText" );
-        editor.remove( "signalInfringementSpinner" );
-        editor.remove( "earthTestingSpinner" );
-        editor.remove( "cableMeggeringSpinner" );
-        editor.remove( "updatedCktDiagramSpinner" );
-        editor.remove( "cableRouteSpinner" );
-        editor.remove( "cableCoreSpinner" );
-        editor.remove( "signalInterlockingSpinner" );
-        editor.remove( "SMC1Spinner" );
-        editor.remove( "SMC12Spinner" );
-        editor.remove( "signalHistorySpinner" );
-        editor.remove( "recordsActionBySpr" );
-        editor.remove( "recordsActionByEditTxt" );
-        editor.remove( "recordsActivityComplete" );
-        editor.remove( "signalInfringementSpinnerPosition" );
-        editor.remove( "earthTestingSpinnerPosition" );
-        editor.remove( "cableMeggeringSpinnerPosition" );
-        editor.remove( "cableRouteSpinnerPosition" );
-        editor.remove( "cableCoreSpinnerPosition" );
-        editor.remove( "SMC1SpinnerPosition" );
-        editor.remove( "SMC12SpinnerPosition" );
-        editor.remove( "signalHistorySpinnerPosition" );
-        editor.remove( "updatedCktDiagramSpinnerPosition" );
-        editor.remove( "signalInterlockingSpinnerPosition" );
-        editor.remove( "recordsActionBySprPosition" );
-        //Non SNT
-        editor.remove( "engineeringDeficiencyEditText" );
-        editor.remove( "electricalDeficiencyEditText" );
-        editor.remove( "operatingDeficiencyEditText" );
-        editor.remove( "otherDeficiencyActionEditText" );
-        editor.remove( "nonSntActivityComplete" );
+//        //Power Supply
+//        editor.remove( "ipsMakespnr" );
+//        editor.remove( "ipsMakeEditTxt" );
+//        editor.remove( getResources().getString( R.string.amc_executed ) );
+//        editor.remove( getResources().getString( R.string.smr_load_sharing_is_working_fine ) );
+//        editor.remove( getResources().getString( R.string.earthing_of_ips_equipment_was_proper ) );
+//        editor.remove( "ipsOnEditText" );
+//        editor.remove( "ipsOFFEditText" );
+//        editor.remove( "ipsAfterEditText" );
+//        editor.remove( "specificGravityEditText" );
+//        editor.remove( "specificGravityMaxEditText" );
+//        editor.remove( getResources().getString( R.string.records_of_battery_readings_were_maintained ) );
+//        editor.remove( getResources().getString( R.string.white_washing_required_in_battery_room ) );
+//        editor.remove( "relayRoomOpeningSpinner" );
+//        editor.remove( "spareRelaySpinner" );
+//        editor.remove( "whiteWashingRelaySpinner" );
+//        editor.remove( "electricalGeneralSpinner" );
+//        editor.remove( "earthingArrangementsSpinner" );
+//        editor.remove( "whetherAMCSpinner" );
+//        editor.remove( "maintenanceRecordsSpinner" );
+//        editor.remove( "dataLoggerDate" );
+//        editor.remove( "lastValidationByEditText" );
+//        editor.remove( "eiMakeSpnr" );
+//        editor.remove( "eiMakeEditTxt" );
+//        editor.remove( "lastSystemSwitchAEditText" );
+//        editor.remove( "lastSystemSwitchBEditText" );
+//        editor.remove( "eiDate" );
+//        editor.remove( "eiRackSpinner" );
+//        editor.remove( "voltageParameterSpinner" );
+//        editor.remove( "powerSupplyActionBySpr" );
+//        editor.remove( "powerSupplyActionByEditTxt" );
+//        editor.remove( "powerActivityComplete" );
+//        editor.remove( "ipsMakespnrPosition" );
+//        editor.remove( "relayRoomOpeningSpinnerPosition" );
+//        editor.remove( "spareRelaySpinnerPosition" );
+//        editor.remove( "whiteWashingRelaySpinnerPosition" );
+//        editor.remove( "electricalGeneralSpinnerPosition" );
+//        editor.remove( "earthingArrangementsSpinnerPosition" );
+//        editor.remove( "whetherAMCSpinnerPosition" );
+//        editor.remove( "maintenanceRecordsSpinnerPosition" );
+//        editor.remove( "eiMakeSpnrPosition" );
+//        editor.remove( "eiRackSpinnerPosition" );
+//        editor.remove( "voltageParameterSpinnerPosition" );
+//        editor.remove( "powerSupplyActionBySprPosition" );
+//        //Level Crossing
+//        editor.remove( "gateNo" );
+//        editor.remove( "nameOfGateman" );
+//        editor.remove( "gateTypeSpnr" );
+//        editor.remove( "gateTypeSpnrPosition" );
+//        editor.remove( getResources().getString( R.string.positive_boom_locking_tested ) );
+//        editor.remove( getResources().getString( R.string.booms_were_painted ) );
+//        editor.remove( getResources().getString( R.string.gateman_having_adequate_safety_knowledge ) );
+//        editor.remove( getResources().getString( R.string.gate_telephone_s_found_in_working_order ) );
+//        editor.remove( getResources().getString( R.string.sse_je_inspections_are_as_per_their_maintenance_schedule ) );
+//        editor.remove( getResources().getString( R.string.inspection_maintenance_records_were_maintained ) );
+//        editor.remove( getResources().getString( R.string.other_electrical_and_mechanical_parameter_of_gates_were_checked ) );
+//        editor.remove( "anyDeficiencyFound" );
+//        editor.remove( "levelCrossingActionBySpr" );
+//        editor.remove( "levelCrossingActionBySprPosition" );
+//        editor.remove( "levelCrossingActionByEditTxt" );
+//        removeLevelCrossingReplicatedGates(sharedpreferences.getInt("levelCrossingGateCount",0));
+//        editor.remove( "levelActivityComplete" );
+//        //Records
+//        editor.remove( "signalPoint1EditText" );
+//        editor.remove( "signalTrackCircuit1EditText" );
+//        editor.remove( "signalBI1EditText" );
+//        editor.remove( "signalPowerSupply1EditText" );
+//        editor.remove( "signalOthers1EditText" );
+//        editor.remove( "signalPoint2EditText" );
+//        editor.remove( "signalTrackCircuit2EditText" );
+//        editor.remove( "signalBI2EditText" );
+//        editor.remove( "signalPowerSupply2EditText" );
+//        editor.remove( "signalOthers2EditText" );
+//        editor.remove( "signalPoint3EditText" );
+//        editor.remove( "signalTrackCircuit3EditText" );
+//        editor.remove( "signalBI3EditText" );
+//        editor.remove( "signalPowerSupply3EditText" );
+//        editor.remove( "signalOthers3EditText" );
+//        editor.remove( "signalFailureRemarkEditText" );
+//        editor.remove( "disconnection1DREditText" );
+//        editor.remove( "disconnection2DREditText" );
+//        editor.remove( "disconnection3DREditText" );
+//        editor.remove( "disconnectionReconnectionEditText" );
+//        editor.remove( "relayRoom1RREditText" );
+//        editor.remove( "relayRoom2RREditText" );
+//        editor.remove( "relayRoom3RREditText" );
+//        editor.remove( "relayRoomEditText" );
+//        editor.remove( "signalInfringementSpinner" );
+//        editor.remove( "earthTestingSpinner" );
+//        editor.remove( "cableMeggeringSpinner" );
+//        editor.remove( "updatedCktDiagramSpinner" );
+//        editor.remove( "cableRouteSpinner" );
+//        editor.remove( "cableCoreSpinner" );
+//        editor.remove( "signalInterlockingSpinner" );
+//        editor.remove( "SMC1Spinner" );
+//        editor.remove( "SMC12Spinner" );
+//        editor.remove( "signalHistorySpinner" );
+//        editor.remove( "recordsActionBySpr" );
+//        editor.remove( "recordsActionByEditTxt" );
+//        editor.remove( "recordsActivityComplete" );
+//        editor.remove( "signalInfringementSpinnerPosition" );
+//        editor.remove( "earthTestingSpinnerPosition" );
+//        editor.remove( "cableMeggeringSpinnerPosition" );
+//        editor.remove( "cableRouteSpinnerPosition" );
+//        editor.remove( "cableCoreSpinnerPosition" );
+//        editor.remove( "SMC1SpinnerPosition" );
+//        editor.remove( "SMC12SpinnerPosition" );
+//        editor.remove( "signalHistorySpinnerPosition" );
+//        editor.remove( "updatedCktDiagramSpinnerPosition" );
+//        editor.remove( "signalInterlockingSpinnerPosition" );
+//        editor.remove( "recordsActionBySprPosition" );
+//        //Non SNT
+//        editor.remove( "engineeringDeficiencyEditText" );
+//        editor.remove( "electricalDeficiencyEditText" );
+//        editor.remove( "operatingDeficiencyEditText" );
+//        editor.remove( "otherDeficiencyActionEditText" );
+//        editor.remove( "nonSntActivityComplete" );
 
         editor.apply();
     }
@@ -1013,45 +1004,6 @@ public class MainGearsActivity extends AppCompatActivity {
         }
     }
 
-    private class generatePdf extends AsyncTask<Void, Void, Void> {
-        int success = 0;
-        private ProgressDialog progressDialog;
-        @Override
-        protected void onPreExecute() {
-            progressDialog = new ProgressDialog( context );
-            progressDialog.setMessage( "Generating Inspection Note... " );
-            progressDialog.setCancelable( false );
-            progressDialog.setIndeterminate( true );
-            progressDialog.show();
-        }
-
-        @Override
-        protected Void doInBackground(Void... arg0) {
-            if (isStoragePermissionGranted() ) {
-                Looper.prepare();
-                GenerateInspectionNote generateInspectionNote = new GenerateInspectionNote( mContext );
-                generateInspectionNote.uploadPdf();
-                generateInspectionNote.previewPdf();
-                removeAllSharedPreferences();
-
-                success =1;
-            } else {
-                success = 0;
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void result) {
-            if (progressDialog != null) {
-                progressDialog.dismiss();
-                mainGearsSubmitButton.setEnabled( true );
-                if(success==0)
-                    showAlertDialog( "Couldn't generate Inspection Note. Please review Storage Permission!" );
-            }
-        }
-    }
-
     private class sendSMS extends AsyncTask<Void, Void, Void> {
         int success = 0;
         @Override
@@ -1082,6 +1034,90 @@ public class MainGearsActivity extends AppCompatActivity {
                 mainGearsSubmitButton.setEnabled( true );
                 if(success==0)
                     showAlertDialog( "Couldn't generate Inspection Note. Please review Storage Permission!" );
+            }
+        }
+    }
+
+    private class generatePdf extends AsyncTask<Void, Void, Void> {
+        int success = 0;
+        private ProgressDialog progressDialog;
+        @Override
+        protected void onPreExecute() {
+            progressDialog = new ProgressDialog( context );
+            progressDialog.setMessage( "Generating Inspection Note... " );
+            progressDialog.setCancelable( false );
+            progressDialog.setIndeterminate( true );
+            progressDialog.show();
+        }
+
+        @Override
+        protected Void doInBackground(Void... arg0) {
+            if (isStoragePermissionGranted() ) {
+                Looper.prepare();
+                generateInspectionNote = new GenerateInspectionNote( mContext );
+                success =1;
+            } else {
+                success = 0;
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            if (progressDialog != null) {
+                progressDialog.dismiss();
+                mainGearsSubmitButton.setEnabled( true );
+                if(success==0)
+                    showAlertDialog( "Couldn't generate Inspection Note. Please review Storage Permission!" );
+                else{
+                    UploadGeneratedPdf uploadGeneratedPdf = new UploadGeneratedPdf();
+                    uploadGeneratedPdf.execute(  );
+                }
+            }
+        }
+    }
+
+    private class UploadGeneratedPdf extends AsyncTask<Void, Void, Void> {
+        int success = 0;
+        int dataUpload = -3;
+        private ProgressDialog progressDialog;
+        SharedPreferences sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+        @Override
+        protected void onPreExecute() {
+            progressDialog = new ProgressDialog( MainGearsActivity.this );
+            progressDialog.setMessage( "Uploading Inspection Note... " );
+            progressDialog.setCancelable( false );
+            progressDialog.setIndeterminate( true );
+            progressDialog.show();
+        }
+
+        @Override
+        protected Void doInBackground(Void... arg0) {
+            GetData getData = new GetData();
+            if (isStoragePermissionGranted() ) {
+//                Looper.prepare();
+                generateInspectionNote.uploadPdf();
+                dataUpload = getData.inspectionNoteInsertionQuery(generateInspectionNote.returnFileName(),sharedpreferences.getString("authDesignation", ""),sharedpreferences.getString("stationCode", ""),generateInspectionNote.returnDateTime(),sharedpreferences.getString("division", ""));
+                success =1;
+            } else {
+                success = 0;
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            if (progressDialog != null) {
+                progressDialog.dismiss();
+                mainGearsSubmitButton.setEnabled( true );
+                if(dataUpload==-2 || success==0)
+                    showAlertDialog( "Couldn't upload the Inspection Note. Please check your internet connection!" );
+                else if(dataUpload==-1)
+                    showAlertDialog( "Could not Connect to server. Try again after sometime" );
+                else{
+                    generateInspectionNote.previewPdf();
+                    removeAllSharedPreferences();
+                }
             }
         }
     }

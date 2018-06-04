@@ -37,6 +37,7 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <EditText
                     android:id="@+id/loginPhoneNumberEditText"
                     android:layout_width="match_parent"
@@ -44,7 +45,9 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="@string/phone_number"
-                    android:inputType="phone" />
+                    android:inputType="phone"
+                    android:maxLength="10"
+                    android:phoneNumber="true" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -61,6 +64,7 @@
                     android:imeOptions="actionUnspecified"
                     android:inputType="textPassword"
                     android:maxLines="1"
+                    android:password="true"
                     android:singleLine="true" />
 
             </android.support.design.widget.TextInputLayout>

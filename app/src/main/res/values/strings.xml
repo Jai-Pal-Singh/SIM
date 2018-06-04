@@ -242,6 +242,9 @@
     <string name="aashish_periwal_asa_it">Aashish Periwal (ASA/IT)</string>
     <string name="feedback">Feedback</string>
     <string name="send_feedback">Send Feedback</string>
-    <string name="submit_and_generate_inspection_note_for_lc">SUBMIT AND GENERATE INSPECTION NOTE FOR LC</string>
+    <string name="submit_and_generate_inspection_note_for_lc">Generate Level Crossing Inspection Note</string>
+    <string name="filename">Filename</string>
+    <string name="inspected_by">Inspected By</string>
+    <string name="time">time</string>
 
 </resources>

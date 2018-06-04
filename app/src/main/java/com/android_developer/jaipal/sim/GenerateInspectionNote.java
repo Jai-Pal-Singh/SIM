@@ -51,6 +51,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 import static android.content.ContentValues.TAG;
 import static com.itextpdf.text.html.HtmlTags.FONT;
@@ -63,6 +64,7 @@ public class GenerateInspectionNote extends Activity {
     String fileName;
     FileOutputStream fOut;
     Context mContext;
+    String dateTime;
 
     private SharedPreferences sharedpreferences;
     public static final String MyPREFERENCES = "MyPrefs" ;
@@ -82,12 +84,19 @@ public class GenerateInspectionNote extends Activity {
             File dir = new File(path);
             if(!dir.exists())
                 dir.mkdirs();
-            Date date = new Date() ;
-            SimpleDateFormat dateFormat = new SimpleDateFormat("ddMMyyyy_HHmmss") ;
+
+            SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
+            Date date = format.parse(sharedpreferences.getString("inspectDate", ""));
+            SimpleDateFormat dateFormat = new SimpleDateFormat("ddMMyyyy_") ;
+            Date time = new Date();
+            SimpleDateFormat timeFormat = new SimpleDateFormat("HHmmss") ;
+            dateTime = dateFormat.format(date)+timeFormat.format( time );
+
             String authDesig = sharedpreferences.getString("authDesignation", "");
             String newAuthDesig = authDesig.replaceAll( "/","_" );
+            newAuthDesig  = newAuthDesig.replaceAll( "\\s", "" );
 
-            fileName = sharedpreferences.getString("stationCode", "")+"_"+newAuthDesig+"_"+dateFormat.format(date)+".pdf";
+            fileName = sharedpreferences.getString("stationCode", "")+"_"+newAuthDesig+"_"+dateTime+".pdf";
 //            file = new File(dir, sharedpreferences.getString("stationCode", "")+"_"+newAuthDesig+"_"+dateFormat.format(date)+".pdf");
             file = new File( dir, fileName );
             fOut = new FileOutputStream(file);
@@ -1245,9 +1254,16 @@ public class GenerateInspectionNote extends Activity {
         }
     }
 
-    public void uploadPdf(){
-//        FileUploadHandler fileUploadHandler = new FileUploadHandler();
+    public String returnFileName(){
+        return fileName;
+    }
 
+    public String returnDateTime(){
+        return dateTime;
+    }
+
+    public void uploadPdf(){
+        FileUploadHandler fileUploadHandler = new FileUploadHandler(mContext, file);
     }
 
 }

@@ -38,14 +38,17 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class LCInspectionNotes {
 
     Document document;
     File file;
     String fileName;
+    String path;
     FileOutputStream fOut;
     Context mContext;
+    String dateTime;
     private SharedPreferences sharedpreferences;
     public static final String MyPREFERENCES = "MyPrefs" ;
     private static Font catFont = new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD);
@@ -60,16 +63,22 @@ public class LCInspectionNotes {
         sharedpreferences = mContext.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         try {
             document = new Document( PageSize.A4, 25, 25, 25, 25);
-            String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/SIM";
+            path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/SIM";
             File dir = new File(path);
             if(!dir.exists())
                 dir.mkdirs();
-            Date date = new Date() ;
-            SimpleDateFormat dateFormat = new SimpleDateFormat("ddMMyyyy_HHmmss") ;
+            SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
+            Date date = format.parse(sharedpreferences.getString("inspectDate", ""));
+            SimpleDateFormat dateFormat = new SimpleDateFormat("ddMMyyyy_") ;
+            Date time = new Date();
+            SimpleDateFormat timeFormat = new SimpleDateFormat("HHmmss") ;
+            dateTime = dateFormat.format(date)+timeFormat.format( time );
+
             String authDesig = sharedpreferences.getString("authDesignation", "");
             String newAuthDesig = authDesig.replaceAll( "/","_" );
+            newAuthDesig  = newAuthDesig.replaceAll( "\\s", "" );
 
-            fileName = sharedpreferences.getString("stationCode", "")+"_"+newAuthDesig+"_"+dateFormat.format(date)+".pdf";
+            fileName = "LC_"+sharedpreferences.getString("stationCode", "")+"_"+newAuthDesig+"_"+dateTime+".pdf";
             file = new File(dir, fileName);
             fOut = new FileOutputStream(file);
             PdfWriter writer =PdfWriter.getInstance(document, fOut);
@@ -480,8 +489,15 @@ public class LCInspectionNotes {
         public abstract void setLineDash(PdfContentByte canvas);
     }
 
-    public void uploadPdf(){
-//        FileUploadHandler fileUploadHandler = new FileUploadHandler();
+    public String returnFileName(){
+        return fileName;
+    }
 
+    public String returnDateTime(){
+        return dateTime;
+    }
+
+    public void uploadPdf(){
+        FileUploadHandler fileUploadHandler = new FileUploadHandler(mContext, file);
     }
 }

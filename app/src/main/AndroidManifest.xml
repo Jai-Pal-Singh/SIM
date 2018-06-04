@@ -41,7 +41,7 @@
         <activity
             android:name=".MainGearsActivity"
             android:label="@string/title_activity_main"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".DetailActivity"
             android:label="@string/general_telecom"
@@ -73,7 +73,8 @@
         <activity
             android:name=".LevelCrossingActivity"
             android:label="Level Crossing"
-            android:parentActivityName=".MainGearsActivity"/>
+            android:parentActivityName=".MainGearsActivity"
+            android:configChanges="orientation|screenSize"/>
         <activity
             android:name=".RecordsActivity"
             android:label="Records"
@@ -88,11 +89,13 @@
         <activity
             android:name=".RegistrationActivity"
             android:label="Register"
-            android:parentActivityName=".MainGearsActivity"/>
+            android:parentActivityName=".MainGearsActivity"
+            android:configChanges="orientation|screenSize"/>
         <activity
             android:name=".InspectionNotesActivity"
             android:label="Inspection Notes"
-            android:parentActivityName=".MainGearsActivity"/>
+            android:parentActivityName=".MainGearsActivity"
+            android:configChanges="orientation|screenSize"/>
         <activity
             android:name=".AboutDeveloper"
             android:label="About Developer"
@@ -104,7 +107,8 @@
         <activity
             android:name=".Feedback"
             android:label="Feedback"
-            android:parentActivityName=".MainGearsActivity"/>
+            android:parentActivityName=".MainGearsActivity"
+            android:configChanges="orientation|screenSize"/>
 
     </application>
 
