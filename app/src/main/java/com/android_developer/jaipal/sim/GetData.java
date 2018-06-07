@@ -12,6 +12,7 @@ import java.sql.Types;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import oracle.jdbc.OraclePreparedStatement;
 
@@ -902,5 +903,106 @@ public class GetData {
             data  = null;
         }
         return data;
+    }
+
+    public Map<String,String> getSSESigPhoneNoFromStation(String stationCode) {
+        ResultSet result = null;
+        HashMap<String, String> hm = new HashMap<String, String>();
+        try {
+            ConnectToOracle connectToOracle = new ConnectToOracle();
+            connect = connectToOracle.connections();
+            if (connect==null){
+                connectionResult = "Check Your Internet Connection!";
+                Log.e( "error : ",connectionResult );
+            }
+            else {
+                String query = "SELECT PHONENO1, PHONENO2 FROM USERNAME.SUPERVISOR WHERE STATION = ?";
+                PreparedStatement st = connect.prepareStatement( query );
+                st.setString( 1,stationCode );
+
+                result =st.executeQuery();
+                while (result.next()) {
+                    hm.put( "MonthlyInspectionBy",result.getString( "PHONENO1" ) );
+                    hm.put( "QuaterlyInspectionBy",result.getString( "PHONENO2" ) );
+
+                }
+                st.close();
+                connectionResult = "Suceessful";
+                Log.e( "Connection Result : ",connectionResult );
+                connect.close();
+            }
+        }
+        catch (Exception ex){
+            connectionResult = ex.getMessage();
+            Log.e( "Connection Result : ",connectionResult );
+        }
+        return hm;
+    }
+
+    public String getPhoneNoFromDesignation(String authDesignation) {
+        ResultSet result = null ;
+        String count="";
+        try {
+            ConnectToOracle connectToOracle = new ConnectToOracle();
+            connect = connectToOracle.connections();
+            if (connect==null){
+                connectionResult = "Check Your Internet Connection!";
+                Log.e( "error : ",connectionResult );
+                count = "-2";
+            }
+            else {
+                String query = "SELECT PHONE FROM USERNAME.USERS WHERE DESIGNATION = ?";
+                PreparedStatement st = connect.prepareStatement( query );
+                st.setString( 1,authDesignation );
+                result =st.executeQuery();
+                while (result.next()) {
+                    count=result.getString( "PHONE" );
+                }
+                st.close();
+                connectionResult = "Suceessful";
+                Log.e( "Connection Result : ",connectionResult );
+                connect.close();
+            }
+        }
+        catch (Exception ex){
+            connectionResult = ex.getMessage();
+            Log.e( "Connection Result : ",connectionResult );
+            count  ="-1";
+        }
+        return count;
+    }
+
+    public Map<String,String> getSSETelePhoneNoFromStation(String stationCode) {
+        ResultSet result = null;
+        HashMap<String, String> hm = new HashMap<String, String>();
+        try {
+            ConnectToOracle connectToOracle = new ConnectToOracle();
+            connect = connectToOracle.connections();
+            if (connect==null){
+                connectionResult = "Check Your Internet Connection!";
+                Log.e( "error : ",connectionResult );
+            }
+            else {
+                String query = "SELECT PHONENO1, PHONENO2 FROM USERNAME.SUPERVISOR WHERE STATION = ?";
+                PreparedStatement st = connect.prepareStatement( query );
+                st.setString( 1,stationCode );
+
+                result =st.executeQuery();
+                while (result.next()) {
+                    hm.put( "MonthlyInspectionBy",result.getString( "PHONENO1" ) );
+                    hm.put( "QuaterlyInspectionBy",result.getString( "PHONENO2" ) );
+
+                }
+                st.close();
+                connectionResult = "Suceessful";
+                Log.e( "Connection Result : ",connectionResult );
+                connect.close();
+            }
+        }
+        catch (Exception ex){
+            connectionResult = ex.getMessage();
+            Log.e( "Connection Result : ",connectionResult );
+        }
+        return hm;
     }
 }

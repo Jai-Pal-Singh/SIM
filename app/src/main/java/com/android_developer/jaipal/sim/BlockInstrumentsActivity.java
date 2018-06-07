@@ -49,6 +49,7 @@ public class BlockInstrumentsActivity extends AppCompatActivity {
         //addGateBtn onclick
         addBlockBtn = (Button)findViewById(R.id.addBlockButton);
         removeBlockBtn = (Button)findViewById(R.id.removeBlockButton);
+        initialGates(addBlockBtn);
         addBlockBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -104,6 +105,9 @@ public class BlockInstrumentsActivity extends AppCompatActivity {
                 mainLayout1.removeView(myLayout1);
                 mainLayout2.removeView(myLayout2);
 
+                removeSharedPreferencesForRemovedBI( blockCount );
+                removeSharedPreferencesForRemovedAC( axleCount );
+
                 blockCount--;
                 axleCount--;
                 if(blockCount<=defaultMinBlockCount){
@@ -123,13 +127,94 @@ public class BlockInstrumentsActivity extends AppCompatActivity {
 
     }
 
+    private void removeSharedPreferencesForRemovedAC(int axleCount) {
+        sharedpreferences = getSharedPreferences( MyPREFERENCES, Context.MODE_PRIVATE );
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        for(int acNumber = 0; acNumber <= axleCount-13 ; acNumber++ ) {
+            editor.remove( "axleCounterEditTxt"+acNumber );
+            editor.remove( "workingACSpr"+acNumber );
+            editor.remove( "electricalACSpr"+acNumber );
+            editor.remove( "resetACEditTxt"+acNumber );
+            editor.remove( "acdeficiencyEditText"+acNumber );
+            editor.remove( "acActionBySpr"+acNumber );
+            editor.remove( "acActionByEditTxt"+acNumber );
+            editor.remove( "workingACSprPosition"+acNumber );
+            editor.remove( "electricalACSprPosition"+acNumber );
+            editor.remove( "acActionBySprPosition"+acNumber );
+            editor.apply();
+        }
+    }
+
+    private void removeSharedPreferencesForRemovedBI(int blockCount) {
+        sharedpreferences = getSharedPreferences( MyPREFERENCES, Context.MODE_PRIVATE );
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        for(int biNumber = 0; biNumber <= blockCount-3 ; biNumber++ ) {
+            editor.remove( "biEditTxt"+biNumber );
+            editor.remove( "localBIEditTxt"+biNumber );
+            editor.remove( "lineBIEditTxt"+biNumber );
+            editor.remove( "voltageOutgoingBIEditTxt"+biNumber );
+            editor.remove( "currentOutgoingBIEditTxt"+biNumber );
+            editor.remove( "voltageIncomingBIEditTxt"+biNumber );
+            editor.remove( "currentIncomingBIEditTxt"+biNumber );
+            editor.remove( "bideficiencyEditTxt"+biNumber );
+            editor.remove( "lineClearBIEditTxt"+biNumber );
+            editor.remove( "recordsBISpr"+biNumber );
+            editor.remove( "biActionBySpr"+biNumber );
+            editor.remove( "biActionByEditTxt"+biNumber );
+            editor.remove( "recordsBISprPosition"+biNumber );
+            editor.remove( "biActionBySprPosition"+biNumber );
+            editor.apply();
+        }
+    }
+
+    private void initialGates(View view) {
+        blockCount = sharedpreferences.getInt( "biCount", 2 );
+        axleCount = sharedpreferences.getInt( "acCount", 12 );
+        for(int biNumber = 3, acNumber = 13; biNumber <= blockCount ; biNumber++ ,acNumber++) {
+            if(biNumber<=defaultMinBlockCount){
+                removeBlockBtn.setVisibility( view.INVISIBLE );
+            }
+            else{
+                removeBlockBtn.setVisibility( view.VISIBLE );
+            }
+
+            if(biNumber>=defaultMaxBlockCount){
+                addBlockBtn.setVisibility( view.INVISIBLE );
+            }
+            else{
+                addBlockBtn.setVisibility( view.VISIBLE );
+            }
+            // get a reference to the already created main layout
+            LinearLayout mainLayout1 = (LinearLayout) findViewById(R.id.blockInstrumentsLayout2);
+            LinearLayout mainLayout2 = (LinearLayout) findViewById(R.id.axleCountersLayout1);
+            // inflate (create) another copy of our custom layout
+            LayoutInflater inflater = getLayoutInflater();
+            View myLayout1 = inflater.inflate(R.layout.block_instruments_bi_replicate_activity, mainLayout1, false);
+            View myLayout2 = inflater.inflate(R.layout.block_instruments_ac_replicate_activity, mainLayout2, false);
+
+            TextView txtview = myLayout2.findViewById(R.id.axleCounter3TextView  );
+            id = acNumber-10;
+            txtview.setText( "Axle Counter "+id );
+            myLayout2.setId( acNumber);
+            addedACSetUp[acNumber-13] = new setUpStorageVariablesForAddedAC(myLayout2,acNumber-13);
+
+            txtview = myLayout1.findViewById(R.id.bi3TextView  );
+            txtview.setText( "BI "+biNumber );
+            myLayout1.setId( biNumber );
+            addedBISetUp[biNumber-3] = new setUpStorageVariablesForAddedBI(myLayout1,biNumber-3);
+            // add our custom layout to the main layout
+            mainLayout1.addView(myLayout1);
+            mainLayout2.addView(myLayout2);
+        }
+    }
+
     private void getDivisionFromSharedPreferences() {
         sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         selectedDivision = sharedpreferences.getString("division", null);
         stationCode = sharedpreferences.getString( "stationCode",null );
     }
 
-    private void setActionBySpinner(String selectedDivision, Spinner ActionBySpr) {
+    private void setActionBySpinner(String selectedDivision, Spinner ActionBySpr, int position) {
         ArrayAdapter<String> adapter;
         String[] actionBy;
         final List<String> actionByList;
@@ -140,6 +225,7 @@ public class BlockInstrumentsActivity extends AppCompatActivity {
                 adapter = new ArrayAdapter<String>( this, R.layout.support_simple_spinner_dropdown_item, actionByList );
                 adapter.setDropDownViewResource( R.layout.support_simple_spinner_dropdown_item );
                 ActionBySpr.setAdapter( adapter );
+                ActionBySpr.setSelection( position );
                 break;
             case "JU":
                 actionBy = createActionByList(stationCode, "SSE/Sig/","SSE/Tele/",getResources().getStringArray( R.array.jodhpurActionBy ));
@@ -147,6 +233,7 @@ public class BlockInstrumentsActivity extends AppCompatActivity {
                 adapter = new ArrayAdapter<String>( this, R.layout.support_simple_spinner_dropdown_item, actionByList );
                 adapter.setDropDownViewResource( R.layout.support_simple_spinner_dropdown_item );
                 ActionBySpr.setAdapter( adapter );
+                ActionBySpr.setSelection( position );
                 break;
             case "AII":
                 actionBy = createActionByList(stationCode, "SSE/Sig/","SSE/Tele/",getResources().getStringArray( R.array.ajmerActionBy ));
@@ -154,6 +241,7 @@ public class BlockInstrumentsActivity extends AppCompatActivity {
                 adapter = new ArrayAdapter<String>( this, R.layout.support_simple_spinner_dropdown_item, actionByList );
                 adapter.setDropDownViewResource( R.layout.support_simple_spinner_dropdown_item );
                 ActionBySpr.setAdapter( adapter );
+                ActionBySpr.setSelection( position );
                 break;
             case "BKN":
                 actionBy = createActionByList(stationCode, "SSE/Sig/","SSE/Tele/",getResources().getStringArray( R.array.bikanerActionBy ));
@@ -161,6 +249,7 @@ public class BlockInstrumentsActivity extends AppCompatActivity {
                 adapter = new ArrayAdapter<String>( this, R.layout.support_simple_spinner_dropdown_item, actionByList );
                 adapter.setDropDownViewResource( R.layout.support_simple_spinner_dropdown_item );
                 ActionBySpr.setAdapter( adapter );
+                ActionBySpr.setSelection( position );
                 break;
         }
     }
@@ -168,10 +257,11 @@ public class BlockInstrumentsActivity extends AppCompatActivity {
     private String[] createActionByList(String stationCode, String firstString, String secondString, String[] stringArray) {
         String firstElement = firstString+stationCode;
         String secondElement = secondString+stationCode;
-        String[] tempArray = new String[ stringArray.length + 2 ];
-        tempArray[0] = firstElement;
-        tempArray[1] = secondElement;
-        System.arraycopy( stringArray, 0, tempArray, 2, stringArray.length );
+        String[] tempArray = new String[ stringArray.length + 3 ];
+        tempArray[0] = "None";
+        tempArray[1] = firstElement;
+        tempArray[2] = secondElement;
+        System.arraycopy( stringArray, 0, tempArray, 3, stringArray.length );
         return tempArray;
     }
 
@@ -260,14 +350,14 @@ public class BlockInstrumentsActivity extends AppCompatActivity {
             applyOnFocusChangeListener( resetAC2EditTxt );
             applyOnFocusChangeListener( ac2ActionByEditTxt );
 
-            setActionBySpinner(selectedDivision,bi1ActionBySpr);
+            setActionBySpinner(selectedDivision,bi1ActionBySpr,sharedpreferences.getInt( "bi1ActionBySprPosition",0));
             applyOnItemSelectedListener(bi1ActionBySpr ,bi1ActionByEditTxt);
-            setActionBySpinner(selectedDivision,bi2ActionBySpr);
+            setActionBySpinner(selectedDivision,bi2ActionBySpr,sharedpreferences.getInt( "bi2ActionBySprPosition",0));
             applyOnItemSelectedListener(bi2ActionBySpr ,bi2ActionByEditTxt);
 
-            setActionBySpinner(selectedDivision,ac1ActionBySpr);
+            setActionBySpinner(selectedDivision,ac1ActionBySpr,sharedpreferences.getInt( "bi2ActionBySprPosition",0));
             applyOnItemSelectedListener(ac1ActionBySpr,ac1ActionByEditTxt);
-            setActionBySpinner(selectedDivision,ac2ActionBySpr);
+            setActionBySpinner(selectedDivision,ac2ActionBySpr,sharedpreferences.getInt( "bi2ActionBySprPosition",0));
             applyOnItemSelectedListener(ac2ActionBySpr ,ac2ActionByEditTxt);
         }
 
@@ -329,15 +419,20 @@ public class BlockInstrumentsActivity extends AppCompatActivity {
             editor.putString( "bi1deficiencyEditTxt",bi1deficiencyEditTxt.getText().toString() );
             editor.putString( "lineClearBI1EditTxt",lineClearBI1EditTxt.getText().toString() );
             editor.putString( "recordsBI1Spr",recordsBI1Spr.getSelectedItem().toString() );
+            editor.putInt( "recordsBI1SprPosition",recordsBI1Spr.getSelectedItemPosition() );
             editor.putString( "bi1ActionBySpr",bi1ActionBySpr.getSelectedItem().toString() );
+            editor.putInt( "bi1ActionBySprPosition",bi1ActionBySpr.getSelectedItemPosition() );
             editor.putString( "bi1ActionByEditTxt",bi1ActionByEditTxt.getText().toString() );
 
             editor.putString( "axleCounter1EditTxt",axleCounter1EditTxt.getText().toString() );
             editor.putString( "workingAC1Spr",workingAC1Spr.getSelectedItem().toString() );
+            editor.putInt( "workingAC1SprPosition",workingAC1Spr.getSelectedItemPosition() );
             editor.putString( "electricalAC1Spr",electricalAC1Spr.getSelectedItem().toString() );
+            editor.putInt( "electricalAC1SprPosition",electricalAC1Spr.getSelectedItemPosition() );
             editor.putString( "resetAC1EditTxt",resetAC1EditTxt.getText().toString() );
             editor.putString( "ac1deficiencyEditText",ac1deficiencyEditText.getText().toString() );
             editor.putString( "ac1ActionBySpr",ac1ActionBySpr.getSelectedItem().toString() );
+            editor.putInt( "ac1ActionBySprPosition",ac1ActionBySpr.getSelectedItemPosition() );
             editor.putString( "ac1ActionByEditTxt",ac1ActionByEditTxt.getText().toString() );
 
             editor.putInt( "biCount",blockCount );
@@ -357,9 +452,12 @@ public class BlockInstrumentsActivity extends AppCompatActivity {
             currentIncomingBI1EditTxt.setText( sharedpreferences.getString( "currentIncomingBI1EditTxt",null ) );
             bi1deficiencyEditTxt.setText( sharedpreferences.getString( "bi1deficiencyEditTxt",null ) );
             lineClearBI1EditTxt.setText( sharedpreferences.getString( "lineClearBI1EditTxt",null ) );
+            recordsBI1Spr.setSelection( sharedpreferences.getInt( "recordsBI1SprPosition",0 )  );
             bi1ActionByEditTxt.setText( sharedpreferences.getString( "bi1ActionByEditTxt",null ) );
 
             axleCounter1EditTxt.setText( sharedpreferences.getString( "axleCounter1EditTxt",null ) );
+            workingAC1Spr.setSelection( sharedpreferences.getInt( "workingAC1SprPosition",0 )  );
+            electricalAC1Spr.setSelection( sharedpreferences.getInt( "electricalAC1SprPosition",0 )  );
             resetAC1EditTxt.setText( sharedpreferences.getString( "resetAC1EditTxt",null ) );
             ac1deficiencyEditText.setText( sharedpreferences.getString( "ac1deficiencyEditText",null ) );
             ac1ActionByEditTxt.setText( sharedpreferences.getString( "ac1ActionByEditTxt",null ) );
@@ -378,15 +476,20 @@ public class BlockInstrumentsActivity extends AppCompatActivity {
             editor.putString( "bi2deficiencyEditTxt",bi2deficiencyEditTxt.getText().toString() );
             editor.putString( "lineClearBI2EditTxt",lineClearBI2EditTxt.getText().toString() );
             editor.putString( "recordsBI2Spr",recordsBI2Spr.getSelectedItem().toString() );
+            editor.putInt( "recordsBI2SprPosition",recordsBI2Spr.getSelectedItemPosition() );
             editor.putString( "bi2ActionBySpr",bi2ActionBySpr.getSelectedItem().toString() );
+            editor.putInt( "bi2ActionBySprPosition",bi2ActionBySpr.getSelectedItemPosition() );
             editor.putString( "bi2ActionByEditTxt",bi2ActionByEditTxt.getText().toString() );
 
             editor.putString( "axleCounter2EditTxt",axleCounter2EditTxt.getText().toString() );
             editor.putString( "workingAC2Spr",workingAC2Spr.getSelectedItem().toString() );
+            editor.putInt( "workingAC2SprPosition",workingAC2Spr.getSelectedItemPosition() );
             editor.putString( "electricalAC2Spr",electricalAC2Spr.getSelectedItem().toString() );
+            editor.putInt( "electricalAC2SprPosition",electricalAC2Spr.getSelectedItemPosition() );
             editor.putString( "resetAC2EditTxt",resetAC2EditTxt.getText().toString() );
             editor.putString( "ac2deficiencyEditText",ac2deficiencyEditText.getText().toString() );
             editor.putString( "ac2ActionBySpr",ac2ActionBySpr.getSelectedItem().toString() );
+            editor.putInt( "ac2ActionBySprPosition",ac2ActionBySpr.getSelectedItemPosition() );
             editor.putString( "ac2ActionByEditTxt",ac2ActionByEditTxt.getText().toString() );
             editor.apply();
         }
@@ -402,9 +505,12 @@ public class BlockInstrumentsActivity extends AppCompatActivity {
             currentIncomingBI2EditTxt.setText( sharedpreferences.getString( "currentIncomingBI2EditTxt",null ) );
             bi2deficiencyEditTxt.setText( sharedpreferences.getString( "bi2deficiencyEditTxt",null ) );
             lineClearBI2EditTxt.setText( sharedpreferences.getString( "lineClearBI2EditTxt",null ) );
+            recordsBI2Spr.setSelection( sharedpreferences.getInt( "recordsBI2SprPosition",0 )  );
             bi2ActionByEditTxt.setText( sharedpreferences.getString( "bi2ActionByEditTxt",null ) );
 
             axleCounter2EditTxt.setText( sharedpreferences.getString( "axleCounter2EditTxt",null ) );
+            workingAC2Spr.setSelection( sharedpreferences.getInt( "workingAC2SprPosition",0 )  );
+            electricalAC2Spr.setSelection( sharedpreferences.getInt( "electricalAC2SprPosition",0 )  );
             resetAC2EditTxt.setText( sharedpreferences.getString( "resetAC2EditTxt",null ) );
             ac2deficiencyEditText.setText( sharedpreferences.getString( "ac2deficiencyEditText",null ) );
             ac2ActionByEditTxt.setText( sharedpreferences.getString( "ac2ActionByEditTxt",null ) );
@@ -584,7 +690,7 @@ public class BlockInstrumentsActivity extends AppCompatActivity {
             applyOnFocusChangeListener(lineClearBIEditTxt);
             applyOnFocusChangeListener(biActionByEditTxt);
 
-            setActionBySpinner(selectedDivision,biActionBySpr);
+            setActionBySpinner(selectedDivision,biActionBySpr,sharedpreferences.getInt( "biActionBySprPosition"+relativeAxleCount,0));
             applyOnItemSelectedListener(biActionBySpr ,biActionByEditTxt);
         }
 
@@ -698,7 +804,9 @@ public class BlockInstrumentsActivity extends AppCompatActivity {
             editor.putString( "bideficiencyEditTxt"+relativeAxleCount,bideficiencyEditTxt.getText().toString() );
             editor.putString( "lineClearBIEditTxt"+relativeAxleCount,lineClearBIEditTxt.getText().toString() );
             editor.putString( "recordsBISpr"+relativeAxleCount,recordsBISpr.getSelectedItem().toString() );
+            editor.putInt( "recordsBISprPosition"+relativeAxleCount,recordsBISpr.getSelectedItemPosition() );
             editor.putString( "biActionBySpr"+relativeAxleCount,biActionBySpr.getSelectedItem().toString() );
+            editor.putInt( "biActionBySprPosition"+relativeAxleCount,biActionBySpr.getSelectedItemPosition() );
             editor.putString( "biActionByEditTxt"+relativeAxleCount,biActionByEditTxt.getText().toString() );
             editor.apply();
         }
@@ -715,6 +823,7 @@ public class BlockInstrumentsActivity extends AppCompatActivity {
             currentIncomingBIEditTxt.setText( sharedpreferences.getString( "currentIncomingBIEditTxt"+relativeAxleCount,null ) );
             bideficiencyEditTxt.setText( sharedpreferences.getString( "bideficiencyEditTxt"+relativeAxleCount,null ) );
             lineClearBIEditTxt.setText( sharedpreferences.getString( "lineClearBIEditTxt"+relativeAxleCount,null ) );
+            recordsBISpr.setSelection( sharedpreferences.getInt( "recordsBISprPosition"+relativeAxleCount,0 )  );
             biActionByEditTxt.setText( sharedpreferences.getString( "biActionByEditTxt"+relativeAxleCount,null ) );
         }
 
@@ -734,7 +843,7 @@ public class BlockInstrumentsActivity extends AppCompatActivity {
             applyOnFocusChangeListener( resetACEditTxt );
             applyOnFocusChangeListener( acActionByEditTxt );
 
-            setActionBySpinner(selectedDivision,acActionBySpr);
+            setActionBySpinner(selectedDivision,acActionBySpr,sharedpreferences.getInt( "acActionBySprPosition"+countAxle,0));
             applyOnItemSelectedListener(acActionBySpr, acActionByEditTxt);
         }
 
@@ -753,10 +862,13 @@ public class BlockInstrumentsActivity extends AppCompatActivity {
             SharedPreferences.Editor editor = sharedpreferences.edit();
             editor.putString( "axleCounterEditTxt"+countAxle,axleCounterEditTxt.getText().toString() );
             editor.putString( "workingACSpr"+countAxle,workingACSpr.getSelectedItem().toString() );
+            editor.putInt( "workingACSprPosition"+countAxle,workingACSpr.getSelectedItemPosition() );
             editor.putString( "electricalACSpr"+countAxle,electricalACSpr.getSelectedItem().toString() );
+            editor.putInt( "electricalACSprPosition"+countAxle,electricalACSpr.getSelectedItemPosition() );
             editor.putString( "resetACEditTxt"+countAxle,resetACEditTxt.getText().toString() );
             editor.putString( "acdeficiencyEditText"+countAxle,acdeficiencyEditText.getText().toString() );
             editor.putString( "acActionBySpr"+countAxle,acActionBySpr.getSelectedItem().toString() );
+            editor.putInt( "acActionBySprPosition"+countAxle,acActionBySpr.getSelectedItemPosition() );
             editor.putString( "acActionByEditTxt"+countAxle,acActionByEditTxt.getText().toString() );
             editor.apply();
         }
@@ -764,6 +876,8 @@ public class BlockInstrumentsActivity extends AppCompatActivity {
         private void getSavedDataForAddedAcFromSharedPreferences() {
             sharedpreferences = getSharedPreferences( MyPREFERENCES, Context.MODE_PRIVATE );
             axleCounterEditTxt.setText( sharedpreferences.getString( "axleCounterEditTxt"+countAxle,null ) );
+            workingACSpr.setSelection( sharedpreferences.getInt( "workingACSprPosition"+countAxle,0 )  );
+            electricalACSpr.setSelection( sharedpreferences.getInt( "electricalACSprPosition"+countAxle,0 )  );
             resetACEditTxt.setText( sharedpreferences.getString( "resetACEditTxt"+countAxle,null ) );
             acdeficiencyEditText.setText( sharedpreferences.getString( "acdeficiencyEditText"+countAxle,null ) );
             acActionByEditTxt.setText( sharedpreferences.getString( "acActionByEditTxt"+countAxle,null ) );

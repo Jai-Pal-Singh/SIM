@@ -17,67 +17,50 @@ public class SmsHandler {
 
 
     Context mContext;
-//        String urlToVisit="http://172.21.7.55:80/SnTInspection/Sms.php";
-    String urlToVisit="http://192.168.43.22:80/SnTInspection/Sms.php";
-//    String urlToVisit="http://172.21.5.81:8080/SnTServlet/sendSms.jsp";
-    //    String urlToVisit="http://172.21.5.81:80/SnTInspection/Sms.php";
-//String url="https://google.com";
-    String phoneNo, message;
+    String urlToVisit;
+    String phone, msg;
+    int status = 0;
 
-    public SmsHandler(Context mContext) {
+    public SmsHandler(Context mContext,String phoneNo,String message ) {
         this.mContext = mContext;
+        this.phone = phoneNo;
+        this.msg = message;
+        urlToVisit = mContext.getResources().getString(R.string.urlToVisit);
         try{
-
             // CALL GetText method to make post method call
             GetText();
         }
         catch(Exception ex)
         {
             Log.e("Response Error : ","Url Exception");
+            status = -1;
         }
     }
 
-    // Create GetText Metod
-    public  void  GetText()  throws UnsupportedEncodingException
-    {
-        // Get user defined values
-        phoneNo = "8947850652";
-        message   = "asdf";
-
-
+    // Create GetText Method
+    public  void  GetText()  throws UnsupportedEncodingException{
         // Create data variable for sent values to server
+        String data = URLEncoder.encode("phone", "UTF-8")
+                + "=" + URLEncoder.encode(phone, "UTF-8");
 
-        String data = URLEncoder.encode("phoneNo", "UTF-8")
-                + "=" + URLEncoder.encode(phoneNo, "UTF-8");
-
-        data += "&" + URLEncoder.encode("message", "UTF-8") + "="
-                + URLEncoder.encode(message, "UTF-8");
-
-
+        data += "&" + URLEncoder.encode("msg", "UTF-8") + "="
+                + URLEncoder.encode(msg, "UTF-8");
         String text = "";
         BufferedReader reader=null;
-
         // Send data
-        try
-        {
-
+        try{
             // Defined URL  where to send data
             URL url = new URL(urlToVisit);
-
             // Send POST data request
-
             URLConnection conn = url.openConnection();
             conn.setDoOutput(true);
             OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
             wr.write( data );
             wr.flush();
-
             // Get the server response
-
             reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             StringBuilder sb = new StringBuilder();
             String line = null;
-
             // Read Server Response
             while((line = reader.readLine()) != null)
             {
@@ -85,28 +68,33 @@ public class SmsHandler {
                 sb.append(line + "\n");
             }
 
-
+            status = 1;
             text = sb.toString();
         }
         catch(Exception ex)
         {
-
+            status = -2;
         }
         finally
         {
             try
             {
-
                 reader.close();
             }
 
-            catch(Exception ex) {}
+            catch(Exception ex) {
+                status = -2;
+            }
         }
 
         // Show response on activity
 
         Log.e("Response: ","Response : "+text);
 
+    }
+
+    public int sendSmsStatus(){
+        return status;
     }
 
 }

@@ -18,19 +18,13 @@ public class FileUploadHandler {
 
 
     Context mContext;
-    int serverResponseCode = 0;
-    String uploadFilePath ="";
-    String uploadFileName ="";
-//    String urlToVisit="http://172.21.7.55:80/SnTInspection/UploadToServer.php";
-//    String urlToVisit="http://172.21.5.81:8080/SnTServlet/sendSms.jsp";
-//    String upLoadServerUri="http://192.168.43.22:80/SnTInspection/pdf_upload.php";
-    String upLoadServerUri="https://jaipal2013.000webhostapp.com/pdf_upload.php";
-
+    String upLoadServerUri;
 
     public FileUploadHandler(Context mContext, File file) {
         this.mContext = mContext;
 
         File f  = file;
+        upLoadServerUri = mContext.getResources().getString( R.string.upLoadServerUri );
 //        String content_type  = getMimeType(f.getPath());
         String content_type  = "application/pdf";
 

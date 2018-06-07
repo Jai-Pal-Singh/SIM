@@ -46,8 +46,7 @@
                     android:ems="10"
                     android:hint="@string/phone_number"
                     android:inputType="phone"
-                    android:maxLength="10"
-                    android:phoneNumber="true" />
+                    android:maxLength="10" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout

@@ -19,7 +19,7 @@ public class Feedback extends AppCompatActivity {
     EditText editText;
     private SharedPreferences sharedpreferences;
     public static final String MyPREFERENCES = "MyPrefs";
-    String recipients = "jai.pal.2013@gmail.com, 2015kucp1038@iiitkota.ac.in";
+    String recipients;
 
     public void onCreate(Bundle savedInstanceState) {
         requestWindowFeature( Window.FEATURE_ACTION_BAR );
@@ -27,6 +27,7 @@ public class Feedback extends AppCompatActivity {
         setContentView( R.layout.feedback_activity );
 
         initUISetUp();
+        recipients = getResources().getString( R.string.feedbackRecipients );
     }
 
     private void initUISetUp() {

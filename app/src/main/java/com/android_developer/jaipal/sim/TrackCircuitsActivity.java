@@ -153,10 +153,11 @@ public class TrackCircuitsActivity extends AppCompatActivity{
     private String[] createActionByList(String stationCode, String firstString, String secondString, String[] stringArray) {
         String firstElement = firstString+stationCode;
         String secondElement = secondString+stationCode;
-        String[] tempArray = new String[ stringArray.length + 2 ];
-        tempArray[0] = firstElement;
-        tempArray[1] = secondElement;
-        System.arraycopy( stringArray, 0, tempArray, 2, stringArray.length );
+        String[] tempArray = new String[ stringArray.length + 3 ];
+        tempArray[0] = "None";
+        tempArray[1] = firstElement;
+        tempArray[2] = secondElement;
+        System.arraycopy( stringArray, 0, tempArray, 3, stringArray.length );
         return tempArray;
     }
 

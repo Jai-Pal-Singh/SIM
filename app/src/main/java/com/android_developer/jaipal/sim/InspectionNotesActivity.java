@@ -23,7 +23,7 @@ public class InspectionNotesActivity extends AppCompatActivity {
     private ProgressBar spinner;
     List<InspectionNoteDataModel> datamodel;
     RecyclerView mRecyclerView;
-    String serverUrl="https://jaipal2013.000webhostapp.com/Uploaded%20Pdf/", fileUrl="";
+    String serverUrl, fileUrl="";
 
     public void onCreate(Bundle savedInstanceState) {
         requestWindowFeature( Window.FEATURE_ACTION_BAR );
@@ -34,6 +34,7 @@ public class InspectionNotesActivity extends AppCompatActivity {
         spinner = findViewById( R.id.progressBar );
         mRecyclerView = findViewById( R.id.inspection_notes_recycler_view );
         mRecyclerView.setNestedScrollingEnabled(false);
+        serverUrl = getResources().getString( R.string.fileServerUrl );
 
         GetInspectionNoteData getInspectionNoteData = new GetInspectionNoteData();
         getInspectionNoteData.execute(  );
@@ -68,7 +69,7 @@ public class InspectionNotesActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view, int position) {
                         InspectionNoteDataModel data = datamodel.get(position);
-                        fileUrl = serverUrl+data.getFilename();
+                        fileUrl = serverUrl+"/"+data.getFilename();
                         openURLinBrowser( view, fileUrl );
                     }
 

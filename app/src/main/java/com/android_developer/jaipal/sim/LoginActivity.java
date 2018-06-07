@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.AsyncTask;
 
 import android.os.Bundle;
+import android.text.InputFilter;
 import android.text.InputType;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -50,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
     private SharedPreferences sharedpreferences;
     public static final String MyPREFERENCES = "MyPrefs";
     String task="", changedPassword="", enteredOTP="";
-    String forgotPasswordRecipients = "jai.pal.2013@gmail.com";
+    String forgotPasswordRecipients;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +59,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView( R.layout.activity_login );
         context = this;
         initialUISetup();
+        forgotPasswordRecipients = getResources().getString( R.string.forgotPasswordRecipients );
         applyOnFocusChangeListener( loginPhoneNumberEditText );
         applyOnFocusChangeListener( password );
         makeForgetPasswordClickable();
@@ -178,6 +180,46 @@ public class LoginActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
+    private void changePasswordDialogForForgotPassword (final Context c){
+        final  EditText pass = new EditText(c);
+        final  EditText confPass = new EditText(c);
+        LinearLayout layout = new LinearLayout(c);
+        layout.setOrientation( LinearLayout.VERTICAL);
+        layout.addView( pass );
+        layout.addView( confPass );
+
+        pass.setHint( "Enter New Password" );
+        pass.setInputType( InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD );
+        confPass.setHint( "Confirm Password" );
+        confPass.setInputType( InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD );
+
+        AlertDialog dialog = new AlertDialog.Builder(c)
+                .setTitle("Update Your Password")
+                .setView( layout )
+                .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String password = String.valueOf(pass.getText());
+                        String confirmPassword = String.valueOf(confPass.getText());
+                        if (pass.getText().toString().length()<5) {
+                            pass.setError( "Password should be more than 4 characters long" );
+                        }
+                        else if(password.equals( confirmPassword )){
+                            changedPassword =  pass.getText().toString();
+                            changePasswordTaskForForgotPassword task = new changePasswordTaskForForgotPassword();
+                            task.execute(  );
+                        }
+                        else{
+                            dialog.cancel();
+                            showAlertDialog( "Passwords doesn't match" );
+                        }
+                    }
+                })
+                .setNegativeButton("Cancel", null)
+                .create();
+        dialog.show();
+    }
+
     private void changePasswordDialog (final Context c){
         final  EditText pass = new EditText(c);
         final  EditText confPass = new EditText(c);
@@ -221,6 +263,7 @@ public class LoginActivity extends AppCompatActivity {
     private void showEnterOTPDialog(final Context c){
         final EditText taskEditText = new EditText(c);
         taskEditText.setInputType(InputType.TYPE_CLASS_NUMBER);
+        taskEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(5)});
         AlertDialog dialog = new AlertDialog.Builder(c)
                 .setTitle("Enter One Time Password (OTP)")
                 .setView(taskEditText)
@@ -240,6 +283,7 @@ public class LoginActivity extends AppCompatActivity {
     private void showAddItemDialog(final Context c) {
         final EditText taskEditText = new EditText(c);
         taskEditText.setInputType(InputType.TYPE_CLASS_NUMBER);
+        taskEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(10)});
         AlertDialog dialog = new AlertDialog.Builder(c)
                 .setTitle("Enter Phone number")
                 .setView(taskEditText)
@@ -357,6 +401,62 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    private class changePasswordTaskForForgotPassword extends AsyncTask<Void, Void, Void>{
+
+        final GetData getData = new GetData();
+        final int[] count = new int[2];
+        @Override
+        protected void onPreExecute() {
+            pd = new ProgressDialog( context );
+            pd.setMessage( "Updating Password..." );
+            pd.setCancelable( false );
+            pd.setIndeterminate( true );
+            pd.show();
+        }
+
+        @Override
+        protected Void doInBackground(Void... arg0) {
+            count[0] =getData.putActiveStatus( task );
+            try {
+                count[1] = getData.updatePassword( task, AESCrypt.encrypt(changedPassword ) );
+                sharedpreferences = getSharedPreferences( MyPREFERENCES, Context.MODE_PRIVATE );
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                Map<String, String> hs = getData.getPasswordFromPhoneNumber(task);
+                editor.putString( "authName", hs.get( "authName" ) );
+                editor.putString( "authDesignation", hs.get( "authDesig" ) );
+                editor.putString( "active", hs.get( "active" ) );
+                editor.putString( "admin", hs.get( "admin" ) );
+                editor.putString( "email", hs.get( "email" ) );
+                editor.putString( "phone",loginPhoneNumberEditText.getText().toString() );
+                editor.apply();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            sharedpreferences = getSharedPreferences( MyPREFERENCES, Context.MODE_PRIVATE );
+            if (pd != null) {
+                pd.dismiss();
+                login.setEnabled( true );
+                if(count[0]==-2 ||count[1]==-2){
+                    showAlertDialog( "Check Your Internet Connection!" );
+                }
+                else if(count[0]==-1 ||count[1]==-1){
+                    showAlertDialog( "Could not Connect to server. Try again after sometime" );
+                }
+                else if(count[0]==1 ||count[1]==1){
+                    Intent myIntent = new Intent( LoginActivity.this, MainActivity.class );
+                    finish();
+                    startActivity( myIntent );
+                }
+            }
+
+        }
+    }
+
     private class changePasswordTask extends AsyncTask<Void, Void, Void>{
 
         final GetData getData = new GetData();
@@ -434,7 +534,6 @@ public class LoginActivity extends AppCompatActivity {
 //            super.onPreExecute();
 //            progressDialog = ProgressDialog.show(LoginActivity.this, "Please wait", "Sending request mail", true, false);
             pd = new ProgressDialog( LoginActivity.this );
-            pd.setTitle( "Please wait" );
             pd.setMessage( "Processing your request..." );
             pd.setCancelable( false );
             pd.setIndeterminate( true );
@@ -451,6 +550,8 @@ public class LoginActivity extends AppCompatActivity {
                     String otp = OTP( 5 );
                     String body = "Dear "+hs.get( "authName" ) +" ("+hs.get( "authDesig" )+"),\r\n\nYour One Time Password (OTP) is "+otp+". You will be asked to enter One Time Password (OTP) during login.\r\n\nIf you face any issues with your account, please contact at:\r\n\nPhone - 9001195126, 9001195127\r\n\nEmail - sntinspection@gmail.com\r\n\nRegards,\r\n\nIT Center, NWR";
                     getData.updateOTPforPhone(otp,task);
+                    String msg = "The One Time Password (OTP) for your SnT Inspection Management account("+task+") is "+otp+". Please enter it to change your password.";
+                    SmsHandler smsHandler = new SmsHandler( LoginActivity.this,task,msg );
                     if(!hs.get("email").equals( "-" ))
                         sendEmail( "OTP for "+task+"",body,"sntinspection@gmail.com",hs.get("email") );
                 }
@@ -525,7 +626,7 @@ public class LoginActivity extends AppCompatActivity {
                 showAlertDialog( "Could not Connect to server. Try again after sometime" );
             else {
                 if(success)
-                    changePasswordDialog(context);
+                    changePasswordDialogForForgotPassword(context);
                 else
                     showAlertDialogForOTP( "Entered OTP is Incorrect!!!" );
             }

@@ -324,7 +324,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 //        }
         if(dateOfInspectionEtxt.getText().toString().isEmpty()){
             isAnyFieldsEmpty = true;
-            dateOfInspectionEtxt.setError( "Invalid Input" );
+//            dateOfInspectionEtxt.setError( "Invalid Input" );
         }
         if(stationCodeSpin.getSelectedItem().toString().isEmpty()){
             isAnyFieldsEmpty = true;

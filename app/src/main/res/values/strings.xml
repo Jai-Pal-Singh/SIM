@@ -196,7 +196,7 @@
     <string name="register">Register</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="password">Password</string>
-    <string name="official_email_address">Official Email Address</string>
+    <string name="official_email_address">Official Email Address (Optional)</string>
     <string name="phone_number">Phone Number</string>
     <string name="designation">Designation</string>
     <string name="pending_actions">Pending Actions</string>
@@ -246,5 +246,13 @@
     <string name="filename">Filename</string>
     <string name="inspected_by">Inspected By</string>
     <string name="time">time</string>
+
+    //Connection Url's
+    <string name="urlToVisit">https://jaipal2013.000webhostapp.com/Sms.php</string>
+    <!--<string name="urlToVisit">http://122.252.243.104:8080/DB/sendSMS.jsp</string>-->
+    <string name="fileServerUrl">https://jaipal2013.000webhostapp.com/Uploaded%20Pdf</string>
+    <string name="upLoadServerUri">https://jaipal2013.000webhostapp.com/pdf_upload.php</string>
+    <string name="feedbackRecipients">jai.pal.2013@gmail.com, 2015kucp1038@iiitkota.ac.in</string>
+    <string name="forgotPasswordRecipients">jai.pal.2013@gmail.com</string>
 
 </resources>

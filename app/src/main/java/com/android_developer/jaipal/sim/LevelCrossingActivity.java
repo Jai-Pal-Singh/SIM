@@ -32,7 +32,10 @@ import android.widget.Toast;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import static android.content.ContentValues.TAG;
 
@@ -47,6 +50,7 @@ public class LevelCrossingActivity extends AppCompatActivity {
     setUpStorageVariablesForDefaultGate defaultGateSetUp;
     setUpStorageVariablesForAddedGate[] addedGateSetUp = new setUpStorageVariablesForAddedGate[10];
     Boolean isActivityComplete;
+    Map<String, String> actionByMap;
 
     public void onCreate(Bundle savedInstanceState){
         requestWindowFeature( Window.FEATURE_ACTION_BAR );
@@ -219,10 +223,11 @@ public class LevelCrossingActivity extends AppCompatActivity {
     private String[] createActionByList(String stationCode, String firstString, String secondString, String[] stringArray) {
         String firstElement = firstString+stationCode;
         String secondElement = secondString+stationCode;
-        String[] tempArray = new String[ stringArray.length + 2 ];
-        tempArray[0] = firstElement;
-        tempArray[1] = secondElement;
-        System.arraycopy( stringArray, 0, tempArray, 2, stringArray.length );
+        String[] tempArray = new String[ stringArray.length + 3 ];
+        tempArray[0] = "None";
+        tempArray[1] = firstElement;
+        tempArray[2] = secondElement;
+        System.arraycopy( stringArray, 0, tempArray, 3, stringArray.length );
         return tempArray;
     }
 
@@ -231,6 +236,7 @@ public class LevelCrossingActivity extends AppCompatActivity {
         if( validateUserInput() ) {
             isActivityComplete = true;
             updateIsActivityInSharedPreferences();
+            createHashMapActionBy();
             Toast.makeText(getApplicationContext(), "Entries Saved", Toast.LENGTH_SHORT).show();
         }
         else{
@@ -267,6 +273,7 @@ public class LevelCrossingActivity extends AppCompatActivity {
         if( validateUserInput() ) {
             isActivityComplete = true;
             updateIsActivityInSharedPreferences();
+            createHashMapActionBy();
             sendDataToDBTask task = new sendDataToDBTask();
             task.execute();
 //            FileUploadHandler fileUploadHandler = new FileUploadHandler();
@@ -638,51 +645,6 @@ public class LevelCrossingActivity extends AppCompatActivity {
         }
     }
 
-    private class sendDataToDBTask extends AsyncTask<Void, Void, Void> {
-        ProgressDialog pd;
-        int success = 0;
-        @Override
-        protected void onPreExecute() {
-            pd = new ProgressDialog( LevelCrossingActivity.this );
-            pd.setMessage( "Submitting... " );
-            pd.setCancelable( false );
-            pd.setIndeterminate( true );
-            pd.show();
-        }
-
-        @Override
-        protected Void doInBackground(Void... arg0) {
-            Boolean dataSent = null;
-            try {
-                dataSent = sendLevelCrossingData();
-//                SmsHandler smsHandler = new SmsHandler( LevelCrossingActivity.this );
-//                FileUploadHandler fileUploadHandler = new FileUploadHandler(LevelCrossingActivity.this);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            if (dataSent) {
-                success =1;
-            } else {
-                success = 0;
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void result) {
-            if (pd != null) {
-                pd.dismiss();
-                levelCrossingGenerateInspectionNoteButton.setEnabled( true );
-                if(success==0)
-                    showAlertDialog( "Couldn't send the data. Please check your internet connection!" );
-                else{
-                    generatePdf generate = new generatePdf();
-                    generate.execute(  );
-                }
-            }
-        }
-    }
-
     private boolean sendLevelCrossingData() throws SQLException {
         GetData getData = new GetData();
         int lcid;
@@ -749,6 +711,216 @@ public class LevelCrossingActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
+    public  boolean isStoragePermissionGranted() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (ContextCompat.checkSelfPermission(LevelCrossingActivity.this,android.Manifest.permission.WRITE_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(LevelCrossingActivity.this,android.Manifest.permission.READ_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED) {
+                Log.e(TAG,"Permission is granted");
+                return true;
+            } else {
+
+                Log.e(TAG,"Permission is revoked");
+                ActivityCompat.requestPermissions(LevelCrossingActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+                ActivityCompat.requestPermissions(LevelCrossingActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
+                return false;
+            }
+        }
+        else { //permission is automatically granted on sdk<23 upon installation
+            Log.e(TAG,"Permission is granted");
+            return true;
+        }
+    }
+
+    public void createHashMapActionBy(){
+        SharedPreferences sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+        actionByMap = new HashMap<String, String>();
+        if(isActionRequired( sharedpreferences.getString("levelCrossingActionBySpr", ""))) {
+            actionByMap.put( sharedpreferences.getString( "levelCrossingActionBySpr", "" ), "LevelCrossing" );
+        }
+        for(int gateNumber = 1; gateNumber <= gateCount ; gateNumber++ ){
+            if(isActionRequired( sharedpreferences.getString("levelCrossingActionBySpr"+gateNumber, ""))) {
+                actionByMap.put( sharedpreferences.getString( "levelCrossingActionBySpr" + gateNumber, "" ), "LevelCrossing" );
+            }
+        }
+    }
+
+    public ArrayList<String>  getPhoneNumberForHashMapEntries(){
+        GetData getData = new GetData();
+        ArrayList<String> phoneNumberList = new ArrayList<String>(  );
+        String phoneNo = "";
+            for (Map.Entry<String, String> entry : actionByMap.entrySet()) {
+                String key = entry.getKey();
+                if (key.equals( "SSE/Sig/" + sharedpreferences.getString( "stationCode", "" ) )) {
+                    //getting phone number for monthly and quarterly SSE/Sig
+                    Map<String, String> hs = getData.getSSESigPhoneNoFromStation( sharedpreferences.getString( "stationCode", "" ) );
+                    phoneNo = hs.get( "MonthlyInspectionBy" );
+                    if(!phoneNo.equals( "Vacant" )&&!phoneNo.equals( null ))
+                        phoneNumberList.add( phoneNo );
+                    phoneNo = hs.get( "QuaterlyInspectionBy" );
+                    if(!phoneNo.equals( "Vacant" )&&!phoneNo.equals( null ))
+                        phoneNumberList.add( phoneNo );
+                }
+                else if (key.equals( "SSE/Tele/" + sharedpreferences.getString( "stationCode", "" ) )) {
+                    //getting phone number for monthly and quarterly SSE/Tele
+                    Map<String, String> hs = getData.getSSETelePhoneNoFromStation( sharedpreferences.getString( "stationCode", "" ) );
+                    phoneNo = hs.get( "MonthlyInspectionBy" );
+                    if(!phoneNo.equals( "Vacant" )&&!phoneNo.equals( null ))
+                        phoneNumberList.add( phoneNo );
+                    phoneNo = hs.get( "QuaterlyInspectionBy" );
+                    if(!phoneNo.equals( "Vacant" )&&!phoneNo.equals( null ))
+                        phoneNumberList.add( phoneNo );
+                }
+                else{
+                    if(!actionByMap.containsKey( "SSE/Sig/" + sharedpreferences.getString( "stationCode", "" ) )) {
+                        //getting phone number for monthly and quarterly SSE/Sig
+                        Map<String, String> hs = getData.getSSESigPhoneNoFromStation( sharedpreferences.getString( "stationCode", "" ) );
+                        phoneNo = hs.get( "MonthlyInspectionBy" );
+                        if (!phoneNo.equals( "Vacant" ) && !phoneNo.equals( null ))
+                            phoneNumberList.add( phoneNo );
+                        phoneNo = hs.get( "QuaterlyInspectionBy" );
+                        if (!phoneNo.equals( "Vacant" ) && !phoneNo.equals( null ))
+                            phoneNumberList.add( phoneNo );
+                    }
+                    //getting phone number for other Designation
+                    phoneNo = getData.getPhoneNoFromDesignation( key );
+                    if(phoneNo.length()==10)
+                        phoneNumberList.add( phoneNo );
+
+                }
+            }
+        return phoneNumberList;
+    }
+
+    public boolean isActionRequired(String s){
+        return !s.equals( "None" ) && !s.equals( "Other" );
+    }
+
+    private class sendDataToDBTask extends AsyncTask<Void, Void, Void> {
+        ProgressDialog pd;
+        int success = 0;
+        @Override
+        protected void onPreExecute() {
+            pd = new ProgressDialog( LevelCrossingActivity.this );
+            pd.setMessage( "Submitting... " );
+            pd.setCancelable( false );
+            pd.setIndeterminate( true );
+            pd.show();
+        }
+
+        @Override
+        protected Void doInBackground(Void... arg0) {
+            Boolean dataSent = null;
+            try {
+                dataSent = sendLevelCrossingData();
+//                SmsHandler smsHandler = new SmsHandler( LevelCrossingActivity.this );
+//                FileUploadHandler fileUploadHandler = new FileUploadHandler(LevelCrossingActivity.this);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            if (dataSent) {
+                success =1;
+            } else {
+                success = 0;
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            if (pd != null) {
+                pd.dismiss();
+                levelCrossingGenerateInspectionNoteButton.setEnabled( true );
+                if(success==0)
+                    showAlertDialog( "Couldn't send the data. Please check your internet connection!" );
+                else{
+                    generatePdf generate = new generatePdf();
+                    generate.execute(  );
+//                    SendSMS sendSMS = new SendSMS();
+//                    sendSMS.execute(  );
+                }
+            }
+        }
+    }
+
+    private class SendSMS extends AsyncTask<Void, Void, Void> {
+        GetData getData = new GetData();
+        ProgressDialog pd;
+        int success = 0;
+        String phoneNo;
+        SmsHandler smsHandler;
+        SharedPreferences sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+        @Override
+        protected void onPreExecute() {
+            pd = new ProgressDialog( LevelCrossingActivity.this );
+            pd.setMessage( "Sending SMS Notification... " );
+            pd.setCancelable( false );
+            pd.setIndeterminate( true );
+            pd.show();
+        }
+
+        @Override
+        protected Void doInBackground(Void... arg0) {
+            //message for Level Crossing
+            String message = "There are pending items  for you at the station " + sharedpreferences.getString( "stationCode", "" ) + ", as per inspection performed by " + sharedpreferences.getString( "authDesignation", "" ) + " on " + sharedpreferences.getString( "inspectDate", "" ) + ". Visit the following link for more details : \r\n"+getResources().getString(R.string.fileServerUrl)+"/"+lcInspectionNotes.returnFileName();
+
+            //Sending Sms
+            ArrayList<String> phoneNoList = getPhoneNumberForHashMapEntries();
+            if(phoneNoList==null){
+                success = 1;
+            }
+            else {
+                for (int i = 0; i < phoneNoList.size(); i++) {
+                    smsHandler = new SmsHandler( LevelCrossingActivity.this, phoneNoList.get( i ), message );
+                    success = smsHandler.sendSmsStatus();
+                }
+            }
+//            if(isActionRequired(sharedpreferences.getString("levelCrossingActionBySpr", "")  )) {
+//                //getting phone number for monthly and quarterly SSE/Sig
+//                Map<String, String> hs = getData.getSSESigPhoneNoFromStation( sharedpreferences.getString( "stationCode", "" ) );
+//                phoneNo = hs.get( "MonthlyInspectionBy" );
+//
+//                if(!phoneNo.equals( "Vacant" ))
+//                    smsHandler = new SmsHandler( LevelCrossingActivity.this, phoneNo, message );
+//                phoneNo = hs.get( "QuaterlyInspectionBy" );
+//                if(!phoneNo.equals( "Vacant" ))
+//                    smsHandler = new SmsHandler( LevelCrossingActivity.this, phoneNo, message );
+//                //getting phone no and sending sms to other Inspecting officer except SSE/Sig and SSE/Tele
+//                for (Map.Entry<String, String> entry : actionByMap.entrySet()) {
+//                    String key = entry.getKey();
+//                    if (!key.equals( "SSE/Sig/" + sharedpreferences.getString( "stationCode", "" ) )) {
+//                        //code to get phone no from database and then send msg
+//                        phoneNo = getData.getPhoneNoFromDesignation(sharedpreferences.getString( "authDesignation", "" ));
+//                        smsHandler = new SmsHandler( LevelCrossingActivity.this, phoneNo, message );
+//                    }
+//                }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            if (pd != null) {
+                pd.dismiss();
+
+                if(success==0)
+                    showAlertDialog( "Failed to send SMS." );
+                else if(success==-1){
+                    showAlertDialog( "Failed to send SMS. Url Exception" );
+                }
+                else if(success==-2){
+                    showAlertDialog( "Couldn't send sms notification. Please check your internet connection!" );
+                }
+                else{
+                    Intent myIntent = new Intent(LevelCrossingActivity.this, LevelCrossingActivity.class);
+                    removeSharedPreference();
+                    startActivity(myIntent);
+                    finish();
+                    lcInspectionNotes.previewPdf();
+//                    generatePdf generate = new generatePdf();
+//                    generate.execute(  );
+                }
+            }
+        }
+    }
+
     private class generatePdf extends AsyncTask<Void, Void, Void> {
         int success = 0;
         private ProgressDialog progressDialog;
@@ -809,7 +981,7 @@ public class LevelCrossingActivity extends AppCompatActivity {
         protected Void doInBackground(Void... arg0) {
             GetData getData = new GetData();
             if (isStoragePermissionGranted() ) {
-                Looper.prepare();
+//                Looper.prepare();
                 lcInspectionNotes.uploadPdf();
                 dataUpload = getData.inspectionNoteInsertionQuery(lcInspectionNotes.returnFileName(),sharedpreferences.getString("authDesignation", ""),sharedpreferences.getString("stationCode", ""),lcInspectionNotes.returnDateTime(),sharedpreferences.getString("division", ""));
                 success =1;
@@ -829,30 +1001,15 @@ public class LevelCrossingActivity extends AppCompatActivity {
                 else if(dataUpload==-1)
                     showAlertDialog( "Could not Connect to server. Try again after sometime" );
                 else{
-                    lcInspectionNotes.previewPdf();
-                    removeSharedPreference();
+                    SendSMS sendSMS = new SendSMS();
+                    sendSMS.execute(  );
+//                    Intent myIntent = new Intent(LevelCrossingActivity.this, LevelCrossingActivity.class);
+//                    removeSharedPreference();
+//                    startActivity(myIntent);
+//                    finish();
+//                    lcInspectionNotes.previewPdf();
                 }
             }
         }
     }
-    public  boolean isStoragePermissionGranted() {
-        if (Build.VERSION.SDK_INT >= 23) {
-            if (ContextCompat.checkSelfPermission(LevelCrossingActivity.this,android.Manifest.permission.WRITE_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(LevelCrossingActivity.this,android.Manifest.permission.READ_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED) {
-                Log.e(TAG,"Permission is granted");
-                return true;
-            } else {
-
-                Log.e(TAG,"Permission is revoked");
-                ActivityCompat.requestPermissions(LevelCrossingActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
-                ActivityCompat.requestPermissions(LevelCrossingActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
-                return false;
-            }
-        }
-        else { //permission is automatically granted on sdk<23 upon installation
-            Log.e(TAG,"Permission is granted");
-            return true;
-        }
-    }
-
-
 }
