@@ -149,7 +149,7 @@
 
             <TableRow>
                 <EditText
-                    android:id="@+id/signalNo1EditText"
+                    android:id="@+id/signalNoEditText0"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -157,11 +157,10 @@
                     android:inputType="textCapCharacters"
                     android:padding="3dp"
                     android:textAlignment="center"
-                    android:textSize="18sp"
-                    tools:ignore="LabelFor" />
+                    android:textSize="18sp"/>
 
                 <EditText
-                    android:id="@+id/aspect1EditText"
+                    android:id="@+id/aspectEditText0"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -169,11 +168,10 @@
                     android:inputType="textCapCharacters"
                     android:padding="3dp"
                     android:textAlignment="center"
-                    android:textSize="18sp"
-                    tools:ignore="LabelFor" />
+                    android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/voltage1EditText"
+                    android:id="@+id/voltageEditText0"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -184,7 +182,7 @@
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/current1EditText"
+                    android:id="@+id/currentEditText0"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -195,445 +193,56 @@
                     android:textSize="18sp" />
             </TableRow>
 
-            <TableRow>
-                <EditText
-                    android:id="@+id/signalNo2EditText"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/cell_shape"
-                    android:inputType="textCapCharacters"
-                    android:padding="3dp"
-                    android:textAlignment="center"
-                    android:textSize="18sp"
-                    tools:ignore="LabelFor" />
-
-                <EditText
-                    android:id="@+id/aspect2EditText"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/cell_shape"
-                    android:inputType="textCapCharacters"
-                    android:padding="3dp"
-                    android:textAlignment="center"
-                    android:textSize="18sp"
-                    tools:ignore="LabelFor" />
-
-                <EditText
-                    android:id="@+id/voltage2EditText"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/cell_shape"
-                    android:inputType="text|number"
-                    android:padding="3dp"
-                    android:textAlignment="center"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/current2EditText"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/cell_shape"
-                    android:inputType="textCapCharacters|number"
-                    android:padding="3dp"
-                    android:textAlignment="center"
-                    android:textSize="18sp" />
-            </TableRow>
-
-            <TableRow>
-                <EditText
-                    android:id="@+id/signalNo3EditText"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/cell_shape"
-                    android:inputType="textCapCharacters"
-                    android:padding="3dp"
-                    android:textAlignment="center"
-                    android:textSize="18sp"
-                    tools:ignore="LabelFor" />
-
-                <EditText
-                    android:id="@+id/aspect3EditText"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/cell_shape"
-                    android:inputType="textCapCharacters"
-                    android:padding="3dp"
-                    android:textAlignment="center"
-                    android:textSize="18sp"
-                    tools:ignore="LabelFor" />
-
-                <EditText
-                    android:id="@+id/voltage3EditText"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/cell_shape"
-                    android:inputType="text|number"
-                    android:padding="3dp"
-                    android:textAlignment="center"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/current3EditText"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/cell_shape"
-                    android:inputType="textCapCharacters|number"
-                    android:padding="3dp"
-                    android:textAlignment="center"
-                    android:textSize="18sp" />
-            </TableRow>
-
-            <TableRow>
-                <EditText
-                    android:id="@+id/signalNo4EditText"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/cell_shape"
-                    android:inputType="textCapCharacters"
-                    android:padding="3dp"
-                    android:textAlignment="center"
-                    android:textSize="18sp"
-                    tools:ignore="LabelFor" />
-
-                <EditText
-                    android:id="@+id/aspect4EditText"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/cell_shape"
-                    android:inputType="textCapCharacters"
-                    android:padding="3dp"
-                    android:textAlignment="center"
-                    android:textSize="18sp"
-                    tools:ignore="LabelFor" />
-
-                <EditText
-                    android:id="@+id/voltage4EditText"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/cell_shape"
-                    android:inputType="text|number"
-                    android:padding="3dp"
-                    android:textAlignment="center"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/current4EditText"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/cell_shape"
-                    android:inputType="textCapCharacters|number"
-                    android:padding="3dp"
-                    android:textAlignment="center"
-                    android:textSize="18sp" />
-            </TableRow>
-
-            <TableRow>
-                <EditText
-                    android:id="@+id/signalNo5EditText"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/cell_shape"
-                    android:inputType="textCapCharacters"
-                    android:padding="3dp"
-                    android:textAlignment="center"
-                    android:textSize="18sp"
-                    tools:ignore="LabelFor" />
-
-                <EditText
-                    android:id="@+id/aspect5EditText"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/cell_shape"
-                    android:inputType="textCapCharacters"
-                    android:padding="3dp"
-                    android:textAlignment="center"
-                    android:textSize="18sp"
-                    tools:ignore="LabelFor" />
-
-                <EditText
-                    android:id="@+id/voltage5EditText"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/cell_shape"
-                    android:inputType="text|number"
-                    android:padding="3dp"
-                    android:textAlignment="center"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/current5EditText"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/cell_shape"
-                    android:inputType="textCapCharacters|number"
-                    android:padding="3dp"
-                    android:textAlignment="center"
-                    android:textSize="18sp" />
-            </TableRow>
-
-            <TableRow>
-                <EditText
-                    android:id="@+id/signalNo6EditText"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/cell_shape"
-                    android:inputType="textCapCharacters"
-                    android:padding="3dp"
-                    android:textAlignment="center"
-                    android:textSize="18sp"
-                    tools:ignore="LabelFor" />
-
-                <EditText
-                    android:id="@+id/aspect6EditText"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/cell_shape"
-                    android:inputType="textCapCharacters"
-                    android:padding="3dp"
-                    android:textAlignment="center"
-                    android:textSize="18sp"
-                    tools:ignore="LabelFor" />
-
-                <EditText
-                    android:id="@+id/voltage6EditText"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/cell_shape"
-                    android:inputType="text|number"
-                    android:padding="3dp"
-                    android:textAlignment="center"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/current6EditText"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/cell_shape"
-                    android:inputType="textCapCharacters|number"
-                    android:padding="3dp"
-                    android:textAlignment="center"
-                    android:textSize="18sp" />
-            </TableRow>
-
-            <TableRow>
-                <EditText
-                    android:id="@+id/signalNo7EditText"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/cell_shape"
-                    android:inputType="textCapCharacters"
-                    android:padding="3dp"
-                    android:textAlignment="center"
-                    android:textSize="18sp"
-                    tools:ignore="LabelFor" />
-
-                <EditText
-                    android:id="@+id/aspect7EditText"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/cell_shape"
-                    android:inputType="textCapCharacters"
-                    android:padding="3dp"
-                    android:textAlignment="center"
-                    android:textSize="18sp"
-                    tools:ignore="LabelFor" />
-
-                <EditText
-                    android:id="@+id/voltage7EditText"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/cell_shape"
-                    android:inputType="text|number"
-                    android:padding="3dp"
-                    android:textAlignment="center"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/current7EditText"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/cell_shape"
-                    android:inputType="textCapCharacters|number"
-                    android:padding="3dp"
-                    android:textAlignment="center"
-                    android:textSize="18sp" />
-            </TableRow>
-
-            <TableRow>
-                <EditText
-                    android:id="@+id/signalNo8EditText"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/cell_shape"
-                    android:inputType="textCapCharacters"
-                    android:padding="3dp"
-                    android:textAlignment="center"
-                    android:textSize="18sp"
-                    tools:ignore="LabelFor" />
-
-                <EditText
-                    android:id="@+id/aspect8EditText"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/cell_shape"
-                    android:inputType="textCapCharacters"
-                    android:padding="3dp"
-                    android:textAlignment="center"
-                    android:textSize="18sp"
-                    tools:ignore="LabelFor" />
-
-                <EditText
-                    android:id="@+id/voltage8EditText"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/cell_shape"
-                    android:inputType="text|number"
-                    android:padding="3dp"
-                    android:textAlignment="center"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/current8EditText"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/cell_shape"
-                    android:inputType="textCapCharacters|number"
-                    android:padding="3dp"
-                    android:textAlignment="center"
-                    android:textSize="18sp" />
-            </TableRow>
-
-            <TableRow>
-                <EditText
-                    android:id="@+id/signalNo9EditText"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/cell_shape"
-                    android:inputType="textCapCharacters"
-                    android:padding="3dp"
-                    android:textAlignment="center"
-                    android:textSize="18sp"
-                    tools:ignore="LabelFor" />
-
-                <EditText
-                    android:id="@+id/aspect9EditText"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/cell_shape"
-                    android:inputType="textCapCharacters"
-                    android:padding="3dp"
-                    android:textAlignment="center"
-                    android:textSize="18sp"
-                    tools:ignore="LabelFor" />
-
-                <EditText
-                    android:id="@+id/voltage9EditText"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/cell_shape"
-                    android:inputType="text|number"
-                    android:padding="3dp"
-                    android:textAlignment="center"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/current9EditText"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/cell_shape"
-                    android:inputType="textCapCharacters|number"
-                    android:padding="3dp"
-                    android:textAlignment="center"
-                    android:textSize="18sp" />
-            </TableRow>
-
-            <TableRow>
-                <EditText
-                    android:id="@+id/signalNo10EditText"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/cell_shape"
-                    android:inputType="textCapCharacters"
-                    android:padding="3dp"
-                    android:textAlignment="center"
-                    android:textSize="18sp"
-                    tools:ignore="LabelFor" />
-
-                <EditText
-                    android:id="@+id/aspect10EditText"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/cell_shape"
-                    android:inputType="textCapCharacters"
-                    android:padding="3dp"
-                    android:textAlignment="center"
-                    android:textSize="18sp"
-                    tools:ignore="LabelFor" />
-
-                <EditText
-                    android:id="@+id/voltage10EditText"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/cell_shape"
-                    android:inputType="text|number"
-                    android:padding="3dp"
-                    android:textAlignment="center"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/current10EditText"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/cell_shape"
-                    android:inputType="textCapCharacters|number"
-                    android:padding="3dp"
-                    android:textAlignment="center"
-                    android:textSize="18sp" />
-            </TableRow>
         </TableLayout>
+
+        <LinearLayout
+            android:id="@+id/signalsTableAdditionalRows"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/signalsTableLayout1"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/addSignalTableRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/signalsTableAdditionalRows">
+            <Button
+                android:id="@+id/removeSignalTableRowButton"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary"
+                android:layout_marginStart="10dp"
+                android:visibility="invisible"
+                android:text="@string/remove_row"
+                android:textColor="@android:color/background_light"
+                android:textSize="16sp" />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <Button
+                android:id="@+id/addSignalTableRowButton"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:layout_marginEnd="10dp"
+                android:text="@string/add_row"
+                android:textColor="@android:color/background_light"
+                android:textSize="16sp" />
+        </LinearLayout>
 
         <View
             android:id="@+id/view2"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="15dp"
-            android:layout_below="@+id/signalsTableLayout1"
+            android:layout_below="@+id/addSignalTableRow"
             android:background="@android:color/darker_gray"/>
 
         <LinearLayout

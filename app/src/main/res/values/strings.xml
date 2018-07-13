@@ -254,5 +254,14 @@
     <string name="upLoadServerUri">https://jaipal2013.000webhostapp.com/pdf_upload.php</string>
     <string name="feedbackRecipients">jai.pal.2013@gmail.com, 2015kucp1038@iiitkota.ac.in</string>
     <string name="forgotPasswordRecipients">jai.pal.2013@gmail.com</string>
+    <string name="remove_row">Remove Row</string>
+    <string name="add_row">Add Row</string>
+    <string name="jai_pal_singh">Jai Pal Singh</string>
+    <string name="iiit_kota_mentor_mnit_jaipur">(IIIT Kota, Mentor MNIT, Jaipur)</string>
+    <string name="jai_pal_singh_is_a_quality_oriented_full_stack_android_and_web_engineer_he_can_make_your_vision_a_reality_he_excels_in_java_kotlin_html_css_javascript_sqlite_mysql_oracle_json_xml_php">Jai Pal Singh is a quality-oriented full stack Android and Web Engineer. He can make your vision a reality. He excels in Java, Kotlin, HTML, CSS, JavaScript, SQLite, MySQL, Oracle, JSON, XML, PHP.</string>
+    <string name="contact">Contact -</string>
+    <string name="email">Email :</string>
+    <string name="jai_pal_2013_gmail_com">jai.pal.2013@gmail.com</string>
+    <string name="linkedin">LinkedIn :</string>
 
 </resources>

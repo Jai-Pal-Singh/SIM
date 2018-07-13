@@ -708,7 +708,7 @@
                 android:visibility="invisible"
                 android:text="@string/remove_bi"
                 android:textColor="@android:color/background_light"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -722,7 +722,7 @@
                 android:layout_marginEnd="10dp"
                 android:text="@string/add_bi"
                 android:textColor="@android:color/background_light"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
         </LinearLayout>
 
         <LinearLayout

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_background">
+
+    <TableLayout
+        android:id="@+id/signalsTableRowReplicateLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/voltageCurrentParametersTextView"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp">
+
+        <TableRow>
+        <EditText
+            android:id="@+id/signalNoEditText"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/cell_shape"
+            android:inputType="textCapCharacters"
+            android:padding="3dp"
+            android:textAlignment="center"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/aspectEditText"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/cell_shape"
+            android:inputType="textCapCharacters"
+            android:padding="3dp"
+            android:textAlignment="center"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/voltageEditText"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/cell_shape"
+            android:inputType="text|number"
+            android:padding="3dp"
+            android:textAlignment="center"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/currentEditText"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/cell_shape"
+            android:inputType="textCapCharacters|number"
+            android:padding="3dp"
+            android:textAlignment="center"
+            android:textSize="18sp" />
+    </TableRow>
+    </TableLayout>
+
+</android.support.v4.widget.NestedScrollView>

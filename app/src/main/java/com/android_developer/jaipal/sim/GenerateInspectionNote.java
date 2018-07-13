@@ -557,13 +557,12 @@ public class GenerateInspectionNote extends Activity {
         addTableCellwithPadding( signalsTable,"Aspect", boldSubFont,1,0,30);
         addTableCellwithPadding( signalsTable,"Voltage", boldSubFont,1,0,30);
         addTableCellwithPadding( signalsTable,"Current", boldSubFont,1,0,30);
-        for(int i= 1; i<11; i++){
-            if(!sharedpreferences.getString( "signalNo"+i+"EditText", "" ).isEmpty()){
-                addTableCellwithPadding( signalsTable,sharedpreferences.getString( "signalNo"+i+"EditText", "" ), normalSubFont,1,0,30);
-                addTableCellwithPadding( signalsTable,sharedpreferences.getString( "aspect"+i+"EditText", "" ), normalSubFont,1,0,30);
-                addTableCellwithPadding( signalsTable,sharedpreferences.getString( "voltage"+i+"EditText", "" ), normalSubFont,1,0,30);
-                addTableCellwithPadding( signalsTable,sharedpreferences.getString( "current"+i+"EditText", "" ), normalSubFont,1,0,30);
-            }
+        for(int i= 0; i<= sharedpreferences.getInt("signalTableRowCount", 0); i++){
+            addTableCellwithPadding( signalsTable,sharedpreferences.getString( "signalNoEditText"+i, "" ), normalSubFont,1,0,30);
+            addTableCellwithPadding( signalsTable,sharedpreferences.getString( "aspectEditText"+i, "" ), normalSubFont,1,0,30);
+            addTableCellwithPadding( signalsTable,sharedpreferences.getString( "voltageEditText"+i, "" ), normalSubFont,1,0,30);
+            addTableCellwithPadding( signalsTable,sharedpreferences.getString( "currentEditText"+i, "" ), normalSubFont,1,0,30);
+
         }
         document.add( signalsTable );
 

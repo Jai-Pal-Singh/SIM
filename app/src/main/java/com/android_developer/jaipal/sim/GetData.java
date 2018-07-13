@@ -358,7 +358,7 @@ public class GetData {
         return tcid;
     }
 
-    public int signalsInsertionQuery(Boolean SIGNALLAMP, Boolean UECR, Boolean CASCADED, Boolean REDLAMP, String SIGNALNO1,String ASPECT1, String VOLTAGE1, String CURRENT1, String SIGNALNO2,String ASPECT2, String VOLTAGE2, String CURRENT2, String SIGNALNO3,String ASPECT3, String VOLTAGE3, String CURRENT3, String SIGNALNO4,String ASPECT4, String VOLTAGE4, String CURRENT4, String SIGNALNO5,String ASPECT5, String VOLTAGE5, String CURRENT5, String SIGNALNO6,String ASPECT6, String VOLTAGE6, String CURRENT6, String SIGNALNO7,String ASPECT7, String VOLTAGE7, String CURRENT7, String SIGNALNO8,String ASPECT8, String VOLTAGE8, String CURRENT8, String SIGNALNO9,String ASPECT9, String VOLTAGE9, String CURRENT9, String SIGNALNO10,String ASPECT10, String VOLTAGE10, String CURRENT10, String ACTIONBY) throws SQLException {
+    public int signalsInsertionQuery(Boolean SIGNALLAMP, Boolean UECR, Boolean CASCADED, Boolean REDLAMP, String STRID, String ACTIONBY) throws SQLException {
         ResultSet result = null ;
         int tcid = -1;
         try {
@@ -370,24 +370,15 @@ public class GetData {
             }
             else {
                 String cols[] = {"TCID"};
-                String query = "INSERT INTO USERNAME.SIGNALS (SIGNALLAMP, UECR, CASCADED, REDLAMP, SIGNALNO1, ASPECT1, VOLTAGE1, CURRENT1, SIGNALNO2, ASPECT2, VOLTAGE2, CURRENT2, SIGNALNO3, ASPECT3, VOLTAGE3, CURRENT3, SIGNALNO4, ASPECT4, VOLTAGE4, CURRENT4, SIGNALNO5, ASPECT5, VOLTAGE5, CURRENT5, SIGNALNO6, ASPECT6, VOLTAGE6, CURRENT6, SIGNALNO7,ASPECT7, VOLTAGE7, CURRENT7, SIGNALNO8, ASPECT8, VOLTAGE8, CURRENT8, SIGNALNO9, ASPECT9, VOLTAGE9, CURRENT9, SIGNALNO10, ASPECT10, VOLTAGE10, CURRENT10, ACTIONBY) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) RETURNING SID INTO ?";
+                String query = "INSERT INTO USERNAME.SIGNALS (SIGNALLAMP, UECR, CASCADED, REDLAMP, STRID, ACTIONBY) VALUES(?,?,?,?,?,?) RETURNING SID INTO ?";
                 OraclePreparedStatement st = (OraclePreparedStatement) connect.prepareStatement( query  );
                 st.setBoolean( 1,SIGNALLAMP );
                 st.setBoolean( 2,UECR );
                 st.setBoolean( 3,CASCADED );
                 st.setBoolean( 4,REDLAMP );
-                st.setString( 5,SIGNALNO1 );st.setString( 6,ASPECT1 );st.setString( 7,VOLTAGE1 );st.setString( 8,CURRENT1 );
-                st.setString( 9,SIGNALNO2 );st.setString( 10,ASPECT2 );st.setString( 11,VOLTAGE2 );st.setString( 12,CURRENT2 );
-                st.setString( 13,SIGNALNO3 );st.setString( 14,ASPECT3 );st.setString( 15,VOLTAGE3 );st.setString( 16,CURRENT3 );
-                st.setString( 17,SIGNALNO4 );st.setString( 18,ASPECT4 );st.setString( 19,VOLTAGE4 );st.setString( 20,CURRENT4 );
-                st.setString( 21,SIGNALNO5 );st.setString( 22,ASPECT5 );st.setString( 23,VOLTAGE5 );st.setString( 24,CURRENT5 );
-                st.setString( 25,SIGNALNO6 );st.setString( 26,ASPECT6 );st.setString( 27,VOLTAGE6 );st.setString( 28,CURRENT6 );
-                st.setString( 29,SIGNALNO7 );st.setString( 30,ASPECT7 );st.setString( 31,VOLTAGE7 );st.setString( 32,CURRENT7 );
-                st.setString( 33,SIGNALNO8 );st.setString( 34,ASPECT8 );st.setString( 35,VOLTAGE8 );st.setString( 36,CURRENT8 );
-                st.setString( 37,SIGNALNO9 );st.setString( 38,ASPECT9 );st.setString( 39,VOLTAGE9 );st.setString( 40,CURRENT9 );
-                st.setString( 41,SIGNALNO10 );st.setString( 42,ASPECT10 );st.setString( 43,VOLTAGE10 );st.setString( 44,CURRENT10 );
-                st.setString( 45,ACTIONBY );
-                st.registerReturnParameter(46, Types.NUMERIC);
+                st.setString( 5,STRID );
+                st.setString( 6,ACTIONBY );
+                st.registerReturnParameter(7, Types.NUMERIC);
                 st.executeUpdate();
                 result = st.getReturnResultSet();
                 result.next();
@@ -1004,5 +995,41 @@ public class GetData {
             Log.e( "Connection Result : ",connectionResult );
         }
         return hm;
+    }
+
+    public int signalTableRowInsertionQuery(String SIGNALNO, String ASPECT, String VOLTAGE, String SIGNALCURRENT) {
+        ResultSet result = null ;
+        int tcid = 0;
+        try {
+            ConnectToOracle connectToOracle = new ConnectToOracle();
+            connect = connectToOracle.connections();
+            if (connect==null){
+                connectionResult = "Check Your Internet Connection!";
+                Log.e( "error : ",connectionResult );
+                tcid = -2;
+            }
+            else {
+                String cols[] = {"TCID"};
+                String query = "INSERT INTO USERNAME.SIGNALTABLEROW (SIGNALNO, ASPECT, VOLTAGE, SIGNALCURRENT) VALUES(?,?,?,?) RETURNING STRID INTO ?";
+                OraclePreparedStatement st = (OraclePreparedStatement) connect.prepareStatement( query  );
+                st.setString( 1,SIGNALNO );st.setString( 2,ASPECT );
+                st.setString( 3,VOLTAGE );st.setString( 4,SIGNALCURRENT );
+                st.registerReturnParameter(5, Types.NUMERIC);
+                st.executeUpdate();
+                result = st.getReturnResultSet();
+                result.next();
+                tcid = result.getInt( 1 );
+                st.close();
+                connectionResult = "Suceessful";
+                Log.e( "Connection Result : ",connectionResult );
+                connect.close();
+            }
+        }
+        catch (Exception ex){
+            connectionResult = ex.getMessage();
+            Log.e( "Connection Result : ",connectionResult );
+            tcid  =-1;
+        }
+        return tcid;
     }
 }

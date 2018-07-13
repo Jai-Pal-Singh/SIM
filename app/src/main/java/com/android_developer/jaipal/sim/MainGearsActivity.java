@@ -57,7 +57,7 @@ public class MainGearsActivity extends AppCompatActivity {
     private ProgressDialog pd;
     Button mainGearsSubmitButton;
     int gtid,pcid,sid,ccipid,biid,acid,psid,lcid,rid,nonsntid,tcid,sinid;
-    String lc="",bi="",ac="";
+    String lc="",bi="",ac="",strid="";
     Bundle extras;
     GenerateInspectionNote generateInspectionNote;
     Map<String, List<String>> actionByMap;
@@ -238,53 +238,26 @@ public class MainGearsActivity extends AppCompatActivity {
     private void sendSignalsData() throws SQLException {
         GetData getData = new GetData();
         String ActionBy = "";
+        strid = "";
         ActionBy = getActionBy( sharedpreferences.getString( "signalsActionBySpinner","" ), sharedpreferences.getString( "signalsActionByEditText","" ) );
+
+        for(int gateNumber = 0; gateNumber <= sharedpreferences.getInt("signalTableRowCount", 0) ; gateNumber++ ){
+            lcid = getData.signalTableRowInsertionQuery(
+                    sharedpreferences.getString( "signalNoEditText"+gateNumber,"" ),
+                    sharedpreferences.getString( "aspectEditText"+gateNumber,"" ),
+                    sharedpreferences.getString( "voltageEditText"+gateNumber,"" ),
+                    sharedpreferences.getString( "currentEditText"+gateNumber,"" )
+            );
+            strid +=lcid+" ";
+            Log.e("str", "str = "+lcid);
+        }
 
         sid = getData.signalsInsertionQuery(
                 sharedpreferences.getBoolean( getResources().getString( R.string.signal_lamp_voltae_90_of_rated_value ),false ),
                 sharedpreferences.getBoolean( getResources().getString( R.string.vecr_drops_with_fusing_of_minimum_3_route_leds ),false ),
                 sharedpreferences.getBoolean( getResources().getString( R.string.signals_are_cascaded_for_e_g_fusing_of_a_signal_s_particular_aspect_other_than_red_illuminates_a_more_restrictive_aspect ),false ),
                 sharedpreferences.getBoolean( getResources().getString( R.string.red_lamp_protection_working_e_g_fusing_of_red_aspect_of_signal_should_illuminate_signal_in_rear_with_most_restrictive_aspect_red ),false ),
-                sharedpreferences.getString( "signalNo1EditText","" ),
-                sharedpreferences.getString( "aspect1EditText","" ),
-                sharedpreferences.getString( "voltage1EditText","" ),
-                sharedpreferences.getString( "current1EditText","" ),
-                sharedpreferences.getString( "signalNo2EditText","" ),
-                sharedpreferences.getString( "aspect2EditText","" ),
-                sharedpreferences.getString( "voltage2EditText","" ),
-                sharedpreferences.getString( "current2EditText","" ),
-                sharedpreferences.getString( "signalNo3EditText","" ),
-                sharedpreferences.getString( "aspect3EditText","" ),
-                sharedpreferences.getString( "voltage3EditText","" ),
-                sharedpreferences.getString( "current3EditText","" ),
-                sharedpreferences.getString( "signalNo4EditText","" ),
-                sharedpreferences.getString( "aspect4EditText","" ),
-                sharedpreferences.getString( "voltage4EditText","" ),
-                sharedpreferences.getString( "current4EditText","" ),
-                sharedpreferences.getString( "signalNo5EditText","" ),
-                sharedpreferences.getString( "aspect5EditText","" ),
-                sharedpreferences.getString( "voltage5EditText","" ),
-                sharedpreferences.getString( "current5EditText","" ),
-                sharedpreferences.getString( "signalNo6EditText","" ),
-                sharedpreferences.getString( "aspect6EditText","" ),
-                sharedpreferences.getString( "voltage6EditText","" ),
-                sharedpreferences.getString( "current6EditText","" ),
-                sharedpreferences.getString( "signalNo7EditText","" ),
-                sharedpreferences.getString( "aspect7EditText","" ),
-                sharedpreferences.getString( "voltage7EditText","" ),
-                sharedpreferences.getString( "current7EditText","" ),
-                sharedpreferences.getString( "signalNo8EditText","" ),
-                sharedpreferences.getString( "aspect8EditText","" ),
-                sharedpreferences.getString( "voltage8EditText","" ),
-                sharedpreferences.getString( "current8EditText","" ),
-                sharedpreferences.getString( "signalNo9EditText","" ),
-                sharedpreferences.getString( "aspect9EditText","" ),
-                sharedpreferences.getString( "voltage9EditText","" ),
-                sharedpreferences.getString( "current9EditText","" ),
-                sharedpreferences.getString( "signalNo10EditText","" ),
-                sharedpreferences.getString( "aspect10EditText","" ),
-                sharedpreferences.getString( "voltage10EditText","" ),
-                sharedpreferences.getString( "current10EditText","" ),
+                strid,
                 ActionBy
         );
         Log.e("sid", "sid = "+sid);
@@ -673,50 +646,12 @@ public class MainGearsActivity extends AppCompatActivity {
         editor.remove( getResources().getString( R.string.vecr_drops_with_fusing_of_minimum_3_route_leds ) );
         editor.remove( getResources().getString( R.string.signals_are_cascaded_for_e_g_fusing_of_a_signal_s_particular_aspect_other_than_red_illuminates_a_more_restrictive_aspect ) );
         editor.remove( getResources().getString( R.string.red_lamp_protection_working_e_g_fusing_of_red_aspect_of_signal_should_illuminate_signal_in_rear_with_most_restrictive_aspect_red ) );
-        editor.remove( "signalNo1EditText" );
-        editor.remove( "aspect1EditText" );
-        editor.remove( "voltage1EditText" );
-        editor.remove( "current1EditText" );
-        editor.remove( "signalNo2EditText" );
-        editor.remove( "aspect2EditText" );
-        editor.remove( "voltage2EditText" );
-        editor.remove( "current2EditText" );
-        editor.remove( "signalNo3EditText" );
-        editor.remove( "aspect3EditText" );
-        editor.remove( "voltage3EditText" );
-        editor.remove( "current3EditText" );
-        editor.remove( "signalNo4EditText" );
-        editor.remove( "aspect4EditText" );
-        editor.remove( "voltage4EditText" );
-        editor.remove( "current4EditText" );
-        editor.remove( "signalNo5EditText" );
-        editor.remove( "aspect5EditText" );
-        editor.remove( "voltage5EditText" );
-        editor.remove( "current5EditText" );
-        editor.remove( "signalNo6EditText" );
-        editor.remove( "aspect6EditText" );
-        editor.remove( "voltage6EditText" );
-        editor.remove( "current6EditText" );
-        editor.remove( "signalNo7EditText" );
-        editor.remove( "aspect7EditText" );
-        editor.remove( "voltage7EditText" );
-        editor.remove( "current7EditText" );
-        editor.remove( "signalNo8EditText" );
-        editor.remove( "aspect8EditText" );
-        editor.remove( "voltage8EditText" );
-        editor.remove( "current8EditText" );
-        editor.remove( "signalNo9EditText" );
-        editor.remove( "aspect9EditText" );
-        editor.remove( "voltage9EditText" );
-        editor.remove( "current9EditText" );
-        editor.remove( "signalNo10EditText" );
-        editor.remove( "aspect10EditText" );
-        editor.remove( "voltage10EditText" );
-        editor.remove( "current10EditText" );
+        removeSignalTableRows(sharedpreferences.getInt("signalTableRowCount",0));
         editor.remove( "signalsActionBySpinner" );
         editor.remove( "signalsActionBySpinnerPosition" );
         editor.remove( "signalsActionByEditText" );
         editor.remove( "signalsActivityComplete" );
+        editor.remove( "signalTableRowCount" );
         //CCIP VDU
         editor.remove( "typeOfInterlockingSpinner" );
         editor.remove( getResources().getString( R.string.sip_swrd_is_as_per_the_physical_yard_layout ) );
@@ -912,6 +847,18 @@ public class MainGearsActivity extends AppCompatActivity {
         editor.remove( "nonSntActivityComplete" );
 
         editor.apply();
+    }
+
+    private void removeSignalTableRows(int rowCount) {
+        sharedpreferences = getSharedPreferences( MyPREFERENCES, Context.MODE_PRIVATE );
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        for(int gateNumber = 0; gateNumber <= rowCount ; gateNumber++ ) {
+            editor.remove( "signalNoEditText"+gateNumber );
+            editor.remove( "aspectEditText"+gateNumber );
+            editor.remove( "voltageEditText"+gateNumber );
+            editor.remove( "currentEditText"+gateNumber );
+            editor.apply();
+        }
     }
 
     private void removeBiReplicatedGates(int biCount) {
@@ -1386,7 +1333,7 @@ public class MainGearsActivity extends AppCompatActivity {
 
             //Sending Sms
             ArrayList<String> phoneNoList = getPhoneNumberForHashMapEntries();
-            if(phoneNoList==null){
+            if(phoneNoList.isEmpty()){
                 success = 1;
             }
             else {
